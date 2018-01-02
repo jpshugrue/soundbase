@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
+import Root from './components/root';
 
 //begin testing
 // import * as SessionApiUtil from './util/session_api_util';
@@ -16,5 +17,5 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.getState = store.getState;
   // window.dispatch = store.dispatch;
   //end testing
-  ReactDOM.render(<h1>Soundbase</h1>, root);
+  ReactDOM.render(<Root store={ store }/>, root);
 });
