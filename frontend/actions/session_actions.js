@@ -1,7 +1,7 @@
 import * as SessionApiUtil from '../util/session_api_util';
 
 export const RECEIVE_CURRENT_ARTIST = "RECEIVE_CURRENT_ARTIST";
-export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 
 const receiveCurrentArtist = (artist) => {
   return {
@@ -12,7 +12,7 @@ const receiveCurrentArtist = (artist) => {
 
 const receiveErrors = (errors) => {
   return {
-    type: RECEIVE_ERRORS,
+    type: RECEIVE_SESSION_ERRORS,
     errors
   };
 };
