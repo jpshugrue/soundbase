@@ -10,6 +10,14 @@ class Api::ArtistsController < ApplicationController
     end
   end
 
+  def index
+
+  end
+
+  def edit
+
+  end 
+
   def artist_params
     params.require(:artist).permit(:username, :password)
   end
