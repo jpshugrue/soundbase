@@ -32,16 +32,14 @@ class SessionForm extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.loggedIn) {
-      this.props.history.push('/');
-    }
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user).then(this.props.history.push('/'));
   }
 
   update(field) {

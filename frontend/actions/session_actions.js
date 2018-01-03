@@ -17,6 +17,10 @@ const receiveErrors = (errors) => {
   };
 };
 
+export const clearErrors = () => (dispatch) => {
+  return dispatch(receiveErrors([]));
+};
+
 export const login = (artist) => (dispatch) => {
   return SessionApiUtil.login(artist).then((artist) =>
     dispatch(receiveCurrentArtist(artist)), (error) =>
