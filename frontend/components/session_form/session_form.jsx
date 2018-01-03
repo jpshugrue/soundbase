@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link, withRouter} from 'react-router-dom';
+import merge from 'lodash/merge';
 
 class SessionForm extends React.Component {
 
@@ -10,6 +11,22 @@ class SessionForm extends React.Component {
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const user = Object.assign({}, this.state);
+    this.process(user);
+  }
+
+  process(user) {
+    this.props.processForm(user).then(
+      (success) => this.props.history.push('/'));
   }
 
   alternateLink() {
@@ -32,20 +49,26 @@ class SessionForm extends React.Component {
     }
   }
 
-  componentWillUnmount() {
-    this.props.clearErrors();
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(this.props.history.push('/'));
-  }
-
   update(field) {
     return event => this.setState({
       [field]: event.currentTarget.value
     });
+  }
+
+  demoLoginButton() {
+    if (this.props.formType === 'login') {
+      return <div className="button-item">
+        <input type="button"
+          className="session-form-button"
+          value="Demo Login"
+          onClick={this.demoLogin}/>
+      </div>;
+    }
+  }
+
+  demoLogin() {
+    const user = merge({}, this.state, {username: "demonstrator", password:"demopass"});
+    this.process(user);
   }
 
   renderErrors() {
@@ -89,6 +112,7 @@ class SessionForm extends React.Component {
                  className="session-form-button"
                  value={this.heading()} />
              </div>
+             {this.demoLoginButton()}
            </div>
             {this.renderErrors()}
             {this.alternateLink()}
