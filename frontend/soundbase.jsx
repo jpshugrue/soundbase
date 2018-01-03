@@ -13,8 +13,16 @@ window.login = SessionActions.login;
 //end testing
 
 document.addEventListener('DOMContentLoaded', () => {
+  let store;
+  if (window.currentArtist) {
+    const preloadedState = { session: { currentArtist: window.currentArtist } };
+    store = configureStore(preloadedState);
+    delete window.currentArtist;
+  } else {
+    store = configureStore();
+  }
+
   const root = document.getElementById('root');
-  const store = configureStore();
   //begin testing
   window.getState = store.getState;
   window.dispatch = store.dispatch;
