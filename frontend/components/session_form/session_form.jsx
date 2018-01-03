@@ -54,7 +54,7 @@ class SessionForm extends React.Component {
      return (
        <div className="session-form-container">
          <form onSubmit={this.handleSubmit} className="session-form-box">
-           this.heading();
+           {this.heading()}
             <div className="login-form">
              <br/>
              <label>Username / email
@@ -76,11 +76,13 @@ class SessionForm extends React.Component {
              <input type="submit" value="Submit" />
            </div>
             {this.alternateLink()}
-            {this.renderErrors()}
+
          </form>
        </div>
      );
    }
 }
+
+// {this.renderErrors()}
 
 export default withRouter(SessionForm);
