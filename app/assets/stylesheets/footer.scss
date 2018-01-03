@@ -4,10 +4,12 @@ Footer {
 }
 
 Footer .footerNav {
+  min-width: 705px;
+  max-width: 1106px;
+  width: 83%;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 1106px;
   margin: 0 auto;
 }
 
@@ -16,7 +18,6 @@ Footer .footerNav a {
   padding-left: 100px;
   padding-right: 100px;
 
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: rgb(255, 255, 255);
   cursor: pointer;
   font-size: 13px;

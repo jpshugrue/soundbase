@@ -26,9 +26,9 @@ class SessionForm extends React.Component {
 
   heading() {
     if (this.props.formType === 'login') {
-      return <h3>Log in</h3>;
+      return "Log in";
     } else {
-      return <h3>Sign up</h3>;
+      return "Sign up";
     }
   }
 
@@ -54,26 +54,31 @@ class SessionForm extends React.Component {
      return (
        <div className="session-form-container">
          <form onSubmit={this.handleSubmit} className="session-form-box">
-           {this.heading()}
+           <span className="heading">{this.heading()}</span>
+           <div className="divider"></div>
             <div className="login-form">
              <br/>
-             <label>Username / email
+             <div className="input-item">
+               <label>Username / email</label>
                <input type="text"
                  value={this.state.username}
                  onChange={this.update('username')}
                  className="session-form-inputbox"
                />
-             </label>
-             <br/>
-             <label>Password
+             </div>
+             <div className="input-item">
+               <label>Password</label>
                <input type="password"
                  value={this.state.password}
                  onChange={this.update('password')}
                  className="session-form-inputbox"
                />
-             </label>
-             <br/>
-             <input type="submit" value="Submit" />
+             </div>
+             <div className="button-item">
+               <input type="submit"
+                 className="session-form-button"
+                 value={this.heading()} />
+             </div>
            </div>
             {this.alternateLink()}
 
