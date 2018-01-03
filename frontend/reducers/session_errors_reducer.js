@@ -3,7 +3,7 @@ import { RECEIVE_CURRENT_ARTIST, RECEIVE_SESSION_ERRORS } from '../actions/sessi
 const sessionErrorsReducer = (state=[], action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_ARTIST:
-      return null;
+      return [];
     case RECEIVE_SESSION_ERRORS:
       return action.errors;
     default:
