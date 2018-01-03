@@ -6,7 +6,7 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 const receiveCurrentArtist = (artist) => {
   return {
     type: RECEIVE_CURRENT_ARTIST,
-    artist
+    currentArtist: artist
   };
 };
 
