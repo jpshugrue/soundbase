@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180102171335) do
+ActiveRecord::Schema.define(version: 20180103211802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,11 @@ ActiveRecord::Schema.define(version: 20180102171335) do
     t.string "session_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "display_name", null: false
+    t.string "background_color", null: false
+    t.string "body_color", null: false
+    t.string "text_color", null: false
+    t.string "link_color", null: false
     t.index ["session_token"], name: "index_artists_on_session_token", unique: true
     t.index ["username"], name: "index_artists_on_username", unique: true
   end
