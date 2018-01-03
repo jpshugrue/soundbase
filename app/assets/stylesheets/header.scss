@@ -19,7 +19,7 @@
   background-color: rgba(255, 255, 255, 0.98);
 }
 
-.headerTopRow, .greetingBox {
+.headerTopRow, .greetingBox, .greeting-usernamelogout {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -28,6 +28,12 @@
   max-width: 1106px;
   width: 83%;
   margin: 0 auto;
+}
+
+.headerTopRow img {
+  width: 156px;
+  height: 25px;
+  margin-top: 24px;
 }
 
 .headerTopRow span {
@@ -47,6 +53,10 @@
   margin: 18px 0 0;
 }
 
+.greeting-buttons a:first-child {
+  padding-right: 12px;
+}
+
 .greeting-buttons a:last-child {
   border-left-color: rgb(229, 229, 229);
   border-left-width: 1px;
@@ -54,7 +64,7 @@
   padding-left: 11px;
 }
 
-.greeting-buttons a {
+.greeting-buttons a, .greeting-logoutbutton {
   color: #161113;
   font-weight: 700;
   cursor: pointer;
@@ -63,9 +73,21 @@
   text-align: right;
   -webkit-font-smoothing: antialiased;
   text-decoration: none;
-  padding-right: 12px;
 }
 
-.greeting-buttons a:hover {
+.greeting-usernamelogout {
+  margin-top: 18px;
+}
+
+.greeting-buttons a:hover, .greeting-logoutbutton:hover {
   text-decoration:underline;
+}
+
+.greeting-username {
+  border-right:1px solid #e5e5e5;
+  padding:0 10px 0 0;
+  display:inline-block;
+  line-height:21px;
+  color: rgb(119, 119, 119);
+  font-size: 14px;
 }

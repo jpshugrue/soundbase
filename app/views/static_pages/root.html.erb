@@ -5,5 +5,9 @@
       artist: current_artist
     ).html_safe %>
   <% end %>
+  window.staticImages = {
+    headerLogoHome: "<%= asset_url("soundbase_logo.png") %>",
+    headerLogoSession: "<%= asset_url("soundbase_logo.png") %>"
+  }
 </script>
 <main id="root"></main>
