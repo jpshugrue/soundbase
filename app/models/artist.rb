@@ -1,6 +1,7 @@
 class Artist < ApplicationRecord
 
-  validates :username, :password_digest, :session_token, presence: true
+  validates :username, :password_digest, :session_token, :display_name,
+            :background_color, :body_color, :text_color, :link_color, presence: true
   validates :password, length: {minimum: 6, allow_nil: true}
   validates :username, uniqueness: true
 

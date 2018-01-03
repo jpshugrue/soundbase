@@ -13,7 +13,10 @@ const sessionLinks = () => (
 
 const personalGreeting = (currentArtist, logout) => (
   <nav className="greeting-usernamelogout">
-    <div className="greeting-username">Hi {currentArtist.username}</div>
+    <div>
+      <div className="greeting-username">Hi {currentArtist.username}</div>
+      This will be a link to artist show page
+    </div>
     <a className="greeting-logoutbutton" onClick={logout}>log out</a>
   </nav>
 );

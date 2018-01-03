@@ -7,4 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Artist.destroy_all
 
-Artist.create(username: "demonstrator", password: "demopass")
+Artist.create(username: "demonstrator",
+              password: "demopass",
+              display_name: "The Demonstrators",
+              background_color: "#1ECAC8",
+              body_color: "#DAF7A6",
+              text_color: "#000000",
+              link_color: "#D70EF4"
+              )
