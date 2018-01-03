@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const sessionLinks = () => (
-  <nav className="greeting-login/signup">
-    <Link to="/signup">sign up</Link>
-    &nbsp;&nbsp;
-    <Link to="/login">log in</Link>
-  </nav>
+  <div className="greetingBox">
+    <div className="greetingBoilerplate">Discover amazing new music and directly support the artists who make it.</div>
+    <nav className="greeting-buttons">
+      <Link to="/signup">sign up</Link>
+      <Link to="/login">log in</Link>
+    </nav>
+  </div>
 );
 
 const personalGreeting = (currentArtist, logout) => (
