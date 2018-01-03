@@ -50,6 +50,18 @@ class SessionForm extends React.Component {
     });
   }
 
+  renderErrors() {
+    return(
+      <ul className="errorRender">
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   render() {
      return (
        <div className="session-form-container">
@@ -80,8 +92,8 @@ class SessionForm extends React.Component {
                  value={this.heading()} />
              </div>
            </div>
+            {this.renderErrors()}
             {this.alternateLink()}
-
          </form>
        </div>
      );

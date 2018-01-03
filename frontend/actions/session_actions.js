@@ -25,8 +25,7 @@ export const login = (artist) => (dispatch) => {
 
 export const logout = () => (dispatch) => {
   return SessionApiUtil.logout().then(() =>
-    dispatch(receiveCurrentArtist(null)), (error) =>
-    dispatch(receiveErrors(error.responseJSON)));
+    dispatch(receiveCurrentArtist(null)));
 };
 
 export const signup = (artist) => (dispatch) => {
