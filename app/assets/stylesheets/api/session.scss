@@ -6,6 +6,19 @@
   height: 650px;
 }
 
+.sessionHeaderImageBox {
+  min-width: 705px;
+  max-width: 1106px;
+  margin: 0 auto;
+  width: 83%;
+}
+
+.sessionHeaderBox img {
+  width: 135px;
+  height: 25px;
+  margin-top: 44px;
+}
+
 .session-form-box {
   display: flex;
   flex-direction: column;

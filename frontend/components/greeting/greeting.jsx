@@ -12,9 +12,9 @@ const sessionLinks = () => (
 );
 
 const personalGreeting = (currentArtist, logout) => (
-  <nav className="greeting-username/logout">
-    <h2 className="greeting-username">Hi {currentArtist.username}</h2>
-    <button className="greeting-logoutbutton" onClick={logout}>Log Out</button>
+  <nav className="greeting-usernamelogout">
+    <div className="greeting-username">Hi {currentArtist.username}</div>
+    <a className="greeting-logoutbutton" onClick={logout}>log out</a>
   </nav>
 );
 
