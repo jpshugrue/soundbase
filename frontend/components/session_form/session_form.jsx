@@ -122,6 +122,4 @@ class SessionForm extends React.Component {
    }
 }
 
-// {this.renderErrors()}
-
 export default withRouter(SessionForm);

@@ -6,7 +6,8 @@ class ArtistEditForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = Object.assign(this.props.artist);
+    this.state = this.props.artist;
+    window.state = this.state;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -20,6 +21,14 @@ class ArtistEditForm extends React.Component {
     return event => this.setState({
       [field]: event.currentTarget.value
     });
+  }
+
+  componentDidMount() {
+    this.props.fetchArtist(this.props.artistId);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState(nextProps.artist);
   }
 
   // componentWillUnmount() {
@@ -38,6 +47,10 @@ class ArtistEditForm extends React.Component {
     );
   }
 
+  fileUpload(field) {
+
+  }
+
   render() {
      return (
        <div className="artist-edit-form-container">
@@ -52,31 +65,31 @@ class ArtistEditForm extends React.Component {
              </div>
              <div className="edit-artist-input-item">
                <label>Profile Image</label>
-               //Need profile image uploader here
+               <input type="file" onChange={this.fileUpload('profile_image')}/>
             </div>
             <div className="edit-artist-input-item">
               <label>Cover Image</label>
-              //Need cover image uploader here
+              <input type="file" onChange={this.fileUpload('cover_image')}/>
             </div>
             <div className="edit-artist-input-item">
               <label>Background Color</label>
-              // Need color selector input here for background color
+              <input type="color" value={this.state.background_color} onChange={this.update('background_color')}/>
             </div>
             <div className="edit-artist-input-item">
               <label>Body Color</label>
-              // Need color selector input here for body color
+              <input type="color" value={this.state.body_color} onChange={this.update('body_color')}/>
             </div>
             <div className="edit-artist-input-item">
               <label>Text Color</label>
-              // Need color selector input here for text color
+              <input type="color" value={this.state.text_color} onChange={this.update('text_color')}/>
             </div>
             <div className="edit-artist-input-item">
               <label>Link Color</label>
-              // Need color selector input here for link color
+              <input type="color" value={this.state.link_color} onChange={this.update('link_color')}/>
             </div>
              <div className="artist-edit-buttons">
                <input type="submit" className="artist-edit-form-submit-btn" value="Save" />
-               <Link className="artist-edit-form-cancel-btn" to={`/artists/${this.props.artistId}`}></Link>
+               <Link className="artist-edit-form-cancel-btn" to={`/artists/${this.props.artistId}`}>Cancel</Link>
              </div>
            </form>
          </div>
