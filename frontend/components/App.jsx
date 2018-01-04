@@ -8,6 +8,7 @@ import HomePage from './homepage';
 import HomeHeader from './header/home_header';
 import SessionHeader from './header/session_header';
 import ArtistShowContainer from './artists/artist_show_container';
+import MainHeader from './header/main_header';
 
 const App = () => (
   <div>
@@ -15,6 +16,8 @@ const App = () => (
       <Route path="/login" component={SessionHeader} />
       <Route path="/signup" component={SessionHeader} />
       <Route exact path="/" component={HomeHeader} />
+      <Route path="/artists/" component={MainHeader} />
+      <Route path="/albums/" component={MainHeader} />
     </header>
     <main>
       <Route exact path="/" component={HomePage} />
