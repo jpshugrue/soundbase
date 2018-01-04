@@ -7,6 +7,12 @@ class Artist < ApplicationRecord
   has_many :albums
   has_many :songs
 
+  has_attached_file :profile_pic, default_url: "default_profile_pic.png"
+  validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\Z/
+
+  has_attached_file :cover_image, default_url: "default_cover_image.png"
+  validates_attachment_content_type :cover_image, content_type: /\Aimage\/.*\Z/
+
   attr_reader :password
 
   after_initialize :ensure_session_token

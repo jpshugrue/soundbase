@@ -1,18 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ArtistShow = ({ bench, benchId, fetch }) => (
-  <div className="artistShowPageContainer">
-    <div className="artistCoverImageBox">
-      //PUT ARTIST COVER IMAGE LINK HERE
+const ArtistShow = ({ artist, artistId, fetchArtist }) => (
+  <div className="artistShowContainer">
+    <div className="artistProfilePic">
+      //Profile pic goes here
     </div>
-    <div className="showPageContentBox">
-      <div className="albumListBox">
-        //ALBUM LIST GOES HERE
-      </div>
-      <div className="artistShowBox">
-        //ARTIST PROFILE GOES HERE
-      </div>
+    <div className="artistName">
+      //Artist name goes here
     </div>
   </div>
 );
