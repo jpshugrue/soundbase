@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateArtist } from '../../actions/artist_actions';
+import { updateArtist, fetchArtist } from '../../actions/artist_actions';
 import { selectArtist } from '../../reducers/selectors';
 import ArtistEditForm from './artist_edit_form';
 
@@ -13,7 +13,8 @@ const mapStateToProps = (state, { match }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  updateArtist: artist => dispatch(updateArtist(artist))
+  updateArtist: artist => dispatch(updateArtist(artist)),
+  fetchArtist: id => dispatch(fetchArtist(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArtistEditForm);

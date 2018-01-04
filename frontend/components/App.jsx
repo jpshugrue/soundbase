@@ -22,7 +22,7 @@ const App = () => (
     </header>
     <main>
       <Route exact path="/" component={HomePage} />
-      <Route path="/artists/:artistId" component={ArtistShowPage} />
+      <Route exact path="/artists/:artistId" component={ArtistShowPage} />
       <Route path="/artists/:artistId/edit" component={ArtistEditContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
