@@ -26,7 +26,7 @@ class SessionForm extends React.Component {
 
   process(user) {
     this.props.processForm(user).then(
-      (success) => this.props.history.push('/'));
+      (success) => this.props.history.push(`/artists/${success.currentArtist.id}`));
   }
 
   alternateLink() {

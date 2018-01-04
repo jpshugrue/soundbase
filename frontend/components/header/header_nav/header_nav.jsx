@@ -38,10 +38,10 @@ const headerDropDown = (currentArtist, logout) => (
     </button>
     <div id="header-dropdown" className="dropdown-content">
       <div className="dropdown-item">
-        <Link to={`/artists/${currentArtist.id}/edit`}>edit profile</Link>
+        <Link className="edit-profile-link" to={`/artists/${currentArtist.id}/edit`}>edit profile</Link>
       </div>
-      <div className="dropdown-item">
-        <a onClick={logout}>log out</a>
+      <div className="dropdown-item" onClick={logout}>
+        <a>log out</a>
       </div>
     </div>
   </div>
