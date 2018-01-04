@@ -15,7 +15,7 @@ const toggleDropDown = () => {
 };
 
 window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
+  if (!(event.target.matches('.dropbtn') || event.target.matches('.artistName') || event.target.matches('.artistPic'))){
     const dropdowns = document.getElementsByClassName("dropdown-content");
     for (let i = 0; i < dropdowns.length; i++) {
       let openDropdown = dropdowns[i];
@@ -29,14 +29,16 @@ window.onclick = function(event) {
 const headerDropDown = (currentArtist, logout) => (
   <div className="header-dropdown">
     <button onClick={toggleDropDown} className="dropbtn">
-      <img src={window.staticImages.headerLogoHome} className="dropbtn"></img>
-      <div className="artistName">
-        {currentArtist.username}
-      </div>
+      <img src={window.staticImages.headerLogoHome} className="artistPic"></img>
+      <div className="artistName">{currentArtist.username}</div>
     </button>
     <div id="header-dropdown" className="dropdown-content">
-      <Link to={`/artists/${currentArtist.id}/edit`}>edit profile</Link>
-      <a onClick={logout}>log out</a>
+      <div className="dropdown-item">
+        <Link to={`/artists/${currentArtist.id}/edit`}>edit profile</Link>
+      </div>
+      <div className="dropdown-item">
+        <a onClick={logout}>log out</a>
+      </div>
     </div>
   </div>
 );
