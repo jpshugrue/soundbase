@@ -19,6 +19,24 @@
   margin-top: 11px;
 }
 
+.main-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.main-buttons a {
+  color: rgb(29, 160, 195);
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 43px;
+  height: 43px;
+  text-align: right;
+  padding: 0 10px 0 10px;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
+}
+
 .dropbtn {
   padding: 0;
   border: 0;
@@ -80,7 +98,7 @@
   outline:0;
 }
 
-.dropbtn:hover {
+.dropbtn:hover, .main-button-item:hover {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
