@@ -1,9 +1,7 @@
 class Artist < ApplicationRecord
 
   validates :username, :password_digest, :session_token, presence: true
-
-  # :display_name, :background_color, :body_color, :text_color, :link_color, presence: true
-  validates :password, length: {minimum: 6, allow_nil: true}
+  validates :password, length: { minimum: 6, allow_nil: true }
   validates :username, uniqueness: true
 
   has_many :albums
@@ -12,6 +10,8 @@ class Artist < ApplicationRecord
   attr_reader :password
 
   after_initialize :ensure_session_token
+
+  before_create :set_defaults
 
   def self.find_by_credentials(username, password)
     artist = Artist.find_by(username: username)
@@ -36,6 +36,16 @@ class Artist < ApplicationRecord
 
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64
+  end
+
+  private
+
+  def set_defaults
+    self.display_name = self.username unless self.display_name
+    self.background_color = "#e4e4e7" unless self.background_color
+    self.body_color = "#ffffff" unless self.body_color
+    self.text_color = "#000000" unless self.text_color
+    self.link_color = "#0000ff" unless self.link_color
   end
 
 end
