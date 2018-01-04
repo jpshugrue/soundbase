@@ -9,6 +9,7 @@ import HomeHeader from './header/home_header';
 import SessionHeader from './header/session_header';
 import ArtistShowPage from './artists/artist_show_page';
 import MainHeader from './header/main_header';
+import ArtistEditContainer from './artists/artist_edit_container';
 
 const App = () => (
   <div>
@@ -22,6 +23,7 @@ const App = () => (
     <main>
       <Route exact path="/" component={HomePage} />
       <Route path="/artists/:artistId" component={ArtistShowPage} />
+      <Route path="/artists/:artistId/edit" component={ArtistEditContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
     </main>
