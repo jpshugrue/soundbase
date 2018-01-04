@@ -64,22 +64,26 @@
   padding-left: 11px;
 }
 
-.greeting-buttons a, .greeting-logoutbutton {
+.greeting-buttons a, .greeting-logoutbutton, .greeting-usershowlink {
   color: #161113;
   font-weight: 700;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 20px;
   text-align: right;
   -webkit-font-smoothing: antialiased;
   text-decoration: none;
 }
 
+.greeting-usershowlink {
+  padding-left: 10px;
+}
+
 .greeting-usernamelogout {
   margin-top: 18px;
 }
 
-.greeting-buttons a:hover, .greeting-logoutbutton:hover {
+.greeting-buttons a:hover, .greeting-logoutbutton:hover, .greeting-usershowlink:hover {
   text-decoration:underline;
 }
 
