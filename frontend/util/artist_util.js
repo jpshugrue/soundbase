@@ -12,10 +12,34 @@ export const fetchArtist = (id) => {
   });
 };
 
-export const updateArtist = (artist) => {
+// export const updateArtist = (artist) => {
+//   return $.ajax({
+//     url: `/api/artists/${artist.id}`,
+//     method: 'PATCH',
+//     data: { artist }
+//   });
+// };
+
+export const updateArtist = ({formData, artistId}) => {
   return $.ajax({
-    url: `/api/artists/${artist.id}`,
+    url: `/api/artists/${artistId}`,
     method: 'PATCH',
-    data: { artist }
+    processData: false,
+    contentType: false,
+    data: formData
   });
 };
+
+// createPost: function(formData) {
+//   $.ajax({
+//     url: '/api/posts',
+//     type: 'POST',
+//     processData: false,
+//     contentType: false,
+//     dataType: 'json',
+//     data: formData,
+//     success: function(post) {
+//       PostActions.receivePost(post);
+//     }
+//   })
+// }

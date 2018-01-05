@@ -38,7 +38,7 @@ class Api::ArtistsController < ApplicationController
 
   def artist_params
     params.require(:artist).permit(:username, :password, :display_name,
-      :background_color, :body_color, :text_color, :link_color)
+      :background_color, :body_color, :text_color, :link_color, :profile_pic, :cover_image)
   end
 
 end
