@@ -19,12 +19,9 @@ class ArtistCover extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>{`${this.state.display_name}`}</div>
-        <Link to={`/artists/${this.props.artistId}`}>
-          <img src={this.state.cover_image}></img>
-        </Link>
-      </div>
+      <Link to={`/artists/${this.props.artistId}`}>
+        <img className="artistCoverImage" src={this.state.cover_image}></img>
+      </Link>
     );
   }
 
