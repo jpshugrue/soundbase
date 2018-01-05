@@ -9,18 +9,59 @@ class ArtistEditForm extends React.Component {
     this.state = this.props.artist;
     window.state = this.state;
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.fileUpload = this.fileUpload.bind(this);
+    this.formData = new FormData();
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const artist = Object.assign({}, this.state);
-    this.props.updateArtist(artist).then((success) => this.props.history.push(`/artists/${success.currentArtist.id}`));
+    // const artist = Object.assign({}, this.state);
+    // this.props.updateArtist(artist).then((success) => this.props.history.push(`/artists/${success.currentArtist.id}`));
+    debugger
+    this.props.updateArtist({formData: this.formData, artistId: this.props.artistId}).then((success) => this.props.history.push(`/artists/${this.props.artistId}`));
   }
 
   update(field) {
-    return event => this.setState({
-      [field]: event.currentTarget.value
-    });
+    // return event => this.setState({
+    //   [field]: event.currentTarget.value
+    // });
+    return event => {
+      this.setState({[field]: event.currentTarget.value});
+      console.log(`update is called and state is now ${this.state}`);
+      this.formData.append(`artist[${field}]`, event.target.value);
+      console.log(`update is called and formData is now ${this.formData}`);
+      // debugger
+    };
+  }
+
+  // fileUpload(field) {
+  //   // debugger
+  //   return event => {
+  //     const reader = new FileReader();
+  //     const file = event.target.files[0];
+  //     reader.onloadend = () => {
+  //       this.formData.append(`artist[${field}]`, file);
+  //       console.log(`file upload is called and formdata is now ${this.formData}`);
+  //
+  //     };
+  //   };
+  // }
+
+  fileUpload({file, type}) {
+    // debugger
+      // const reader = new FileReader();
+      this.formData.append(`artist[${type}]`, file);
+      // reader.onloadend = () => {
+        // this.formData.append(`artist[${field}]`, file);
+        // console.log(`file upload is called and formdata is now ${this.formData}`);
+      // };
+      // reader.readAsDataURL(file);
+  }
+
+  handleChange({file, type})
+  {
+    console.log(file);
+    console.log(type);
   }
 
   componentDidMount() {
@@ -29,6 +70,7 @@ class ArtistEditForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState(nextProps.artist);
+    window.state = this.state;
   }
 
   // componentWillUnmount() {
@@ -47,9 +89,7 @@ class ArtistEditForm extends React.Component {
     );
   }
 
-  fileUpload(field) {
 
-  }
 
   render() {
      return (
@@ -65,11 +105,11 @@ class ArtistEditForm extends React.Component {
              </div>
              <div className="edit-artist-input-item">
                <label>Profile Image</label>
-               <input type="file" onChange={this.fileUpload('profile_image')}/>
+               <input type="file" onChange={(e) => this.fileUpload({file: e.target.files[0], type: "profile_pic"})}/>
             </div>
             <div className="edit-artist-input-item">
               <label>Cover Image</label>
-              <input type="file" onChange={this.fileUpload('cover_image')}/>
+              <input type="file" onChange={(e) => this.fileUpload({file: e.target.files[0], type: "cover_image"})}/>
             </div>
             <div className="edit-artist-input-item">
               <label>Background Color</label>
