@@ -6,7 +6,7 @@ import AlbumList from './album_list';
 const mapStateToProps = (state, { match }) => {
   let albums;
   if (match.params.artistId) {
-    albums = selectAlbums(state.entities, match.params.artistId);
+    albums = selectAlbums(state.entities, parseInt(match.params.artistId));
   } else {
     albums = state.entities.albums;
   }

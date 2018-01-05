@@ -10,10 +10,10 @@ export const selectAlbum = ({ albums }, id) => {
 
 export const selectAlbums = ({ albums }, artistId) => {
   let selectedAlbums = [];
-  for (const album in albums) {
-    if (album.artist_id === artistId) {
-      selectAlbums.push(album);
+  for (const albumId in albums) {
+    if (albums[albumId].artist_id === artistId) {
+      selectedAlbums.push(albums[albumId]);
     }
   }
-  return selectAlbums;
+  return selectedAlbums;
 };

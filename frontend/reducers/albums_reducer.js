@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import { RECEIVE_ALBUMS, RECEIVE_ALBUM, REMOVE_ALBUM } from '../actions/artist_actions';
+import { RECEIVE_ALBUMS, RECEIVE_ALBUM, REMOVE_ALBUM } from '../actions/album_actions';
 
 const albumReducer = (state = {}, action) => {
   switch(action.type) {
