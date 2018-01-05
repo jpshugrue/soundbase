@@ -1,0 +1,14 @@
+.profilePic {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.artistShowName {
+  font-size:14px;
+  font-weight:bold;
+  border-top:0;
+  margin:0 0 3px;
+  display:inline-block;
+}
