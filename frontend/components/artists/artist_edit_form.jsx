@@ -33,7 +33,6 @@ class ArtistEditForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState(nextProps.artist);
-    window.state = this.state;
   }
 
   // componentWillUnmount() {
