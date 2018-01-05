@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ArtistShowContainer from './artist_show_container';
 import ArtistCoverContainer from './artist_cover_container';
+import AlbumListContainer from '../albums/album_list_container';
 
 const ArtistShowPage = ({ match }) => (
   <div className="artistShowPageContainer">
@@ -11,10 +12,10 @@ const ArtistShowPage = ({ match }) => (
       </div>
       <div className="showPageContentBox">
         <div className="albumListBox">
-          //ALBUM LIST GOES HERE
+          <AlbumListContainer match={match} />
         </div>
         <div className="artistShowBox">
-          <ArtistShowContainer match={match}/>
+          <ArtistShowContainer match={match} />
         </div>
       </div>
     </div>
