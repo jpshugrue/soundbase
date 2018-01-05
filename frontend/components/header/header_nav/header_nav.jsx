@@ -29,7 +29,7 @@ window.onclick = function(event) {
 const headerDropDown = (currentArtist, logout) => (
   <div className="header-dropdown">
     <button onClick={toggleDropDown} className="dropbtn">
-      <img src={window.staticImages.headerLogoMain} className="artistPic"></img>
+      <img src={currentArtist.profile_pic} className="artistPic"></img>
       <div className="artistName">
         {currentArtist.username}
         <img src={window.staticImages.dropdownCaret} className="dropDownCaret"></img>
