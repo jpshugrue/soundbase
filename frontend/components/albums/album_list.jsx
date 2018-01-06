@@ -16,7 +16,7 @@ class AlbumList extends React.Component {
       return <li className="albumListItem">
         <Link to={`/albums/${album.id}`}>
           <img src={album.album_cover} className="albumListCoverImage"></img>
-          <label className="albumListTitleText">{album.album_title}</label>
+          <div className="albumListTitleText">{album.album_title}</div>
         </Link>
       </li>;
     });

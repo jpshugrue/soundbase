@@ -1,0 +1,41 @@
+.albumListUL {
+    // columns: 4;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 44px;
+    padding-left: 29px;
+    width: 796px;
+}
+
+.albumListItem {
+  width: 168px;
+  margin-right: 26px;
+  margin-bottom: 30px;
+}
+
+.albumListItem a {
+  text-decoration: none;
+}
+
+.albumListCoverImage {
+  object-fit: cover;
+  object-position: 50% 50%;
+  width: 168px;
+  height: 168px;
+}
+
+.albumListTitleText {
+  width: 168px;
+  font-size: 12.96px;
+  font-weight: 700;
+  line-height: 15.9538px;
+  margin-bottom: 3.888px;
+  margin-top: 9.072px;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.albumListTitleText:hover {
+  text-decoration: underline;
+}
