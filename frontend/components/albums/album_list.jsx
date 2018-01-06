@@ -12,11 +12,11 @@ class AlbumList extends React.Component {
   }
 
   renderAlbums(albums) {
-    return albums.map((album) => {
-      return <li className="albumListItem">
-        <Link to={`/albums/${album.id}`}>
-          <img src={album.album_cover} className="albumListCoverImage"></img>
-          <div className="albumListTitleText">{album.album_title}</div>
+    return albums.map((album, i) => {
+      return <li key={`${i}`} className="albumListItem">
+        <Link to={`/albums/${album.id}`} key="Link">
+          <img src={album.album_cover} className="albumListCoverImage" key="Img"></img>
+          <div className="albumListTitleText" key="div">{album.album_title}</div>
         </Link>
       </li>;
     });

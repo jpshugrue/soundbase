@@ -3,10 +3,10 @@ import { fetchAlbums } from '../../actions/album_actions';
 import { selectAlbums } from '../../reducers/selectors';
 import AlbumList from './album_list';
 
-const mapStateToProps = (state, { match }) => {
+const mapStateToProps = (state, { artist }) => {
   let albums;
-  if (match.params.artistId) {
-    albums = selectAlbums(state.entities, parseInt(match.params.artistId));
+  if (artist) {
+    albums = selectAlbums(state.entities, artist.id);
   } else {
     albums = state.entities.albums;
   }
