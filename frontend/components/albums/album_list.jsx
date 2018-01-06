@@ -12,6 +12,7 @@ class AlbumList extends React.Component {
   }
 
   renderAlbums(albums) {
+    if (this.props.limit) { albums.reverse(); }
     let endCount;
     endCount = this.props.limit ? this.props.limit : albums.length;
     return albums.slice(0,endCount).map((album, i) => {
