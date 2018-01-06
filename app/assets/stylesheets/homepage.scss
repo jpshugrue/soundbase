@@ -1,5 +1,40 @@
-.homePageBody {
-  height: 650px;
-  text-align: center;
-  background-color: #ffcca5;
+.homePageContainer {
+  background-color: rgb(238, 242, 243);
+}
+
+.homePageBodyBox {
+  width: 1106px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.homePageArtistListBox {
+  padding-top: 36px;
+}
+
+.homePageArtistListHeader, .homePageAlbumListHeader {
+  padding-top: 36px;
+  color: rgb(64, 142, 163);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17.2308px;
+}
+
+.artistListItem {
+  width: 120px;
+}
+
+.homePageAlbumListBox .albumListUL {
+  width: 1106px;
+  padding-left: 0px;
+}
+
+.homePageArtistListBox .profilePic {
+  height: 232px;
+  width: 232px;
+}
+
+.homePageArtistListBox .artistShowName {
+  width: 232px;
 }
