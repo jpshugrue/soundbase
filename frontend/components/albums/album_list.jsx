@@ -12,7 +12,9 @@ class AlbumList extends React.Component {
   }
 
   renderAlbums(albums) {
-    return albums.map((album, i) => {
+    let endCount;
+    endCount = this.props.limit ? this.props.limit : albums.length;
+    return albums.slice(0,endCount).map((album, i) => {
       return <li key={`${i}`} className="albumListItem">
         <Link to={`/albums/${album.id}`} key="Link">
           <img src={album.album_cover} className="albumListCoverImage" key="Img"></img>
