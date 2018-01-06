@@ -6,7 +6,7 @@ const MainHeader = () => (
   <div className="mainHeaderBox">
     <div className="mainHeaderCenterBox">
       <div className="mainHeaderLeft">
-        <Link to="/"><img src={window.staticImages.headerLogoHome}></img></Link>
+        <Link to="/"><img src={window.staticImages.headerLogoMain}></img></Link>
         <span>This will be the search bar</span>
       </div>
       <div className="mainHeaderRight">

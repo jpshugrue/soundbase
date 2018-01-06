@@ -14,12 +14,12 @@ import Root from './components/root';
 // window.logout = SessionApiUtil.logout;
 // import * as SessionActions from './actions/session_actions';
 // window.login = SessionActions.login;
-import * as AlbumsApiUtil from './util/album_util';
-window.fetchAlbums = AlbumsApiUtil.fetchAlbums;
-window.fetchAlbum = AlbumsApiUtil.fetchAlbum;
-window.createAlbum = AlbumsApiUtil.createAlbum;
-window.updateAlbum = AlbumsApiUtil.updateAlbum;
-window.deleteAlbum = AlbumsApiUtil.deleteAlbum;
+// import * as AlbumsApiUtil from './util/album_util';
+// window.fetchAlbums = AlbumsApiUtil.fetchAlbums;
+// window.fetchAlbum = AlbumsApiUtil.fetchAlbum;
+// window.createAlbum = AlbumsApiUtil.createAlbum;
+// window.updateAlbum = AlbumsApiUtil.updateAlbum;
+// window.deleteAlbum = AlbumsApiUtil.deleteAlbum;
 //end testing
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -5,7 +5,7 @@ import ArtistCoverContainer from './artist_cover_container';
 import AlbumListContainer from '../albums/album_list_container';
 
 const ArtistShowPage = ({ match }) => (
-  <div className="artistShowPageContainer">
+  <div className="artistShowPageContainer" style="background-color: blue;">
     <div className="artistShowPageBodyBox">
       <div className="artistCoverImageBox">
         <ArtistCoverContainer match={match} />
