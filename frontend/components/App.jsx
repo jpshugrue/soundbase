@@ -4,7 +4,7 @@ import SessionFormContainer from './session_form/session_form_container';
 import { Route } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
 import Footer from './footer';
-import HomePage from './homepage';
+import HomePage from './homepage/homepage';
 import HomeHeader from './header/home_header';
 import SessionHeader from './header/session_header';
 import ArtistShowContainer from './artists/artist_show_container';
