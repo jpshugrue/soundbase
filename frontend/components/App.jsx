@@ -7,7 +7,7 @@ import Footer from './footer';
 import HomePage from './homepage';
 import HomeHeader from './header/home_header';
 import SessionHeader from './header/session_header';
-import ArtistShowPage from './artists/artist_show_page';
+import ArtistShowContainer from './artists/artist_show_container';
 import MainHeader from './header/main_header';
 import ArtistEditContainer from './artists/artist_edit_container';
 
@@ -22,7 +22,7 @@ const App = () => (
     </header>
     <main>
       <Route exact path="/" component={HomePage} />
-      <Route exact path="/artists/:artistId" component={ArtistShowPage} />
+      <Route exact path="/artists/:artistId" component={ArtistShowContainer} />
       <Route path="/artists/:artistId/edit" component={ArtistEditContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />

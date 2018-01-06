@@ -1,25 +1,38 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ArtistShowContainer from './artist_show_container';
-import ArtistCoverContainer from './artist_cover_container';
+import ArtistCover from './artist_cover';
 import AlbumListContainer from '../albums/album_list_container';
+import ArtistShow from './artist_show';
 
-const ArtistShowPage = ({ match }) => (
-  <div className="artistShowPageContainer">
-    <div className="artistShowPageBodyBox">
-      <div className="artistCoverImageBox">
-        <ArtistCoverContainer match={match} />
-      </div>
-      <div className="showPageContentBox">
-        <div className="albumListBox">
-          <AlbumListContainer match={match} />
+class ArtistShowPage extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchArtist(this.props.artistId);
+  }
+
+  render() {
+    return (
+      <div className="artistShowPageContainer">
+        <div className="artistShowPageBodyBox">
+          <div className="artistCoverImageBox">
+            <ArtistCover artist={ this.props.artist } />
+          </div>
+          <div className="showPageContentBox">
+            <div className="albumListBox">
+              <AlbumListContainer artist={ this.props.artist } />
+            </div>
+            <div className="artistShowBox">
+              <ArtistShow artist={ this.props.artist } />
+            </div>
+          </div>
         </div>
-        <div className="artistShowBox">
-          <ArtistShowContainer match={match} />
-        </div>
       </div>
-    </div>
-  </div>
-);
+    );
+  }
+}
 
 export default ArtistShowPage;
