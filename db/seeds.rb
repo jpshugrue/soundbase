@@ -10,10 +10,10 @@ Artist.destroy_all
 demoAccount = Artist.create(username: "demonstrator",
   password: "demopass",
   display_name: "The Demonstrators",
-  background_color: "#1ECAC8",
-  body_color: "#DAF7A6",
+  background_color: "#cccccc",
+  body_color: "#ffffff",
   text_color: "#000000",
-  link_color: "#D70EF4",
+  link_color: "#3333ff",
   profile_pic: File.new("#{Rails.root}/app/assets/images/square_image_seeds/File1.jpg"),
   cover_image: File.new("#{Rails.root}/app/assets/images/cover_image_seeds/File205.jpg")
 )
