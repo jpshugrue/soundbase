@@ -36,7 +36,7 @@ class ArtistShowPage extends React.Component {
           </div>
           <div className="showPageContentBox">
             <div className="albumListBox">
-              <AlbumListContainer artist={ this.props.artist } linkStyle={ this.linkStyle } />
+              <AlbumListContainer artist={ this.props.artist } linkStyle={ this.linkStyle } loggedIn={this.props.loggedIn}/>
             </div>
             <div className="artistShowBox">
               <ArtistShow artist={ this.props.artist } textStyle={ this.textStyle } />
