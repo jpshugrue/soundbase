@@ -18,6 +18,17 @@ demoAccount = Artist.create(username: "demonstrator",
   cover_image: File.new("#{Rails.root}/app/assets/images/cover_image_seeds/File205.jpg")
 )
 
+academicAccount = Artist.create(username: "Academic",
+  password: "demopass",
+  display_name: "Academ!c",
+  background_color: "#ffffff",
+  body_color: "#000000",
+  text_color: "#ffff00",
+  link_color: "#ff0000",
+  profile_pic: File.new("#{Rails.root}/app/assets/images/square_image_seeds/File28.jpg"),
+  cover_image: File.new("#{Rails.root}/app/assets/images/cover_image_seeds/File61.jpg")
+)
+
 Album.destroy_all
 
 demoAlbum1 = Album.create(
@@ -58,4 +69,20 @@ demoAlbum5 = Album.create(
   album_credits: "Guitar and Vocals: Jimmy Demonstrator, Bass: Terry Demonstrator, Drums: Roland TR-808",
   artist_id: demoAccount.id,
   album_cover: File.new("#{Rails.root}/app/assets/images/square_image_seeds/File5.jpg")
+)
+
+academicAlbum1 = Album.create(
+  album_title: "App Jams Vol. I - Syntax Error",
+  release_date: "2017-11-20",
+  album_credits: "Credit where credit is due",
+  artist_id: academicAccount.id,
+  album_cover: File.new("#{Rails.root}/app/assets/images/square_image_seeds/File16.jpg")
+)
+
+academicAlbum2 = Album.create(
+  album_title: "App Jams Vol. II - Infinite Loop",
+  release_date: "2018-01-01",
+  album_credits: "Powered by MealPal",
+  artist_id: academicAccount.id,
+  album_cover: File.new("#{Rails.root}/app/assets/images/square_image_seeds/File59.jpg")
 )

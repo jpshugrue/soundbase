@@ -21,8 +21,12 @@
   line-height: 17.2308px;
 }
 
+.artistListItem, .artistListItem a {
+  width: 232px;
+}
+
 .artistListItem {
-  width: 120px;
+  margin-right: 30px;
 }
 
 .homePageAlbumListBox .albumListUL {
@@ -37,4 +41,10 @@
 
 .homePageArtistListBox .artistShowName {
   width: 232px;
+}
+
+.artistListUL {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

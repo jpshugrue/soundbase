@@ -3,7 +3,7 @@ import { fetchAlbums } from '../../actions/album_actions';
 import { selectAlbums } from '../../reducers/selectors';
 import AlbumList from './album_list';
 
-const mapStateToProps = (state, { artist, linkStyle, limit}) => {
+const mapStateToProps = (state, { artist, linkStyle, limit, loggedIn }) => {
   let albums;
   if (artist) {
     albums = selectAlbums(state.entities, artist.id);
@@ -13,7 +13,8 @@ const mapStateToProps = (state, { artist, linkStyle, limit}) => {
   return {
     albums,
     linkStyle,
-    limit
+    limit,
+    loggedIn
   };
 };
 
