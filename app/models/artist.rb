@@ -48,8 +48,8 @@ class Artist < ApplicationRecord
 
   def set_defaults
     self.display_name = self.username unless self.display_name
-    self.background_color = "#e4e4e7" unless self.background_color
-    self.body_color = "#ffffff" unless self.body_color
+    self.background_color = "#7c7c7c" unless self.background_color
+    self.body_color = "#e8e5e5" unless self.body_color
     self.text_color = "#000000" unless self.text_color
     self.link_color = "#0000ff" unless self.link_color
   end

@@ -10,6 +10,7 @@ import SessionHeader from './header/session_header';
 import ArtistShowContainer from './artists/artist_show_container';
 import MainHeader from './header/main_header';
 import ArtistEditContainer from './artists/artist_edit_container';
+import AlbumFormContainer from './albums/album_form_container';
 
 const App = () => (
   <div>
@@ -24,6 +25,8 @@ const App = () => (
       <Route exact path="/" component={HomePage} />
       <Route exact path="/artists/:artistId" component={ArtistShowContainer} />
       <Route path="/artists/:artistId/edit" component={ArtistEditContainer} />
+      <Route path="/albums/new" component={AlbumFormContainer} />
+      <Route exact path="/albums/:albumId/edit" component={AlbumFormContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
     </main>
