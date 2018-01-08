@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import { updateAlbum, fetchAlbum, createAlbum } from '../../actions/album_actions';
-import { selectAlbum } from '../../reducers/selectors';
+import { fetchSongs, createSong, updateSong, deleteSong } from '../../actions/song_actions';
+import { selectAlbum, selectSongs } from '../../reducers/selectors';
 import AlbumForm from './album_form';
 
 const mapStateToProps = (state, { match }) => {
   let albumId;
   let artistId;
+  let songs = [];
   let formType = "create";
   let album = {
     album_title: "",
@@ -15,6 +17,7 @@ const mapStateToProps = (state, { match }) => {
   if (match.params.albumId) {
     albumId = parseInt(match.params.albumId);
     album = selectAlbum(state.entities, match.params.albumId);
+    songs = selectSongs(state.entities, match.params.albumId);
     formType = "edit";
   } else {
     artistId = parseInt(match.params.artistId);
@@ -23,6 +26,7 @@ const mapStateToProps = (state, { match }) => {
     albumId,
     artistId,
     album,
+    songs,
     formType
   };
 };
@@ -31,11 +35,15 @@ const mapDispatchToProps = (dispatch, { match }) => {
   if (match.params.albumId) {
     return {
       formAction: album => dispatch(updateAlbum(album)),
-      fetchAlbum: fetchAlbum
+      fetchAlbum: id => dispatch(fetchAlbum(id)),
+      fetchSongs: albumId => dispatch(fetchSongs(albumId)),
+      updateSong: song => dispatch(updateSong(song)),
+      createSong: song => dispatch(createSong(song))
     };
   } else {
     return {
-      formAction: album => dispatch(createAlbum(album))
+      formAction: album => dispatch(createAlbum(album)),
+      createSong: song => dispatch(createSong(song))
     };
   }
 };
