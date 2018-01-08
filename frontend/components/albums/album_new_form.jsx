@@ -1,12 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-class AlbumForm extends React.Component {
+class AlbumNewForm extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = { album: this.props.album, songs: this.props.songs } ;
-    this.songs = this.props.songs;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.albumFormData = new FormData();
   }
@@ -14,14 +13,10 @@ class AlbumForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let albumId;
-    if (this.props.artistId) {
-      //create
-      this.albumFormData.set(`album[artist_id]`, this.props.artistId);
-    }
-    this.props.formAction(this.albumFormData).then((success) => {
+    this.albumFormData.set(`album[artist_id]`, this.props.artistId);
+    this.props.createAlbum(this.albumFormData).then((success) => {
       albumId = success.album.id;
     });
-    // this.props.updateArtist({albumFormData: this.albumFormData, artistId: this.props.artistId}).then((success) => this.props.history.push(`/artists/${this.props.artistId}`));
   }
 
   updateAlbum(field) {
@@ -35,28 +30,9 @@ class AlbumForm extends React.Component {
     this.albumFormData.set(`album[${type}]`, file);
   }
 
-  componentDidMount() {
-    if (this.props.fetchAlbum) {
-      this.props.fetchAlbum(this.props.albumId);
-
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState(nextProps.album);
-  }
-
   // componentWillUnmount() {
   //   this.props.clearErrors();
   // }
-
-  heading(formType) {
-    if (formType === "create") {
-      return "New Album";
-    } else {
-      return "Edit Album";
-    }
-  }
 
   renderErrors() {
     return(
@@ -79,12 +55,12 @@ class AlbumForm extends React.Component {
       <div className="albumFormContainer">
         <div className="albumFormBody">
           <div className="albumFormHeading">
-            <span>{this.heading(this.props.formType)}</span>
+            <span>New Album</span>
           </div>
           <form onSubmit={this.handleSubmit} className="albumFormBox">
             <div className="albumFormInputItem">
               <label>Album Title</label>
-              <input type="text" value={this.state.album_title} onChange={this.update('album_title')} className="albumFormTextBox"/>
+              <input type="text" value={this.state.album_title} onChange={this.updateAlbum('album_title')} className="albumFormTextBox"/>
             </div>
             <div className="albumFormInputItem">
               <label>Album Cover</label>
@@ -92,11 +68,11 @@ class AlbumForm extends React.Component {
             </div>
             <div className="albumFormInputItem">
               <label>Release Date</label>
-              <input type="date" value={this.state.release_date} onChange={this.update('release_date')} className="albumFormDateBox"/>
+              <input type="date" value={this.state.release_date} onChange={this.updateAlbum('release_date')} className="albumFormDateBox"/>
             </div>
             <div className="albumFormInputItem">
               <label>Album Credits</label>
-              <textarea value={this.state.album_credits} onChange={this.update('album_credits')} className="albumFormTextArea"></textarea>
+              <textarea value={this.state.album_credits} onChange={this.updateAlbum('album_credits')} className="albumFormTextArea"></textarea>
             </div>
             <input type="submit" className="albumFormSubmitButton" value="Submit" />
           </form>
@@ -109,4 +85,4 @@ class AlbumForm extends React.Component {
 
 // {this.renderErrors()}
 
-export default AlbumForm;
+export default AlbumNewForm;

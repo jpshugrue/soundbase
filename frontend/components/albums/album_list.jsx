@@ -28,7 +28,7 @@ class AlbumList extends React.Component {
   renderAddButton(loggedIn) {
     if (loggedIn) {
       return <li key="newAlbumLi" className="albumListItem">
-        <Link to={`/albums/new`} key="Link" className="addNewAlbumButton">
+        <Link to={`/artists/${this.props.artistId}/newAlbum`} key="Link" className="addNewAlbumButton">
           <div key="div" className="addNewAlbumText">
             Add A New Album
           </div>

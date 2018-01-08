@@ -5,8 +5,10 @@ import AlbumList from './album_list';
 
 const mapStateToProps = (state, { artist, linkStyle, limit, loggedIn }) => {
   let albums;
+  let artistId;
   if (artist) {
     albums = selectAlbums(state.entities, artist.id);
+    artistId = artist.id;
   } else {
     albums = Object.values(state.entities.albums);
   }
@@ -14,7 +16,8 @@ const mapStateToProps = (state, { artist, linkStyle, limit, loggedIn }) => {
     albums,
     linkStyle,
     limit,
-    loggedIn
+    loggedIn,
+    artistId
   };
 };
 
