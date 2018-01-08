@@ -27,14 +27,13 @@ const App = () => (
       <Route path="/artists/:artistId/edit" component={ArtistEditContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
+      <Route path="/artists/:artistId/newAlbum" component={AlbumFormContainer} />
+      <Route exact path="/albums/:albumId/edit" component={AlbumFormContainer} />
     </main>
     <footer>
       <Footer />
     </footer>
   </div>
 );
-
-// <Route path="/albums/new" component={AlbumFormContainer} />
-// <Route exact path="/albums/:albumId/edit" component={AlbumFormContainer} />
 
 export default App;

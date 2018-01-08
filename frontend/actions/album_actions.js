@@ -17,6 +17,12 @@ export const fetchAlbum = (id) => (dispatch) => {
     dispatch(receiveErrors(error.responseJSON)));
 };
 
+export const createAlbum = (album) => (dispatch) => {
+  return AlbumApiUtil.createAlbum(album).then((album) =>
+    dispatch(receiveAlbum(album)), (error) =>
+    dispatch(receiveErrors(error.responseJSON)));
+};
+
 export const updateAlbum = (album) => (dispatch) => {
   return AlbumApiUtil.updateAlbum(album).then((album) =>
     dispatch(receiveAlbum(album)), (error) =>
