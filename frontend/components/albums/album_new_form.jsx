@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import merge from 'lodash/merge';
 
 class AlbumNewForm extends React.Component {
 
@@ -8,16 +9,33 @@ class AlbumNewForm extends React.Component {
     this.state = { album: this.props.album, songs: this.props.songs } ;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.albumFormData = new FormData();
+    window.state = this.state;
+    this.handleAddSong = this.handleAddSong.bind(this);
   }
 
   handleSubmit(e) {
+    debugger
     e.preventDefault();
     let albumId;
     this.albumFormData.set(`album[artist_id]`, this.props.artistId);
     this.props.createAlbum(this.albumFormData).then((success) => {
       albumId = success.album.id;
     });
+    let songFormData;
+    for (const song in this.state.songs) {
+      songFormData = new FormData();
+      songFormData.set(`song[song_title]`, song.song_title);
+      songFormData.set(`song[track_number]`, song.track_number);
+      songFormData.set(`song[song_file]`, song.song_file);
+      songFormData.set(`song[artist_id]`, this.props.artistId);
+      songFormData.set(`song[album_id]`, albumId);
+      this.props.createSong(songFormData);
+    }
   }
+
+  // componentWillMount() {
+  //   this.addSong = this.addSong.bind(this);
+  // }
 
   updateAlbum(field) {
     return event => {
@@ -28,6 +46,23 @@ class AlbumNewForm extends React.Component {
 
   fileUpload({file, type}) {
     this.albumFormData.set(`album[${type}]`, file);
+  }
+
+  handleAddSong() {
+    this.setState({
+     songs: this.state.songs.concat([{ song_title: "", track_number: "" }])
+    });
+  }
+
+  songUpload(file, idx) {
+    return event => {
+      this.setState({
+        songs: this.state.songs.map((song, songIdx) => {
+          if (songIdx !== idx) return song;
+          return merge({}, song, {["song_file"]: file});
+        }),
+      });
+    };
   }
 
   // componentWillUnmount() {
@@ -46,8 +81,23 @@ class AlbumNewForm extends React.Component {
     );
   }
 
-  handleAddSong() {
 
+
+  updateSong(field, idx) {
+    return event => {
+      this.setState({
+        songs: this.state.songs.map((song, songIdx) => {
+          if (songIdx !== idx) return song;
+          return merge({}, song, {[field]: event.target.value});
+        }),
+      });
+    };
+  }
+
+  removeSong(idx) {
+    this.setState({
+      songs: this.state.songs.filter((song, songIdx) => idx !== songIdx)
+    });
   }
 
   render() {
@@ -74,15 +124,26 @@ class AlbumNewForm extends React.Component {
               <label>Album Credits</label>
               <textarea value={this.state.album_credits} onChange={this.updateAlbum('album_credits')} className="albumFormTextArea"></textarea>
             </div>
+
+            <h4>Songs</h4>
+              {this.state.songs.map((song, idx) => (
+                <div className="albumFormSongItem">
+                  <input type="text" value={song.song_title} onChange={this.updateSong('song_title', idx)}/>
+                  <input type="text" value={song.track_number} onChange={this.updateSong('track_number', idx)}/>
+                  <input type="file" onChange={(e) => this.songUpload(e.target.files[0], idx)} className="albumFormSongFilebox"/>
+                  <button type="button" onClick={this.removeSong.bind(idx)}>-</button>
+                </div>
+              ))}
+              <button type="button" onClick={this.handleAddSong}>Add Song</button>
             <input type="submit" className="albumFormSubmitButton" value="Submit" />
           </form>
+
         </div>
       </div>
     );
   }
 
 }
-
 // {this.renderErrors()}
 
 export default AlbumNewForm;
