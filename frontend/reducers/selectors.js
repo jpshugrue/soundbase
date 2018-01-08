@@ -17,3 +17,13 @@ export const selectAlbums = ({ albums }, artistId) => {
   }
   return selectedAlbums;
 };
+
+export const selectSongs = ({ songs }, albumId) => {
+  let selectedSongs = [];
+  for (const songId in songs) {
+    if (songs[songId].album_id === albumId) {
+      selectedSongs.push(songs[songId]);
+    }
+  }
+  return selectedSongs;
+};
