@@ -25,8 +25,6 @@ const App = () => (
       <Route exact path="/" component={HomePage} />
       <Route exact path="/artists/:artistId" component={ArtistShowContainer} />
       <Route path="/artists/:artistId/edit" component={ArtistEditContainer} />
-      <Route path="/albums/new" component={AlbumFormContainer} />
-      <Route exact path="/albums/:albumId/edit" component={AlbumFormContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
     </main>
@@ -35,5 +33,8 @@ const App = () => (
     </footer>
   </div>
 );
+
+// <Route path="/albums/new" component={AlbumFormContainer} />
+// <Route exact path="/albums/:albumId/edit" component={AlbumFormContainer} />
 
 export default App;
