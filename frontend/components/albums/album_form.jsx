@@ -6,6 +6,7 @@ class AlbumForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.album ;
+  // this.songs = this.loadSongs(this.props.album.track_ids);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.formData = new FormData();
   }
@@ -15,7 +16,7 @@ class AlbumForm extends React.Component {
     let albumId;
     if (this.props.artistId) {
       //create
-      this.formData.append(`album[artist_id]`, this.props.artistId);
+      this.formData.set(`album[artist_id]`, this.props.artistId);
     }
     this.props.formAction(this.formData).then((success) => {
       albumId = success.album.id;
@@ -27,12 +28,12 @@ class AlbumForm extends React.Component {
   update(field) {
     return event => {
       this.setState({[field]: event.currentTarget.value});
-      this.formData.append(`album[${field}]`, event.target.value);
+      this.formData.set(`album[${field}]`, event.target.value);
     };
   }
 
   fileUpload({file, type}) {
-    this.formData.append(`album[${type}]`, file);
+    this.formData.set(`album[${type}]`, file);
   }
 
   componentDidMount() {
@@ -67,6 +68,10 @@ class AlbumForm extends React.Component {
         ))}
       </ul>
     );
+  }
+
+  handleAddSong() {
+
   }
 
   render() {
