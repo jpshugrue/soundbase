@@ -11,31 +11,28 @@ class AlbumNewForm extends React.Component {
     this.albumFormData = new FormData();
     window.state = this.state;
     this.handleAddSong = this.handleAddSong.bind(this);
+    this.handleRemoveSong = this.handleRemoveSong.bind(this);
   }
 
   handleSubmit(e) {
-    debugger
     e.preventDefault();
     let albumId;
     this.albumFormData.set(`album[artist_id]`, this.props.artistId);
     this.props.createAlbum(this.albumFormData).then((success) => {
       albumId = success.album.id;
+      let songFormData;
+      for (const idx in this.state.songs) {
+        songFormData = new FormData();
+        debugger
+        songFormData.set(`song[song_title]`, this.state.songs[idx].song_title);
+        songFormData.set(`song[track_number]`, this.state.songs[idx].track_number);
+        songFormData.set(`song[song_file]`, this.state.songs[idx].song_file);
+        songFormData.set(`song[artist_id]`, this.props.artistId);
+        songFormData.set(`song[album_id]`, albumId);
+        this.props.createSong(songFormData);
+      }
     });
-    let songFormData;
-    for (const song in this.state.songs) {
-      songFormData = new FormData();
-      songFormData.set(`song[song_title]`, song.song_title);
-      songFormData.set(`song[track_number]`, song.track_number);
-      songFormData.set(`song[song_file]`, song.song_file);
-      songFormData.set(`song[artist_id]`, this.props.artistId);
-      songFormData.set(`song[album_id]`, albumId);
-      this.props.createSong(songFormData);
-    }
   }
-
-  // componentWillMount() {
-  //   this.addSong = this.addSong.bind(this);
-  // }
 
   updateAlbum(field) {
     return event => {
@@ -50,19 +47,17 @@ class AlbumNewForm extends React.Component {
 
   handleAddSong() {
     this.setState({
-     songs: this.state.songs.concat([{ song_title: "", track_number: "" }])
+     songs: this.state.songs.concat([{ song_title: "", track_number: "", song_file: undefined}])
     });
   }
 
-  songUpload(file, idx) {
-    return event => {
-      this.setState({
-        songs: this.state.songs.map((song, songIdx) => {
-          if (songIdx !== idx) return song;
-          return merge({}, song, {["song_file"]: file});
-        }),
-      });
-    };
+  songUpload({file, idx}) {
+    this.setState({
+      songs: this.state.songs.map((song, songIdx) => {
+        if (songIdx !== idx) return song;
+        return merge({}, song, {["song_file"]: file});
+      }),
+    });
   }
 
   // componentWillUnmount() {
@@ -81,8 +76,6 @@ class AlbumNewForm extends React.Component {
     );
   }
 
-
-
   updateSong(field, idx) {
     return event => {
       this.setState({
@@ -94,7 +87,7 @@ class AlbumNewForm extends React.Component {
     };
   }
 
-  removeSong(idx) {
+  handleRemoveSong(idx) {
     this.setState({
       songs: this.state.songs.filter((song, songIdx) => idx !== songIdx)
     });
@@ -130,8 +123,8 @@ class AlbumNewForm extends React.Component {
                 <div key={idx} className="albumFormSongItem">
                   <input key={"title"} type="text" value={song.song_title} onChange={this.updateSong('song_title', idx)}/>
                   <input key={"tracknum"} type="text" value={song.track_number} onChange={this.updateSong('track_number', idx)}/>
-                  <input key={"file"} type="file" onChange={(e) => this.songUpload(e.target.files[0], idx)} className="albumFormSongFilebox"/>
-                  <button key={"remove"} type="button" onClick={this.removeSong.bind(idx)}>-</button>
+                  <input key={"file"} type="file" onChange={(e) => this.songUpload({file: e.target.files[0], idx: idx})} className="albumFormSongFilebox"/>
+                  <button key={"remove"} type="button" onClick={() => this.handleRemoveSong(idx)}>-</button>
                 </div>
               ))}
               <button type="button" onClick={this.handleAddSong}>Add Song</button>
