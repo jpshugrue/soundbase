@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import merge from 'lodash/merge';
 
-class AlbumNewForm extends React.Component {
+class AlbumEditForm extends React.Component {
 
   constructor(props) {
     super(props);
@@ -14,22 +14,37 @@ class AlbumNewForm extends React.Component {
   }
 
   handleSubmit(e) {
+    let songFormData;
     e.preventDefault();
-    let albumId;
-    this.albumFormData.set(`album[artist_id]`, this.props.artistId);
-    this.props.createAlbum(this.albumFormData).then((success) => {
-      albumId = success.album.id;
-      let songFormData;
-      for (const idx in this.state.songs) {
+    this.props.updateAlbum({formData: this.albumFormData, albumId: this.props.albumId});
+    for (const idx in this.state.songs) {
+      if (idx < this.props.songs.length && this.state.songs[idx] === undefined) {
+        this.props.deleteSong(this.props.songs[idx].song_Id);
+      } else {
         songFormData = new FormData();
         songFormData.set(`song[song_title]`, this.state.songs[idx].song_title);
         songFormData.set(`song[track_number]`, this.state.songs[idx].track_number);
         songFormData.set(`song[song_file]`, this.state.songs[idx].song_file);
-        songFormData.set(`song[artist_id]`, this.props.artistId);
-        songFormData.set(`song[album_id]`, albumId);
-        this.props.createSong(songFormData);
+        songFormData.set(`song[artist_id]`, this.props.album.artist_id);
+        songFormData.set(`song[album_id]`, this.props.albumId);
+        if (idx >= this.props.songs.length) {
+          this.props.createSong(songFormData);
+        } else {
+          this.props.updateSong(songFormData);
+        }
       }
-    });
+    }
+  }
+
+  componentDidMount() {
+    this.props.fetchAlbum(this.props.albumId);
+    this.props.fetchSongs();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({album: nextProps.album, songs: nextProps.songs});
+    this.albumFormData.set(`album[album_title]`, nextProps.album.album_title);
+    debugger
   }
 
   updateAlbum(field) {
@@ -80,14 +95,17 @@ class AlbumNewForm extends React.Component {
         songs: this.state.songs.map((song, songIdx) => {
           if (songIdx !== idx) return song;
           return merge({}, song, {[field]: event.target.value});
-        }),
+        })
       });
     };
   }
 
   handleRemoveSong(idx) {
     this.setState({
-      songs: this.state.songs.filter((song, songIdx) => idx !== songIdx)
+      songs: this.state.songs.map((song, songIdx) => {
+        if (songIdx !== idx) return song;
+        return undefined;
+      })
     });
   }
 
@@ -96,12 +114,12 @@ class AlbumNewForm extends React.Component {
       <div className="albumFormContainer">
         <div className="albumFormBody">
           <div className="albumFormHeading">
-            <span>New Album</span>
+            <span>Edit Album</span>
           </div>
           <form onSubmit={this.handleSubmit} className="albumFormBox">
             <div className="albumFormInputItem">
               <label>Album Title</label>
-              <input type="text" value={this.state.album_title} onChange={this.updateAlbum('album_title')} className="albumFormTextBox"/>
+              <input type="text" value={this.state.album.album_title} onChange={this.updateAlbum('album_title')} className="albumFormTextBox"/>
             </div>
             <div className="albumFormInputItem">
               <label>Album Cover</label>
@@ -109,32 +127,34 @@ class AlbumNewForm extends React.Component {
             </div>
             <div className="albumFormInputItem">
               <label>Release Date</label>
-              <input type="date" value={this.state.release_date} onChange={this.updateAlbum('release_date')} className="albumFormDateBox"/>
+              <input type="date" value={this.state.album.release_date} onChange={this.updateAlbum('release_date')} className="albumFormDateBox"/>
             </div>
             <div className="albumFormInputItem">
               <label>Album Credits</label>
-              <textarea value={this.state.album_credits} onChange={this.updateAlbum('album_credits')} className="albumFormTextArea"></textarea>
+              <textarea value={this.state.album.album_credits} onChange={this.updateAlbum('album_credits')} className="albumFormTextArea"></textarea>
             </div>
 
             <h4>Songs</h4>
-              {this.state.songs.map((song, idx) => (
-                <div key={idx} className="albumFormSongItem">
-                  <input key={"title"} type="text" value={song.song_title} onChange={this.updateSong('song_title', idx)}/>
-                  <input key={"tracknum"} type="text" value={song.track_number} onChange={this.updateSong('track_number', idx)}/>
-                  <input key={"file"} type="file" onChange={(e) => this.songUpload({file: e.target.files[0], idx: idx})} className="albumFormSongFilebox"/>
-                  <button key={"remove"} type="button" onClick={() => this.handleRemoveSong(idx)}>-</button>
-                </div>
-              ))}
+              {this.state.songs.map((song, idx) => {
+                if (song !== undefined) {
+                  return (
+                    <div key={idx} className="albumFormSongItem">
+                      <input key={"title"} type="text" value={song.song_title} onChange={this.updateSong('song_title', idx)}/>
+                      <input key={"tracknum"} type="text" value={song.track_number} onChange={this.updateSong('track_number', idx)}/>
+                      <input key={"file"} type="file" onChange={(e) => this.songUpload({file: e.target.files[0], idx: idx})} className="albumFormSongFilebox"/>
+                      <button key={"remove"} type="button" onClick={() => this.handleRemoveSong(idx)}>-</button>
+                    </div>
+                  );
+                }
+              })}
               <button type="button" onClick={this.handleAddSong}>Add Song</button>
             <input type="submit" className="albumFormSubmitButton" value="Submit" />
           </form>
-
         </div>
       </div>
     );
   }
-
 }
 // {this.renderErrors()}
 
-export default AlbumNewForm;
+export default AlbumEditForm;
