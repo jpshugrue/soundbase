@@ -34,7 +34,7 @@ export const updateSong = ({formData, songId}) => {
 
 export const deleteSong = (songId) => {
   return $.ajax({
-    url: `/api/artists/${songId}`,
+    url: `/api/songs/${songId}`,
     method: 'DELETE'
   });
 };

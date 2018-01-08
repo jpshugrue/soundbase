@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import merge from 'lodash/merge';
+import { selectSongs } from '../../reducers/selectors';
 
 class AlbumEditForm extends React.Component {
 
@@ -18,8 +19,10 @@ class AlbumEditForm extends React.Component {
     e.preventDefault();
     this.props.updateAlbum({formData: this.albumFormData, albumId: this.props.albumId});
     for (const idx in this.state.songs) {
-      if (idx < this.props.songs.length && this.state.songs[idx] === undefined) {
-        this.props.deleteSong(this.props.songs[idx].song_Id);
+      if (this.state.songs[idx].delete) {
+        if (this.state.songs[idx].id) {
+          this.props.deleteSong(this.state.songs[idx].id);
+        }
       } else {
         songFormData = new FormData();
         songFormData.set(`song[song_title]`, this.state.songs[idx].song_title);
@@ -37,15 +40,20 @@ class AlbumEditForm extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAlbum(this.props.albumId);
-    this.props.fetchSongs();
+    this.props.fetchAlbum(this.props.albumId).then((success) => {
+      this.albumFormData.set(`album[album_title]`, success.album.album_title);
+      this.setState({album: success.album});
+      this.props.fetchSongs().then((success) => {
+        const songs = selectSongs({songs: success.songs}, this.state.album.id);
+        this.setState({songs: songs});
+      });
+    });
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({album: nextProps.album, songs: nextProps.songs});
-    this.albumFormData.set(`album[album_title]`, nextProps.album.album_title);
-    debugger
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   this.setState({album: nextProps.album, songs: nextProps.songs});
+  //   this.albumFormData.set(`album[album_title]`, nextProps.album.album_title);
+  // }
 
   updateAlbum(field) {
     return event => {
@@ -104,7 +112,7 @@ class AlbumEditForm extends React.Component {
     this.setState({
       songs: this.state.songs.map((song, songIdx) => {
         if (songIdx !== idx) return song;
-        return undefined;
+        return {id: song.id, delete: true};
       })
     });
   }
@@ -136,7 +144,7 @@ class AlbumEditForm extends React.Component {
 
             <h4>Songs</h4>
               {this.state.songs.map((song, idx) => {
-                if (song !== undefined) {
+                if (!song.delete) {
                   return (
                     <div key={idx} className="albumFormSongItem">
                       <input key={"title"} type="text" value={song.song_title} onChange={this.updateSong('song_title', idx)}/>
