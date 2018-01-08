@@ -36,7 +36,7 @@ class Api::AlbumsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @album = Album.find_by(id: params[:id])
     if @album && @album.destroy
       render "api/albums/show"
