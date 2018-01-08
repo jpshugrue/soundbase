@@ -1,2 +1,6 @@
-json.extract! song, :id, :song_title, :track_number,
-                      :song_file, :artist_id, :album_id
+json.extract! album, :id, :album_title, :release_date,
+                  :album_credits, :artist_id
+json.album_cover asset_path(album.album_cover(:original))
+json.track_ids do
+(json.array! (album.songs.collect { |song| song.id }))
+end
