@@ -5,6 +5,7 @@ import AlbumForm from './album_form';
 
 const mapStateToProps = (state, { match }) => {
   let albumId;
+  let artistId;
   let formType = "create";
   let album = {
     album_title: "",
@@ -15,9 +16,12 @@ const mapStateToProps = (state, { match }) => {
     albumId = parseInt(match.params.albumId);
     album = selectAlbum(state.entities, match.params.albumId);
     formType = "edit";
+  } else {
+    artistId = parseInt(match.params.artistId);
   }
   return {
     albumId,
+    artistId,
     album,
     formType
   };
