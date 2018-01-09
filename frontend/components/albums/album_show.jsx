@@ -46,6 +46,22 @@ class AlbumShow extends React.Component {
     }
   }
 
+  formatTime(timeInSecs) {
+    let mins;
+    if ((Math.floor(timeInSecs / 60)) < 10) {
+      mins = "0"+String(Math.floor(timeInSecs / 60));
+    } else {
+      mins = String(Math.floor(timeInSecs / 60));
+    }
+    let secs;
+    if ((timeInSecs % 60) < 10) {
+      secs = "0"+String(Math.floor(timeInSecs % 60));
+    } else {
+      secs = String(Math.floor(timeInSecs % 60));
+    }
+    return `${mins}:${secs}`;
+  }
+
   playpause() {
     if (this.player.paused) {
       this.player.play();
@@ -75,14 +91,14 @@ class AlbumShow extends React.Component {
               <div className="musicPlayerTopRow">
                 {this.currentSongTitle}
                 <br></br>
-                {this.state.currentTime}
+                {this.formatTime(this.state.currentTime)}
                  /
-                {this.state.totalTime}
+                {this.formatTime(this.state.totalTime)}
               </div>
               <div className="musicPlayerBottomRow">
                 <div className="progressBar">
                   <div className="slider">
-                    <input id="sliderBar" type="range" min="0" max={this.state.totalTime} value={this.state.currentTime} onInput={this.sliderMove}></input>
+                    <input id="sliderBar" type="range" min="0" max={this.state.totalTime} value={this.state.currentTime} onInput={this.sliderMove} step="0.5"></input>
                   </div>
                 </div>
               </div>
