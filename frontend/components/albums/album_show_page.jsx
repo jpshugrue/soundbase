@@ -62,7 +62,8 @@ class AlbumShowPage extends React.Component {
               <div className="artistShowBox">
                 <ArtistShow artist={ this.props.artist } textStyle={ this.textStyle } />
               </div>
-              <div className="albumListBox">
+              <label>discography</label>
+              <div className="outerAlbumListBox">
                 <AlbumListContainer artist={ this.props.artist } linkStyle={ this.linkStyle } limit={2}/>
               </div>
             </div>
