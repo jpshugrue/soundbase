@@ -12,6 +12,7 @@ import MainHeader from './header/main_header';
 import ArtistEditContainer from './artists/artist_edit_container';
 import AlbumNewFormContainer from './albums/album_new_form_container';
 import AlbumEditFormContainer from './albums/album_edit_form_container';
+import AlbumShowContainer from './albums/album_show_container';
 
 const App = () => (
   <div>
@@ -30,6 +31,7 @@ const App = () => (
       <AuthRoute path="/signup" component={SessionFormContainer} />
       <Route path="/artists/:artistId/newAlbum" component={AlbumNewFormContainer} />
       <Route exact path="/albums/:albumId/edit" component={AlbumEditFormContainer} />
+      <Route exact path="/albums/:albumId" component={AlbumShowContainer} />
     </main>
     <footer>
       <Footer />
