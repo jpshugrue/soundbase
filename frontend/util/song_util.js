@@ -12,6 +12,13 @@ export const fetchSong = (id) => {
   });
 };
 
+export const fetchSongsByAlbum = (albumId) => {
+  return $.ajax({
+    url: `/api/albums/${albumId}/songs`,
+    method: 'GET'
+  });
+};
+
 export const createSong = (formData) => {
   return $.ajax({
     url: `/api/songs`,

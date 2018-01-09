@@ -17,6 +17,12 @@ export const fetchSong = (id) => (dispatch) => {
     dispatch(receiveErrors(error.responseJSON)));
 };
 
+export const fetchSongsByAlbum = (albumId) => (dispatch) => {
+  return SongApiUtil.fetchSongsByAlbum(albumId).then((songs) =>
+    dispatch(receiveSongs(songs)), (error) =>
+    dispatch(receiveErrors(error.responseJSON)));
+};
+
 export const createSong = (song) => (dispatch) => {
   return SongApiUtil.createSong(song).then((song) =>
     dispatch(receiveSong(song)), (error) =>
