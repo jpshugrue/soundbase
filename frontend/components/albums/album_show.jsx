@@ -10,6 +10,7 @@ class AlbumShow extends React.Component {
     this.updateElapsedTime = this.updateElapsedTime.bind(this);
     this.onAudioLoad = this.onAudioLoad.bind(this);
     this.waitingForLoad = false;
+    this.sliderMove = this.sliderMove.bind(this);
   }
 
   componentDidMount() {
@@ -53,6 +54,10 @@ class AlbumShow extends React.Component {
     }
   }
 
+  sliderMove() {
+    this.player.currentTime = document.getElementById("sliderBar").value;
+  }
+
   render() {
     return (
       <div className="albumShowContainerBox">
@@ -77,7 +82,7 @@ class AlbumShow extends React.Component {
               <div className="musicPlayerBottomRow">
                 <div className="progressBar">
                   <div className="slider">
-
+                    <input id="sliderBar" type="range" min="0" max={this.state.totalTime} value={this.state.currentTime} onInput={this.sliderMove}></input>
                   </div>
                 </div>
               </div>
