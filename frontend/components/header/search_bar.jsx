@@ -35,25 +35,28 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div className="searchBarContainer">
-        <input id="searchBar" type="text" onClick={this.handleClick} onChange={this.handleInput}
-          placeholder="Search for artist, track or album"></input>
-        <ul id="searchList" className="searchResultList">
-          {this.props.artists.map((artist, idx) => (
-            <li style={{display: "none"}} key={`artist-${idx}`} className="searchListItem">
-              <Link id={`${artist.display_name}`} to={`/artists/${artist.id}`}>{`Artist - ${artist.display_name}`}</Link>
-            </li>
-          ))}
-          {this.props.albums.map((album, idx) => (
-            <li style={{display: "none"}} key={`album-${idx}`} className="searchListItem">
-              <Link id={`${album.album_title}`} to={`/albums/${album.id}`}>{`Album - ${album.album_title}`}</Link>
-            </li>
-          ))}
-          {this.props.songs.map((song, idx) => (
-            <li style={{display: "none"}} key={`song-${idx}`} className="searchListItem">
-              <Link id={`${song.song_title}`} to={`/albums/${song.album_id}`}>{`Song - ${song.song_title}`}</Link>
-            </li>
-          ))}
-        </ul>
+        <div className="searchBarBox">
+          <img className="searchIcon" src={window.staticImages.searchIcon}></img>
+          <input id="searchBar" type="text" onClick={this.handleClick} onChange={this.handleInput}
+            placeholder="Search for artist, track or album"></input>
+          <ul id="searchList" className="searchResultList">
+            {this.props.artists.map((artist, idx) => (
+              <li style={{display: "none"}} key={`artist-${idx}`} className="searchListItem">
+                <Link id={`${artist.display_name}`} to={`/artists/${artist.id}`}>{`Artist - ${artist.display_name}`}</Link>
+              </li>
+            ))}
+            {this.props.albums.map((album, idx) => (
+              <li style={{display: "none"}} key={`album-${idx}`} className="searchListItem">
+                <Link id={`${album.album_title}`} to={`/albums/${album.id}`}>{`Album - ${album.album_title}`}</Link>
+              </li>
+            ))}
+            {this.props.songs.map((song, idx) => (
+              <li style={{display: "none"}} key={`song-${idx}`} className="searchListItem">
+                <Link id={`${song.song_title}`} to={`/albums/${song.album_id}`}>{`Song - ${song.song_title}`}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     );
   }
