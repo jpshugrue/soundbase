@@ -86,3 +86,53 @@ academicAlbum2 = Album.create(
   artist_id: academicAccount.id,
   album_cover: File.new("#{Rails.root}/app/assets/images/square_image_seeds/File59.jpg")
 )
+
+Song.destroy_all
+
+selftitlesong1 = Song.create(
+  song_title: "Self Title Debut Song",
+  track_number: "1",
+  artist_id: demoAccount.id,
+  album_id: demoAlbum1.id,
+  song_file: File.new("#{Rails.root}/app/assets/songs/file1.mp3")
+)
+
+selftitlesong2 = Song.create(
+  song_title: "Second Helping",
+  track_number: "2",
+  artist_id: demoAccount.id,
+  album_id: demoAlbum1.id,
+  song_file: File.new("#{Rails.root}/app/assets/songs/file2.mp3")
+)
+
+selftitlesong3 = Song.create(
+  song_title: "What's A Telephone Bill?",
+  track_number: "3",
+  artist_id: demoAccount.id,
+  album_id: demoAlbum1.id,
+  song_file: File.new("#{Rails.root}/app/assets/songs/file3.mp3")
+)
+
+selftitlesong4 = Song.create(
+  song_title: "Intro",
+  track_number: "4",
+  artist_id: demoAccount.id,
+  album_id: demoAlbum1.id,
+  song_file: File.new("#{Rails.root}/app/assets/songs/file4.mp3")
+)
+
+selftitlesong5 = Song.create(
+  song_title: "Five O'Clock World",
+  track_number: "5",
+  artist_id: demoAccount.id,
+  album_id: demoAlbum1.id,
+  song_file: File.new("#{Rails.root}/app/assets/songs/file5.mp3")
+)
+
+selftitlesong6 = Song.create(
+  song_title: "Miami Calling",
+  track_number: "6",
+  artist_id: demoAccount.id,
+  album_id: demoAlbum1.id,
+  song_file: File.new("#{Rails.root}/app/assets/songs/file6.mp3")
+)
