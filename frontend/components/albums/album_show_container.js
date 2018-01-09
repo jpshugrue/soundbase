@@ -1,23 +1,20 @@
 import { connect } from 'react-redux';
-import { fetchAlbum } from '../../actions/album_actions';
-import { fetchArtist } from '../../actions/artist_actions';
-import { selectAlbum, selectArtist } from '../../reducers/selectors';
-import AlbumShowPage from './album_show_page';
+import { fetchSongsByAlbum } from '../../actions/song_actions';
+import { selectSongs } from '../../reducers/selectors';
+import AlbumShow from './album_show';
 
-const mapStateToProps = (state, { match }) => {
-    const albumId = parseInt(match.params.albumId);
-    const album = selectAlbum(state.entities, match.params.albumId);
-    const artist = selectArtist(state.entities, album.artist_id);
+const mapStateToProps = (state, { album, artist, albumId }) => {
+  const songs = selectSongs(state.entities, albumId);
   return {
     albumId,
     album,
-    artist
+    artist,
+    songs
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAlbum: (id) => dispatch(fetchAlbum(id)),
-  fetchArtist: (id) => dispatch(fetchArtist(id)),
+  fetchSongsByAlbum: (albumId) => dispatch(fetchSongsByAlbum(albumId))
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(AlbumShowPage);
+export default connect(mapStateToProps, mapDispatchToProps)(AlbumShow);

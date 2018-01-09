@@ -4,7 +4,7 @@ import merge from 'lodash/merge';
 import ArtistCover from '../artists/artist_cover';
 import AlbumListContainer from './album_list_container';
 import ArtistShow from '../artists/artist_show';
-import AlbumShow from './album_show';
+import AlbumShowContainer from './album_show_container';
 
 class AlbumShowPage extends React.Component {
 
@@ -56,14 +56,14 @@ class AlbumShowPage extends React.Component {
           </div>
           <div className="albumShowPageMainSection">
             <div className="albumShowContainer">
-              <AlbumShow album={ this.props.album }/>
+              <AlbumShowContainer album={ this.props.album } artist={ this.props.artist } albumId={ this.props.albumId } />
             </div>
             <div className="otherShowContainers">
               <div className="artistShowBox">
                 <ArtistShow artist={ this.props.artist } textStyle={ this.textStyle } />
               </div>
               <div className="albumListBox">
-                <AlbumListContainer artist={ this.props.artist } linkStyle={ this.linkStyle } loggedIn={this.props.loggedIn} limit={2} exclude={this.props.album.id}/>
+                <AlbumListContainer artist={ this.props.artist } linkStyle={ this.linkStyle } limit={2}/>
               </div>
             </div>
           </div>
