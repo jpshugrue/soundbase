@@ -1,0 +1,61 @@
+.albumShowPageBodyBox {
+  width: 975px;
+  margin: 0 auto;
+}
+
+.albumShowPageMainSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.albumShowContainer {
+  width: 756px;
+  padding-left: 30px;
+}
+
+.otherShowContainers .artistShowBox {
+  height: 200px;
+}
+
+.outerAlbumListBox .albumListUL, .outerAlbumListBox .albumListTitleText {
+  width: 120px;
+  padding-left: 0px;
+}
+
+.outerAlbumListBox .albumListUL {
+  margin-top: 17.5px;
+}
+
+.otherShowContainers {
+  display: flex;
+  flex-direction: column;
+  align-items: top;
+}
+
+.outerAlbumListBox img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.outerAlbumListBox label {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(54, 54, 54);
+  line-height: 15px;
+  margin-bottom: 17.5px;
+}
+
+.albumShowHeader span {
+  font-size: 14px;
+  line-height: 15px;
+}
+
+.albumShowHeader a {
+  text-decoration: none;
+  line-height: 15px;
+  font-size: 14px;
+  cursor: pointer;
+}

@@ -79,8 +79,9 @@ class AlbumShow extends React.Component {
       <div className="albumShowContainerBox">
         <div className="albumShowLeftSide">
           <div className="albumShowHeader">
-            {this.props.album.album_title}
-            by {this.props.artist.display_name}
+            <h2 className="albumShowAlbumTitle"> {this.props.album.album_title} </h2>
+            <span>by </span>
+            <Link to={`/artists/${this.props.artist.id}`}>{this.props.artist.display_name}</Link>
           </div>
           <div className="albumShowMusicPlayer">
             <audio id="player" src={this.currentSongLoc} onTimeUpdate={this.updateElapsedTime} onLoadedData={this.onAudioLoad}></audio>
@@ -128,7 +129,7 @@ class AlbumShow extends React.Component {
         <div className="albumShowRightSide">
           <div className="albumCover">
             <Link to={`/albums/${this.props.albumId}`}>
-              <img src={this.props.album.album_cover} className="albumListCoverImage"></img>
+              <img src={this.props.album.album_cover}></img>
             </Link>
           </div>
         </div>

@@ -22,7 +22,7 @@
    vertical-align: baseline;
    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
    font-weight: 400;
-   -webkit-font-smoothing: antialiased;
+   /* -webkit-font-smoothing: antialiased; */
    color: rgb(51, 51, 51);
  }
 
