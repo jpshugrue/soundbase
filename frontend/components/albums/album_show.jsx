@@ -52,16 +52,6 @@ class AlbumShow extends React.Component {
       this.player.pause();
     }
   }
-  //
-  // renderSongs(songs) {
-  //   return songs.map((song, idx) => {
-  //     return <li key={`${idx}`} className="songListItem">
-  //       <button onClick={() => this.setCurrentSong()}>Play</button>
-  //       {song.track_number}
-  //       {song.song_title}
-  //     </li>;
-  //   });
-  // }
 
   render() {
     return (
@@ -100,6 +90,9 @@ class AlbumShow extends React.Component {
                   <button key="play" type="button" onClick={() => this.handleCurrentSong(song)}>Play</button>
                   {song.track_number}
                   {song.song_title}
+                  <div className="downloadLink">
+                    <a href={song.song_file} download>Download</a>
+                  </div>
                 </li>
               ))}
             </ul>
