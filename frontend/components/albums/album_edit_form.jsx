@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import merge from 'lodash/merge';
 import { selectSongs } from '../../reducers/selectors';
+// import { Redirect } from '.react-router';
 
 class AlbumEditForm extends React.Component {
 
@@ -37,6 +38,8 @@ class AlbumEditForm extends React.Component {
         }
       }
     }
+    // <Redirect to={`/albums/${this.props.albumId}`}/>;
+    this.props.history.push(`/albums/${this.props.albumId}`);
   }
 
   componentDidMount() {

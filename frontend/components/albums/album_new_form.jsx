@@ -29,7 +29,9 @@ class AlbumNewForm extends React.Component {
         songFormData.set(`song[album_id]`, albumId);
         this.props.createSong(songFormData);
       }
+      this.props.history.push(`/albums/${albumId}`);
     });
+
   }
 
   updateAlbum(field) {
