@@ -26,3 +26,101 @@
   width: 350px;
   height: 350px;
 }
+
+.albumShowMusicPlayer {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.musicPlayerLeftSide button {
+  cursor: pointer;
+  width: 56px;
+  height: 52px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(217, 217, 217);
+  line-height: 15px;
+  font-size: 26px;
+  padding: 0;
+  margin-right: 10px;
+  border-radius: 2px;
+}
+
+.musicPlayerLeftSide button:after {
+  content: "\25BA";
+}
+
+.musicPlayerSongTitle {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  color: rgb(54, 54, 54);
+  padding-right: 6px;
+}
+
+.musicPlayerTime {
+  color: rgb(136, 136, 136);
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.slider {
+  width: 250px;
+}
+
+.albumShowSongList {
+  width: 379px;
+  margin-top: 17px;
+}
+
+.albumShowSongList li {
+  width: 385px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.albumShowSongList .downloadLink a {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 15px;
+  visibility: hidden;
+}
+
+.albumShowSongList li:hover .downloadLink a {
+  visibility: visible;
+}
+
+.albumShowSongList button {
+  width: 17px;
+  height: 16px;
+  padding: 4px 0 4px 0;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(217, 217, 217);
+  line-height: 15px;
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+.trackNumber {
+  margin-left: 5px;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.trackName {
+  font-size: 12px;
+  line-height: 15px;
+  cursor: pointer;
+}
+
+.albumShowSongList button:after {
+  content: "\25BA";
+}
+
+.albumShowInfo {
+  font-size: 12px;
+  line-height: 15px;
+  padding-top: 24px;
+}

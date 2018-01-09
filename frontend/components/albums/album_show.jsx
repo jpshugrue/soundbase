@@ -86,15 +86,14 @@ class AlbumShow extends React.Component {
           <div className="albumShowMusicPlayer">
             <audio id="player" src={this.currentSongLoc} onTimeUpdate={this.updateElapsedTime} onLoadedData={this.onAudioLoad}></audio>
             <div className="musicPlayerLeftSide">
-              <button onClick={this.playpause}>Play</button>
+              <button onClick={this.playpause}></button>
             </div>
             <div className="musicPlayerRightSide">
               <div className="musicPlayerTopRow">
-                {this.currentSongTitle}
-                <br></br>
-                {this.formatTime(this.state.currentTime)}
-                 /
-                {this.formatTime(this.state.totalTime)}
+                <span className="musicPlayerSongTitle">{this.currentSongTitle}</span>
+                <span className="musicPlayerTime">
+                  {this.formatTime(this.state.currentTime)} / {this.formatTime(this.state.totalTime)}
+                </span>
               </div>
               <div className="musicPlayerBottomRow">
                 <div className="progressBar">
@@ -109,21 +108,22 @@ class AlbumShow extends React.Component {
             <ul>
               {this.props.songs.map((song, idx) => (
                 <li key={`${idx}`} className="songListItem">
-                  <button key="play" type="button" onClick={() => this.handleCurrentSong(song)}>Play</button>
-                  {song.track_number}
-                  {song.song_title}
+                  <div>
+                    <button key="play" type="button" onClick={() => this.handleCurrentSong(song)}></button>
+                    <span className="trackNumber">{song.track_number}.</span>
+                    <span className="trackName">{song.song_title}</span>
+                  </div>
                   <div className="downloadLink">
-                    <a href={song.song_file} download>Download</a>
+                    <a href={song.song_file} download>download</a>
                   </div>
                 </li>
               ))}
             </ul>
           </div>
           <div className="albumShowInfo">
-            <label>Release Date</label>
-            {this.props.album.release_date}
-            <label>Album Credits</label>
-            {this.props.album.album_credits}
+            <span className="releaseSpan">released {this.props.album.release_date}</span>
+            <br></br><br></br>
+            <span>{this.props.album.album_credits}</span>
           </div>
         </div>
         <div className="albumShowRightSide">
