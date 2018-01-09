@@ -9,6 +9,7 @@ class AlbumShow extends React.Component {
     this.playpause = this.playpause.bind(this);
     this.updateElapsedTime = this.updateElapsedTime.bind(this);
     this.onAudioLoad = this.onAudioLoad.bind(this);
+    this.waitingForLoad = false;
   }
 
   componentDidMount() {
@@ -23,10 +24,12 @@ class AlbumShow extends React.Component {
     }
   }
 
-  setCurrentSong(song) {
+  handleCurrentSong(song) {
     this.currentSongLoc = song.song_file;
     this.currentSongTitle = song.song_title;
-    document.getElementById('player').src = this.currentSongLoc;
+    this.player.src = this.currentSongLoc;
+    this.player.load();
+    this.waitingForLoad = true;
   }
 
   updateElapsedTime() {
@@ -36,6 +39,10 @@ class AlbumShow extends React.Component {
   onAudioLoad() {
     this.setState({currentTime: document.getElementById('player').currentTime});
     this.setState({totalTime: document.getElementById('player').duration});
+    if (this.waitingForLoad) {
+      this.waitingForLoad = false;
+      this.player.play();
+    }
   }
 
   playpause() {
@@ -45,29 +52,16 @@ class AlbumShow extends React.Component {
       this.player.pause();
     }
   }
-
-  renderSongs(songs) {
-    return songs.map((song, idx) => {
-      return <li key={`${idx}`} className="songListItem">
-        <button onClick={this.setCurrentSong.bind(song)}>Play</button>
-        {song.track_number}
-        {song.song_title}
-      </li>;
-    });
-
-
-    if (this.props.limit) { albums.reverse(); }
-    let endCount;
-    endCount = this.props.limit ? this.props.limit : albums.length;
-    return albums.slice(0,endCount).map((album, i) => {
-      return <li key={`${i}`} className="albumListItem">
-        <Link to={`/albums/${album.id}`} key="Link">
-          <img src={album.album_cover} className="albumListCoverImage" key="Img"></img>
-          <div className="albumListTitleText" style={this.props.linkStyle} key="div">{album.album_title}</div>
-        </Link>
-      </li>;
-    });
-  }
+  //
+  // renderSongs(songs) {
+  //   return songs.map((song, idx) => {
+  //     return <li key={`${idx}`} className="songListItem">
+  //       <button onClick={() => this.setCurrentSong()}>Play</button>
+  //       {song.track_number}
+  //       {song.song_title}
+  //     </li>;
+  //   });
+  // }
 
   render() {
     return (
@@ -101,7 +95,13 @@ class AlbumShow extends React.Component {
           </div>
           <div className="albumShowSongList">
             <ul>
-              {this.renderSongs(this.props.songs)}
+              {this.props.songs.map((song, idx) => (
+                <li key={`${idx}`} className="songListItem">
+                  <button key="play" type="button" onClick={() => this.handleCurrentSong(song)}>Play</button>
+                  {song.track_number}
+                  {song.song_title}
+                </li>
+              ))}
             </ul>
           </div>
           <div className="albumShowInfo">
