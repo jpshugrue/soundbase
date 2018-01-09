@@ -30,10 +30,10 @@ class AlbumEditForm extends React.Component {
         songFormData.set(`song[song_file]`, this.state.songs[idx].song_file);
         songFormData.set(`song[artist_id]`, this.props.album.artist_id);
         songFormData.set(`song[album_id]`, this.props.albumId);
-        if (idx >= this.props.songs.length) {
-          this.props.createSong(songFormData);
-        } else {
+        if (this.state.songs[idx].id) {
           this.props.updateSong(songFormData);
+        } else {
+          this.props.createSong(songFormData);
         }
       }
     }
@@ -102,6 +102,7 @@ class AlbumEditForm extends React.Component {
       this.setState({
         songs: this.state.songs.map((song, songIdx) => {
           if (songIdx !== idx) return song;
+
           return merge({}, song, {[field]: event.target.value});
         })
       });
