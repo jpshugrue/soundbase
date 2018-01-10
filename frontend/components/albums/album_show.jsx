@@ -12,7 +12,10 @@ class AlbumShow extends React.Component {
     this.waitingForLoad = false;
     this.sliderMove = this.sliderMove.bind(this);
     this.editLink = this.editLink.bind(this);
+
     this.mainPlaySymbol = <i className="icon-play"></i>;
+    this.smallPlaySymbol = [];
+    this.currentSongIdx = 0;
   }
 
   componentDidMount() {
@@ -27,12 +30,30 @@ class AlbumShow extends React.Component {
     }
   }
 
-  handleCurrentSong(song) {
-    this.currentSongLoc = song.song_file;
-    this.currentSongTitle = song.song_title;
-    this.player.src = this.currentSongLoc;
-    this.player.load();
-    this.waitingForLoad = true;
+  handleCurrentSong(song, idx) {
+    if (this.currentSongIdx === idx) {
+      if (this.player.paused) {
+        this.player.play();
+        this.mainPlaySymbol = <i className="icon-pause"></i>;
+        this.smallPlaySymbol[this.currentSongIdx] = <i className="icon-pause"></i>;
+      } else {
+        this.player.pause();
+        this.mainPlaySymbol = <i className="icon-play"></i>;
+        this.smallPlaySymbol[this.currentSongIdx] = <i className="icon-play"></i>;
+      }
+    } else {
+      this.smallPlaySymbol[this.currentSongIdx] = <i className="icon-play"></i>;
+      this.currentSongIdx = idx;
+      this.smallPlaySymbol[this.currentSongIdx] = <i className="icon-pause"></i>;
+      if (this.player.paused) {
+        this.mainPlaySymbol = <i className="icon-pause"></i>;
+      }
+      this.currentSongLoc = song.song_file;
+      this.currentSongTitle = song.song_title;
+      this.player.src = this.currentSongLoc;
+      this.player.load();
+      this.waitingForLoad = true;
+    }
   }
 
   updateElapsedTime() {
@@ -68,9 +89,11 @@ class AlbumShow extends React.Component {
     if (this.player.paused) {
       this.player.play();
       this.mainPlaySymbol = <i className="icon-pause"></i>;
+      this.smallPlaySymbol[this.currentSongIdx] = <i className="icon-pause"></i>;
     } else {
       this.player.pause();
       this.mainPlaySymbol = <i className="icon-play"></i>;
+      this.smallPlaySymbol[this.currentSongIdx] = <i className="icon-play"></i>;
     }
   }
 
@@ -82,6 +105,10 @@ class AlbumShow extends React.Component {
 
   sliderMove() {
     this.player.currentTime = document.getElementById("sliderBar").value;
+  }
+
+  addToSymbolArray() {
+    this.smallPlaySymbol.push(<i className="icon-play"></i>);
   }
 
   render() {
@@ -119,7 +146,8 @@ class AlbumShow extends React.Component {
               {this.props.songs.map((song, idx) => (
                 <li key={`${idx}`} className="songListItem">
                   <div>
-                    <button key="play" type="button" onClick={() => this.handleCurrentSong(song)}></button>
+                    {this.addToSymbolArray()}
+                    <button key="play" type="button" onClick={() => this.handleCurrentSong(song, idx)}>{this.smallPlaySymbol[idx]}</button>
                     <span className="trackNumber">{song.track_number}.</span>
                     <span className="trackName">{song.song_title}</span>
                   </div>
