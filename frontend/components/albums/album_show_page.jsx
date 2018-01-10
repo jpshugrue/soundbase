@@ -56,13 +56,14 @@ class AlbumShowPage extends React.Component {
           </div>
           <div className="albumShowPageMainSection">
             <div className="albumShowContainer">
-              <AlbumShowContainer album={ this.props.album } artist={ this.props.artist } albumId={ this.props.albumId } />
+              <AlbumShowContainer album={ this.props.album } artist={ this.props.artist }
+                albumId={ this.props.albumId } textStyle={ this.textStyle } linkStyle={ this.linkStyle } />
             </div>
             <div className="otherShowContainers">
               <div className="artistShowBox">
                 <ArtistShow artist={ this.props.artist } textStyle={ this.textStyle } />
               </div>
-              <label>discography</label>
+              <span style={ this.textStyle }>discography</span>
               <div className="outerAlbumListBox">
                 <AlbumListContainer artist={ this.props.artist } linkStyle={ this.linkStyle } limit={2}/>
               </div>

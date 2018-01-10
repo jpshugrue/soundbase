@@ -116,9 +116,9 @@ class AlbumShow extends React.Component {
       <div className="albumShowContainerBox">
         <div className="albumShowLeftSide">
           <div className="albumShowHeader">
-            <h2 className="albumShowAlbumTitle"> {this.props.album.album_title} </h2>
-            <span>by </span>
-            <Link to={`/artists/${this.props.artist.id}`}>{this.props.artist.display_name}</Link> {this.editLink()}
+            <h2 className="albumShowAlbumTitle" style={this.props.textStyle}> {this.props.album.album_title} </h2>
+            <span style={this.props.textStyle}>by </span>
+            <Link to={`/artists/${this.props.artist.id}`} style={this.props.linkStyle}>{this.props.artist.display_name}</Link> {this.editLink()}
           </div>
           <div className="albumShowMusicPlayer">
             <audio id="player" src={this.currentSongLoc} onTimeUpdate={this.updateElapsedTime} onLoadedData={this.onAudioLoad}></audio>
@@ -127,7 +127,7 @@ class AlbumShow extends React.Component {
             </div>
             <div className="musicPlayerRightSide">
               <div className="musicPlayerTopRow">
-                <span className="musicPlayerSongTitle">{this.currentSongTitle}</span>
+                <span className="musicPlayerSongTitle" style={this.props.textStyle}>{this.currentSongTitle}</span>
                 <span className="musicPlayerTime">
                   {this.formatTime(this.state.currentTime)} / {this.formatTime(this.state.totalTime)}
                 </span>
@@ -148,20 +148,20 @@ class AlbumShow extends React.Component {
                   <div>
                     {this.addToSymbolArray()}
                     <button key="play" type="button" onClick={() => this.handleCurrentSong(song, idx)}>{this.smallPlaySymbol[idx]}</button>
-                    <span className="trackNumber">{song.track_number}.</span>
-                    <span className="trackName">{song.song_title}</span>
+                    <span className="trackNumber" style={this.props.textStyle}>{song.track_number}.</span>
+                    <span className="trackName" style={this.props.linkStyle}>{song.song_title}</span>
                   </div>
                   <div className="downloadLink">
-                    <a href={song.song_file} download>download</a>
+                    <a href={song.song_file} style={this.props.linkStyle} download>download</a>
                   </div>
                 </li>
               ))}
             </ul>
           </div>
           <div className="albumShowInfo">
-            <span className="releaseSpan">released {this.props.album.release_date}</span>
+            <span className="releaseSpan" style={this.props.textStyle}>released {this.props.album.release_date}</span>
             <br></br><br></br>
-            <span>{this.props.album.album_credits}</span>
+            <span style={this.props.textStyle}>{this.props.album.album_credits}</span>
           </div>
         </div>
         <div className="albumShowRightSide">
