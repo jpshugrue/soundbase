@@ -1,5 +1,6 @@
 import React from 'react';
 import HeaderNavContainer from './header_nav/header_nav_container';
+import SearchBarContainer from './search_bar_container';
 import { Link } from 'react-router-dom';
 
 const MainHeader = () => (
@@ -7,7 +8,7 @@ const MainHeader = () => (
     <div className="mainHeaderCenterBox">
       <div className="mainHeaderLeft">
         <Link to="/"><img src={window.staticImages.headerLogoMain}></img></Link>
-        <span>This will be the search bar</span>
+        <SearchBarContainer />
       </div>
       <div className="mainHeaderRight">
         <HeaderNavContainer />

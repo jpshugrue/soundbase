@@ -1,3 +1,27 @@
+.mainHeaderLeft .searchBarContainer input {
+  height: 19px;
+  width: 204px;
+  padding-right: 21px;
+  padding-left: 5px;
+}
+
+.mainHeaderLeft .searchBarContainer {
+  height: 43px;
+  margin-top: 0px;
+}
+
+.mainHeaderLeft .searchBarContainer .searchBarBox {
+  line-height: 43px;
+}
+
+.mainHeaderLeft .searchBarContainer .searchBarBox .searchIcon {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: 5px;
+  top: 3px;
+}
+
 .searchBarContainer input {
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(190, 190, 190);

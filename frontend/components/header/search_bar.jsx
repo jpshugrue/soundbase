@@ -8,6 +8,7 @@ class SearchBar extends React.Component {
     this.hasFetched = false;
     this.handleClick = this.handleClick.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.getAlbumCover = this.getAlbumCover.bind(this);
   }
 
   handleClick() {
@@ -49,6 +50,17 @@ class SearchBar extends React.Component {
     this.checkListHeight();
   }
 
+  getAlbumCover(albumId) {
+    const album = this.props.albums.find((album) => {
+      return album.id === albumId;
+    });
+    if (album) {
+      return album.album_cover;
+    } else {
+      return "";
+    }
+  }
+
   render() {
     return (
       <div className="searchBarContainer">
@@ -82,7 +94,7 @@ class SearchBar extends React.Component {
             {this.props.songs.map((song, idx) => (
               <li style={{display: "none"}} key={`song-${idx}`} className="searchListItem">
                 <Link id={`${song.song_title}`} to={`/albums/${song.album_id}`}>
-                  <img src={`${this.props.albums.find((album) => { return album.id === song.album_id; }).album_cover}`}></img>
+                  <img src={`${this.getAlbumCover(song.album_id)}`}></img>
                   <div className="searchResultText">
                     <div className="boldSearchHeader">{`${song.song_title}`}</div>
                     <div>Track</div>
