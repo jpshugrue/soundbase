@@ -12,6 +12,7 @@ class AlbumShow extends React.Component {
     this.waitingForLoad = false;
     this.sliderMove = this.sliderMove.bind(this);
     this.editLink = this.editLink.bind(this);
+    this.mainPlaySymbol = <i className="icon-play"></i>;
   }
 
   componentDidMount() {
@@ -66,8 +67,11 @@ class AlbumShow extends React.Component {
   playpause() {
     if (this.player.paused) {
       this.player.play();
+      this.mainPlaySymbol = <i className="icon-pause"></i>;
+      // document.getElementById("playButton").style.fontSize = "20px";
     } else {
       this.player.pause();
+      this.mainPlaySymbol = <i className="icon-play"></i>;
     }
   }
 
@@ -93,7 +97,7 @@ class AlbumShow extends React.Component {
           <div className="albumShowMusicPlayer">
             <audio id="player" src={this.currentSongLoc} onTimeUpdate={this.updateElapsedTime} onLoadedData={this.onAudioLoad}></audio>
             <div className="musicPlayerLeftSide">
-              <button onClick={this.playpause}></button>
+              <button id="playButton" onClick={this.playpause}>{this.mainPlaySymbol}</button>
             </div>
             <div className="musicPlayerRightSide">
               <div className="musicPlayerTopRow">
