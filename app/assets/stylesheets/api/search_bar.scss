@@ -32,6 +32,9 @@
   width: 246px;
   position: absolute;
   z-index: 1;
+  border-left: 1px solid rgb(190, 190, 190);
+  border-right: 1px solid rgb(190, 190, 190);
+  border-bottom: 1px solid rgb(190, 190, 190);
 }
 
 .searchResultText {
@@ -63,6 +66,10 @@
   font-size: 11px;
   -webkit-font-smoothing: antialiased;
   background-color: rgba(255, 255, 255, 0.98);
+}
+
+.searchListItem:hover {
+  background-color: rgb(237, 241, 242);
 }
 
 .searchListItem a {
