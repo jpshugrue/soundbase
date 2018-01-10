@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateAlbum, fetchAlbum } from '../../actions/album_actions';
+import { updateAlbum, fetchAlbum, deleteAlbum } from '../../actions/album_actions';
 import { createSong, fetchSongs, updateSong, deleteSong } from '../../actions/song_actions';
 import { selectAlbum, selectSongs } from '../../reducers/selectors';
 import AlbumEditForm from './album_edit_form';
@@ -23,7 +23,8 @@ const mapDispatchToProps = (dispatch, { match }) => {
     fetchSongs: albumId => dispatch(fetchSongs(albumId)),
     updateSong: song => dispatch(updateSong(song)),
     createSong: song => dispatch(createSong(song)),
-    deleteSong: id => dispatch(deleteSong(id))
+    deleteSong: id => dispatch(deleteSong(id)),
+    deleteAlbum: id => dispatch(deleteAlbum(id))
   };
 };
 

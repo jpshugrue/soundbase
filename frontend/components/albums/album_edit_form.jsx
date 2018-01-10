@@ -121,12 +121,18 @@ class AlbumEditForm extends React.Component {
     });
   }
 
+  handleDeleteAlbum() {
+    this.props.deleteAlbum(this.props.albumId).then((success) => {
+      this.props.history.push(`/artists/${this.props.album.artist_id}`);
+    });
+  }
+
   render() {
     return (
       <div className="albumFormContainer">
         <div className="albumFormBody">
           <div className="albumFormHeading">
-            Edit Album
+            Edit Album  <a onClick={this.handleDeleteAlbum} className="deleteAlbumButton">delete album</a>
           </div>
           <form onSubmit={this.handleSubmit} className="albumFormBox">
             <div className="albumFormInputItem">
@@ -146,22 +152,34 @@ class AlbumEditForm extends React.Component {
               <textarea value={this.state.album.album_credits} onChange={this.updateAlbum('album_credits')} className="albumFormTextArea"></textarea>
             </div>
             <div className="albumFormHeading">Songs</div>
-              <div className="albumFormList">
-                {this.state.songs.map((song, idx) => {
-                  if (!song.delete) {
-                    return (
-                      <div key={idx} className="albumFormSongItem">
-                        <input key={"title"} type="text" value={song.song_title} onChange={this.updateSong('song_title', idx)}/>
-                        <input key={"tracknum"} type="text" value={song.track_number} onChange={this.updateSong('track_number', idx)}/>
-                        <input key={"file"} type="file" onChange={(e) => this.songUpload({file: e.target.files[0], idx: idx})} className="albumFormSongFilebox"/>
-                        <button key={"remove"} type="button" onClick={() => this.handleRemoveSong(idx)}>-</button>
+            <div className="albumFormList">
+              {this.state.songs.map((song, idx) => {
+                if (!song.delete) {
+                  return (
+                    <div key={idx} className="albumFormSongItem">
+                      <div className="albumFormSongRow">
+                        <label>Song Title</label>
+                        <input key={"title"} type="text" value={song.song_title} onChange={this.updateSong('song_title', idx)} className="albumFormTextBox"/>
                       </div>
-                    );
-                  }
-                })}
-                <button type="button" onClick={this.handleAddSong}>Add Song</button>
-              </div>
-            <input type="submit" className="albumFormSubmitButton" value="Submit" />
+                      <div className="albumFormSongRow">
+                        <label>Track Number</label>
+                        <input key={"tracknum"} type="text" value={song.track_number} onChange={this.updateSong('track_number', idx)} className="albumFormTrackBox"/>
+                      </div>
+                      <div className="albumFormSongRow">
+                        <label>Song File</label>
+                        <input key={"file"} type="file" onChange={(e) => this.songUpload({file: e.target.files[0], idx: idx})} className="albumFormSongFilebox"/>
+                      </div>
+                      <a key={"remove"} onClick={() => this.handleRemoveSong(idx)}>remove song</a>
+                    </div>
+                  );
+                }
+              })}
+              <a type="button" onClick={this.handleAddSong}>add song</a>
+            </div>
+            <div className="albumFormButtons">
+              <input type="submit" className="albumFormSubmitBtn" value="Save" />
+              <Link className="albumFormCancelBtn" to={`/albums/${this.props.albumId}`}>Cancel</Link>
+            </div>
           </form>
         </div>
       </div>
