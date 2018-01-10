@@ -5,6 +5,12 @@
   border-top: 5px solid rgb(132, 132, 132);
 }
 
+.mainHeaderLeft {
+  display: flex;
+  flex-direction: row;
+
+}
+
 .mainHeaderCenterBox {
   width: 975px;
   margin: 0 auto;
