@@ -1,0 +1,70 @@
+.albumFormContainer {
+  background-color: #dddddd;
+}
+
+.albumFormBody {
+  width: 915px;
+  padding: 35px 30px 45px 30px;
+  margin: 0 auto;
+  background-color: #F7F7F7;
+}
+
+.albumFormHeading {
+  font-size: 17.58px;
+  font-weight: 700;
+  line-height: 21.641px;
+  margin-bottom: 26.37px;
+}
+
+.albumFormInputItem {
+  padding-bottom: 10px;
+}
+
+.albumFormBox label {
+  color: rgb(105, 105, 105);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 13.2px;
+  padding-top: 5.4px;
+  padding-right: 10px;
+  text-align: right;
+  width: 155.094px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.albumFormTextBox {
+  width: 400px;
+  border:1px solid #9c9c9c;
+  border-color:#9c9c9c #9c9c9c #ccc #ccc;
+  margin:0px;
+  padding:0.3em;
+  font-size: 12px;
+  font-weight: 400;
+  height: 14px;
+}
+
+.albumFormFilebox {
+  color: rgb(6, 135, 245);
+}
+
+::-webkit-datetime-edit {
+  width: 96px;
+  height: 14px;
+  padding: 3px;
+}
+
+::-webkit-datetime-edit-text {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.albumFormTextArea {
+  width: 400px;
+  height: 48px;
+  padding: 3px;
+  border-color: rgb(204, 204, 204);
+  font-size: 12px;
+
+}

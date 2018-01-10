@@ -45,7 +45,7 @@ Album.destroy_all
 demoAlbum1 = Album.create(
   album_title: "Self Titled Debut Album",
   release_date: "1999-01-08",
-  album_credits: "All songs written and perfomed by The Demonstrators",
+  album_credits: "All songs written and performed by The Demonstrators",
   artist_id: demoAccount.id,
   album_cover: File.new("#{Rails.root}/app/assets/images/square_image_seeds/File100.jpg")
 )
