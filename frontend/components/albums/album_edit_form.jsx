@@ -13,6 +13,7 @@ class AlbumEditForm extends React.Component {
     this.albumFormData = new FormData();
     this.handleAddSong = this.handleAddSong.bind(this);
     this.handleRemoveSong = this.handleRemoveSong.bind(this);
+    this.handleDeleteAlbum = this.handleDeleteAlbum.bind(this);
   }
 
   handleSubmit(e) {
@@ -122,8 +123,9 @@ class AlbumEditForm extends React.Component {
   }
 
   handleDeleteAlbum() {
+    const artistId = this.props.album.artist_id;
     this.props.deleteAlbum(this.props.albumId).then((success) => {
-      this.props.history.push(`/artists/${this.props.album.artist_id}`);
+      this.props.history.push(`/artists/${artistId}`);
     });
   }
 

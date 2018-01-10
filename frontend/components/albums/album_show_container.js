@@ -5,11 +5,18 @@ import AlbumShow from './album_show';
 
 const mapStateToProps = (state, { album, artist, albumId }) => {
   const songs = selectSongs(state.entities, albumId);
+  let loggedIn;
+  if (state.session.currentArtist && artist.id === state.session.currentArtist.id) {
+    loggedIn = true;
+  } else {
+    loggedIn = false;
+  }
   return {
     albumId,
     album,
     artist,
-    songs
+    songs,
+    loggedIn
   };
 };
 

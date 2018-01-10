@@ -11,6 +11,7 @@ class AlbumShow extends React.Component {
     this.onAudioLoad = this.onAudioLoad.bind(this);
     this.waitingForLoad = false;
     this.sliderMove = this.sliderMove.bind(this);
+    this.editLink = this.editLink.bind(this);
   }
 
   componentDidMount() {
@@ -70,6 +71,12 @@ class AlbumShow extends React.Component {
     }
   }
 
+  editLink() {
+    if (this.props.loggedIn) {
+      return <Link className="editLink" to={`${this.props.albumId}/edit`}>edit album</Link>;
+    }
+  }
+
   sliderMove() {
     this.player.currentTime = document.getElementById("sliderBar").value;
   }
@@ -81,7 +88,7 @@ class AlbumShow extends React.Component {
           <div className="albumShowHeader">
             <h2 className="albumShowAlbumTitle"> {this.props.album.album_title} </h2>
             <span>by </span>
-            <Link to={`/artists/${this.props.artist.id}`}>{this.props.artist.display_name}</Link>
+            <Link to={`/artists/${this.props.artist.id}`}>{this.props.artist.display_name}</Link> {this.editLink()}
           </div>
           <div className="albumShowMusicPlayer">
             <audio id="player" src={this.currentSongLoc} onTimeUpdate={this.updateElapsedTime} onLoadedData={this.onAudioLoad}></audio>

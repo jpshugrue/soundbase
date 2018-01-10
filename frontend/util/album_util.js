@@ -34,7 +34,7 @@ export const updateAlbum = ({formData, albumId}) => {
 
 export const deleteAlbum = (albumId) => {
   return $.ajax({
-    url: `/api/artists/${albumId}`,
+    url: `/api/albums/${albumId}`,
     method: 'DELETE'
   });
 };
