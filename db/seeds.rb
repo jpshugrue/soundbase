@@ -113,7 +113,7 @@ selftitlesong1 = Song.create(
   track_number: "1",
   artist_id: demoAccount.id,
   album_id: demoAlbum1.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File1.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File1.mp3")
 )
 
 selftitlesong2 = Song.create(
@@ -121,7 +121,7 @@ selftitlesong2 = Song.create(
   track_number: "2",
   artist_id: demoAccount.id,
   album_id: demoAlbum1.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File5.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File5.mp3")
 )
 
 selftitlesong3 = Song.create(
@@ -129,7 +129,7 @@ selftitlesong3 = Song.create(
   track_number: "3",
   artist_id: demoAccount.id,
   album_id: demoAlbum1.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File10.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File10.mp3")
 )
 
 selftitlesong4 = Song.create(
@@ -137,7 +137,7 @@ selftitlesong4 = Song.create(
   track_number: "4",
   artist_id: demoAccount.id,
   album_id: demoAlbum1.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File15.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File15.mp3")
 )
 
 selftitlesong5 = Song.create(
@@ -145,7 +145,7 @@ selftitlesong5 = Song.create(
   track_number: "5",
   artist_id: demoAccount.id,
   album_id: demoAlbum1.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File20.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File20.mp3")
 )
 
 selftitlesong6 = Song.create(
@@ -153,7 +153,7 @@ selftitlesong6 = Song.create(
   track_number: "6",
   artist_id: demoAccount.id,
   album_id: demoAlbum1.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File25.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File25.mp3")
 )
 
 meetthesong1 = Song.create(
@@ -161,7 +161,7 @@ meetthesong1 = Song.create(
   track_number: "1",
   artist_id: demoAccount.id,
   album_id: demoAlbum2.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File2.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File2.mp3")
 )
 
 meetthesong2 = Song.create(
@@ -169,7 +169,7 @@ meetthesong2 = Song.create(
   track_number: "2",
   artist_id: demoAccount.id,
   album_id: demoAlbum2.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File7.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File7.mp3")
 )
 
 meetthesong3 = Song.create(
@@ -177,7 +177,7 @@ meetthesong3 = Song.create(
   track_number: "3",
   artist_id: demoAccount.id,
   album_id: demoAlbum2.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File16.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File16.mp3")
 )
 
 meetthesong4 = Song.create(
@@ -185,7 +185,7 @@ meetthesong4 = Song.create(
   track_number: "4",
   artist_id: demoAccount.id,
   album_id: demoAlbum2.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File22.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File22.mp3")
 )
 
 meetthesong5 = Song.create(
@@ -193,7 +193,7 @@ meetthesong5 = Song.create(
   track_number: "5",
   artist_id: demoAccount.id,
   album_id: demoAlbum2.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File35.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File35.mp3")
 )
 
 greatesthitssong1 = Song.create(
@@ -201,7 +201,7 @@ greatesthitssong1 = Song.create(
   track_number: "1",
   artist_id: demoAccount.id,
   album_id: demoAlbum3.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File34.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File34.mp3")
 )
 
 greatesthitssong2 = Song.create(
@@ -209,7 +209,7 @@ greatesthitssong2 = Song.create(
   track_number: "2",
   artist_id: demoAccount.id,
   album_id: demoAlbum3.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File23.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File23.mp3")
 )
 
 greatesthitssong3 = Song.create(
@@ -217,7 +217,7 @@ greatesthitssong3 = Song.create(
   track_number: "3",
   artist_id: demoAccount.id,
   album_id: demoAlbum3.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File6.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File6.mp3")
 )
 
 untitledsong1 = Song.create(
@@ -225,7 +225,7 @@ untitledsong1 = Song.create(
   track_number: "1",
   artist_id: academicAccount.id,
   album_id: academicAlbum1.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File3.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File3.mp3")
 )
 
 untitledsong2 = Song.create(
@@ -233,7 +233,7 @@ untitledsong2 = Song.create(
   track_number: "2",
   artist_id: academicAccount.id,
   album_id: academicAlbum1.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File30.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File30.mp3")
 )
 
 untitledsong3 = Song.create(
@@ -241,7 +241,7 @@ untitledsong3 = Song.create(
   track_number: "3",
   artist_id: academicAccount.id,
   album_id: academicAlbum1.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File19.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File19.mp3")
 )
 
 untitledsong4 = Song.create(
@@ -249,7 +249,7 @@ untitledsong4 = Song.create(
   track_number: "4",
   artist_id: academicAccount.id,
   album_id: academicAlbum1.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File9.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File9.mp3")
 )
 
 humsong1 = Song.create(
@@ -257,7 +257,7 @@ humsong1 = Song.create(
   track_number: "1",
   artist_id: academicAccount.id,
   album_id: academicAlbum2.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File18.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File18.mp3")
 )
 
 humsong2 = Song.create(
@@ -265,7 +265,7 @@ humsong2 = Song.create(
   track_number: "2",
   artist_id: academicAccount.id,
   album_id: academicAlbum2.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File29.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File29.mp3")
 )
 
 humsong3 = Song.create(
@@ -273,7 +273,7 @@ humsong3 = Song.create(
   track_number: "3",
   artist_id: academicAccount.id,
   album_id: academicAlbum2.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File13.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File13.mp3")
 )
 
 humsong4 = Song.create(
@@ -281,7 +281,7 @@ humsong4 = Song.create(
   track_number: "4",
   artist_id: academicAccount.id,
   album_id: academicAlbum2.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File39.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File39.mp3")
 )
 
 humsong5 = Song.create(
@@ -289,7 +289,7 @@ humsong5 = Song.create(
   track_number: "5",
   artist_id: academicAccount.id,
   album_id: academicAlbum2.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File11.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File11.mp3")
 )
 
 debugsong1 = Song.create(
@@ -297,7 +297,7 @@ debugsong1 = Song.create(
   track_number: "1",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum1.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File4.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File4.mp3")
 )
 
 debugsong2 = Song.create(
@@ -305,7 +305,7 @@ debugsong2 = Song.create(
   track_number: "2",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum1.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File12.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File12.mp3")
 )
 
 debugsong3 = Song.create(
@@ -313,7 +313,7 @@ debugsong3 = Song.create(
   track_number: "3",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum1.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File26.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File26.mp3")
 )
 
 debugsong4 = Song.create(
@@ -321,7 +321,7 @@ debugsong4 = Song.create(
   track_number: "4",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum1.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File38.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File38.mp3")
 )
 
 debugsong5 = Song.create(
@@ -329,7 +329,7 @@ debugsong5 = Song.create(
   track_number: "5",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum1.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File17.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File7.mp3")
 )
 
 debugsong6 = Song.create(
@@ -337,7 +337,7 @@ debugsong6 = Song.create(
   track_number: "6",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum1.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File31.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File31.mp3")
 )
 
 debugsong7 = Song.create(
@@ -345,7 +345,7 @@ debugsong7 = Song.create(
   track_number: "7",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum1.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File8.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File8.mp3")
 )
 
 vol1song1 = Song.create(
@@ -353,7 +353,7 @@ vol1song1 = Song.create(
   track_number: "1",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum2.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File27.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File27.mp3")
 )
 
 vol1song2 = Song.create(
@@ -361,7 +361,7 @@ vol1song2 = Song.create(
   track_number: "2",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum2.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File37.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File37.mp3")
 )
 
 vol1song3 = Song.create(
@@ -369,7 +369,7 @@ vol1song3 = Song.create(
   track_number: "3",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum2.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File32.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File32.mp3")
 )
 
 vol1song4 = Song.create(
@@ -377,7 +377,7 @@ vol1song4 = Song.create(
   track_number: "4",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum2.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File21.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File21.mp3")
 )
 
 vol2song1 = Song.create(
@@ -385,7 +385,7 @@ vol2song1 = Song.create(
   track_number: "1",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum3.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File14.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File14.mp3")
 )
 
 vol2song2 = Song.create(
@@ -393,7 +393,7 @@ vol2song2 = Song.create(
   track_number: "2",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum3.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File33.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File33.mp3")
 )
 
 vol2song3 = Song.create(
@@ -401,5 +401,5 @@ vol2song3 = Song.create(
   track_number: "3",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum3.id,
-  song_file: File.new("#{Rails.root}/app/assets/songs/File36.mp3")
+  song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File36.mp3")
 )
