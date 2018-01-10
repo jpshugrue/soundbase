@@ -7,6 +7,7 @@ class SearchBar extends React.Component {
     super(props);
     this.hasFetched = false;
     this.handleClick = this.handleClick.bind(this);
+    this.handleInput = this.handleInput.bind(this);
   }
 
   handleClick() {
@@ -15,6 +16,21 @@ class SearchBar extends React.Component {
       this.props.fetchAlbums();
       this.props.fetchSongs();
       this.hasFetched = true;
+    }
+  }
+
+  componentDidMount() {
+    this.checkListHeight();
+  }
+
+  checkListHeight() {
+    let list = document.getElementById('searchList');
+    let height = window.getComputedStyle(list).getPropertyValue('height');
+
+    if (height === "0px") {
+      list.style.display = "none";
+    } else {
+      list.style.display = "";
     }
   }
 
@@ -30,6 +46,7 @@ class SearchBar extends React.Component {
         listItem.style.display = "none";
       }
     }
+    this.checkListHeight();
   }
 
   render() {
