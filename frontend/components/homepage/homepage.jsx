@@ -15,7 +15,7 @@ const HomePage = (state) => (
         DISCOVER - LATEST ALBUMS
       </div>
       <div className="homePageAlbumListBox">
-        <AlbumListContainer limit={8}/>
+        <AlbumListContainer limit={8} includeArtistName={true}/>
       </div>
     </div>
   </div>

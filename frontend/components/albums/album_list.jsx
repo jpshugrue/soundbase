@@ -9,6 +9,15 @@ class AlbumList extends React.Component {
 
   componentDidMount() {
     this.props.fetchAlbums();
+    if (this.props.includeArtistName) {
+      this.props.fetchArtists();
+    }
+  }
+
+  checkForArtistName(artistId) {
+    if (this.props.includeArtistName && this.props.artists[artistId]) {
+      return <div className="albumListArtistText" key="artistName">{this.props.artists[artistId].display_name}</div>;
+    }
   }
 
   renderAlbums(albums) {
@@ -20,6 +29,7 @@ class AlbumList extends React.Component {
         <Link to={`/albums/${album.id}`} key="Link">
           <img src={album.album_cover} className="albumListCoverImage" key="Img"></img>
           <div className="albumListTitleText" style={this.props.linkStyle} key="div">{album.album_title}</div>
+          {this.checkForArtistName(album.artist_id)}
         </Link>
       </li>;
     });

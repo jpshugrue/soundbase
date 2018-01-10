@@ -94,14 +94,15 @@
 }
 
 .albumShowSongList button {
-  width: 17px;
-  height: 16px;
+  width: 19px;
+  height: 18px;
   padding: 4px 0 4px 0;
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(217, 217, 217);
-  line-height: 15px;
+  line-height: 16px;
   border-radius: 2px;
-  font-size: 12px;
+  font-size: 9px;
+  padding: 0;
 }
 
 .trackNumber {
@@ -115,7 +116,7 @@
   line-height: 15px;
   cursor: pointer;
 }
-// 
+//
 // .albumShowSongList button:after {
 //   content: "\25BA";
 // }

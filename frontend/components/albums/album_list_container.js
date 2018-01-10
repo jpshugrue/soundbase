@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import { fetchAlbums } from '../../actions/album_actions';
+import { fetchArtists } from '../../actions/artist_actions';
 import { selectAlbums } from '../../reducers/selectors';
 import AlbumList from './album_list';
 
-const mapStateToProps = (state, { artist, linkStyle, limit, loggedIn }) => {
+const mapStateToProps = (state, { artist, linkStyle, limit, loggedIn, includeArtistName }) => {
   let albums;
   let artistId;
   if (artist) {
@@ -13,16 +14,19 @@ const mapStateToProps = (state, { artist, linkStyle, limit, loggedIn }) => {
     albums = Object.values(state.entities.albums);
   }
   return {
+    artists: state.entities.artists,
     albums,
     linkStyle,
     limit,
     loggedIn,
-    artistId
+    artistId,
+    includeArtistName
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAlbums: () => dispatch(fetchAlbums())
+  fetchAlbums: () => dispatch(fetchAlbums()),
+  fetchArtists: () => dispatch(fetchArtists())
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(AlbumList);

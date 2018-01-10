@@ -26,6 +26,10 @@
    color: rgb(51, 51, 51);
  }
 
+ *:focus {
+    outline: none;
+}
+
  body {
    line-height: 1.5;
  }
