@@ -103,10 +103,28 @@
   text-decoration: none;
 }
 
-.searchListItem img {
+.searchListItem img, .mainHeaderLeft .searchListItem img {
   width: 50px;
   height: 50px;
+  margin-top: 0px;
+  padding-right: 0px;
 }
+
+.mainHeaderLeft .boldSearchHeader, .searchResultText div {
+  height: auto;
+  line-height: 16.5px;
+}
+
+.mainHeaderLeft .searchResultList {
+  top: 34px;
+  width: 231px;
+}
+
+.mainHeaderLeft .searchListItem {
+  width: 219px;
+}
+
+.mainHeaderLeft
 
 .dropdown-content {
   top: 49px;
