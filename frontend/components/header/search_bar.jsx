@@ -42,17 +42,35 @@ class SearchBar extends React.Component {
           <ul id="searchList" className="searchResultList">
             {this.props.artists.map((artist, idx) => (
               <li style={{display: "none"}} key={`artist-${idx}`} className="searchListItem">
-                <Link id={`${artist.display_name}`} to={`/artists/${artist.id}`}>{`Artist - ${artist.display_name}`}</Link>
+                <Link id={`${artist.display_name}`} to={`/artists/${artist.id}`}>
+                  <img src={`${artist.profile_pic}`}></img>
+                  <div className="searchResultText">
+                    <div className="boldSearchHeader">{`${artist.display_name}`}</div>
+                    <div>Artist</div>
+                  </div>
+                </Link>
               </li>
             ))}
             {this.props.albums.map((album, idx) => (
               <li style={{display: "none"}} key={`album-${idx}`} className="searchListItem">
-                <Link id={`${album.album_title}`} to={`/albums/${album.id}`}>{`Album - ${album.album_title}`}</Link>
+                <Link id={`${album.album_title}`} to={`/albums/${album.id}`}>
+                  <img src={`${album.album_cover}`}></img>
+                  <div className="searchResultText">
+                    <div className="boldSearchHeader">{`${album.album_title}`}</div>
+                    <div>Album</div>
+                  </div>
+                </Link>
               </li>
             ))}
             {this.props.songs.map((song, idx) => (
               <li style={{display: "none"}} key={`song-${idx}`} className="searchListItem">
-                <Link id={`${song.song_title}`} to={`/albums/${song.album_id}`}>{`Song - ${song.song_title}`}</Link>
+                <Link id={`${song.song_title}`} to={`/albums/${song.album_id}`}>
+                  <img src={`${this.props.albums.find((album) => { return album.id === song.album_id; }).album_cover}`}></img>
+                  <div className="searchResultText">
+                    <div className="boldSearchHeader">{`${song.song_title}`}</div>
+                    <div>Track</div>
+                  </div>
+                </Link>
               </li>
             ))}
           </ul>

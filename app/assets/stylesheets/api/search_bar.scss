@@ -27,3 +27,62 @@
   right: 12px;
   top: 5px;
 }
+
+.searchResultList {
+  width: 246px;
+  position: absolute;
+  z-index: 1;
+}
+
+.searchResultText {
+  // width: 184px;
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  padding-left: 6px;
+}
+
+.searchResultText span {
+  width: 170px;
+  height: 14px;
+  margin-top: 0px;
+}
+
+.boldSearchHeader {
+  color: rgb(22, 17, 19);
+  font-size: 11px;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 4px;
+}
+
+.searchListItem {
+  width: 234px;
+  padding: 4px 6px 4px 6px;
+  height: 50px;
+  font-size: 11px;
+  -webkit-font-smoothing: antialiased;
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+.searchListItem a {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+
+.searchListItem img {
+  width: 50px;
+  height: 50px;
+}
+
+.dropdown-content {
+  top: 49px;
+  border-right: 1px solid rgb(204, 204, 204);
+  border-bottom: 1px solid rgb(204, 204, 204);
+  border-left: 1px solid rgb(204, 204, 204);
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
