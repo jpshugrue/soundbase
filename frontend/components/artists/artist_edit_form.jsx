@@ -13,7 +13,10 @@ class ArtistEditForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateArtist({formData: this.formData, artistId: this.props.artistId}).then((success) => this.props.history.push(`/artists/${this.props.artistId}`));
+    this.props.updateArtist({formData: this.formData, artistId: this.props.artistId}).then((success) => {
+      this.props.refresh(this.props.artistId);
+      this.props.history.push(`/artists/${this.props.artistId}`);
+    });
   }
 
   update(field) {

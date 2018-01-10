@@ -39,7 +39,7 @@ class AlbumList extends React.Component {
     if (loggedIn) {
       return <li key="newAlbumLi" className="albumListItem">
         <Link to={`/artists/${this.props.artistId}/newAlbum`} key="Link" className="addNewAlbumButton">
-          <div key="div" className="addNewAlbumText">
+          <div key="div" className="addNewAlbumText" style={this.props.linkStyle}> 
             Add A New Album
           </div>
         </Link>

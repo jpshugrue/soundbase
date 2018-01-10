@@ -1,4 +1,5 @@
 import * as SessionApiUtil from '../util/session_api_util';
+import * as ArtistApiUtil from '../util/artist_util';
 
 export const RECEIVE_CURRENT_ARTIST = "RECEIVE_CURRENT_ARTIST";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
@@ -34,6 +35,12 @@ export const logout = () => (dispatch) => {
 
 export const signup = (artist) => (dispatch) => {
   return SessionApiUtil.signup(artist).then((artist) =>
+    dispatch(receiveCurrentArtist(artist)), (error) =>
+    dispatch(receiveErrors(error.responseJSON)));
+};
+
+export const refresh = (id) => (dispatch) => {
+  return ArtistApiUtil.fetchArtist(id).then((artist) =>
     dispatch(receiveCurrentArtist(artist)), (error) =>
     dispatch(receiveErrors(error.responseJSON)));
 };
