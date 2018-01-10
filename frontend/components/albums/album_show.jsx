@@ -68,7 +68,6 @@ class AlbumShow extends React.Component {
     if (this.player.paused) {
       this.player.play();
       this.mainPlaySymbol = <i className="icon-pause"></i>;
-      // document.getElementById("playButton").style.fontSize = "20px";
     } else {
       this.player.pause();
       this.mainPlaySymbol = <i className="icon-play"></i>;
