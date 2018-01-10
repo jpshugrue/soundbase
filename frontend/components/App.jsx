@@ -2,7 +2,7 @@ import React from 'react';
 
 import SessionFormContainer from './session_form/session_form_container';
 import { Route } from 'react-router-dom';
-import { AuthRoute } from '../util/route_util';
+import { AuthRoute, EditArtistProtectedRoute, NewAlbumProtectedRoute, EditAlbumProtectedRoute } from '../util/route_util';
 import Footer from './footer';
 import HomePage from './homepage/homepage';
 import HomeHeader from './header/home_header';
@@ -26,11 +26,11 @@ const App = () => (
     <main>
       <Route exact path="/" component={HomePage} />
       <Route exact path="/artists/:artistId" component={ArtistShowContainer} />
-      <Route path="/artists/:artistId/edit" component={ArtistEditContainer} />
+      <EditArtistProtectedRoute path="/artists/:artistId/edit" component={ArtistEditContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
-      <Route path="/artists/:artistId/newAlbum" component={AlbumNewFormContainer} />
-      <Route exact path="/albums/:albumId/edit" component={AlbumEditFormContainer} />
+      <NewAlbumProtectedRoute path="/artists/:artistId/newAlbum" component={AlbumNewFormContainer} />
+      <EditAlbumProtectedRoute exact path="/albums/:albumId/edit" component={AlbumEditFormContainer} />
       <Route exact path="/albums/:albumId" component={AlbumShowPageContainer} />
     </main>
     <footer>
