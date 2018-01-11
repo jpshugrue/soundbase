@@ -9,7 +9,8 @@ class AlbumShow extends React.Component {
     this.playpause = this.playpause.bind(this);
     this.updateElapsedTime = this.updateElapsedTime.bind(this);
     this.onAudioLoad = this.onAudioLoad.bind(this);
-
+    this.prevSong = this.prevSong.bind(this);
+    this.nextSong = this.nextSong.bind(this);
     this.sliderMove = this.sliderMove.bind(this);
     this.editLink = this.editLink.bind(this);
 
@@ -125,6 +126,18 @@ class AlbumShow extends React.Component {
     this.smallPlaySymbol.push(<i className="icon-play"></i>);
   }
 
+  prevSong() {
+    if (this.currentSongIdx > 0) {
+      this.handleCurrentSong(this.props.songs[this.currentSongIdx-1], this.currentSongIdx-1);
+    }
+  }
+
+  nextSong() {
+    if (this.currentSongIdx < this.props.songs.length-1) {
+      this.handleCurrentSong(this.props.songs[this.currentSongIdx+1], this.currentSongIdx+1);
+    }
+  }
+
   render() {
     return (
       <div className="albumShowContainerBox">
@@ -152,6 +165,8 @@ class AlbumShow extends React.Component {
                     <input id="sliderBar" type="range" min="0" max={this.state.totalTime} value={this.state.currentTime} onInput={this.sliderMove} step="0.5"></input>
                   </div>
                 </div>
+                <i onClick={this.prevSong} className="icon-fast-backward"></i>
+                <i onClick={this.nextSong} className="icon-fast-forward"></i>
               </div>
             </div>
           </div>

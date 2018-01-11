@@ -9,6 +9,13 @@
   width: 376px;
 }
 
+.musicPlayerBottomRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 310px;
+}
+
 .albumShowAlbumTitle {
   font-size: 28px;
   color: rgb(54, 54, 54);
@@ -16,6 +23,19 @@
   line-height: 28px;
   margin-bottom: 8px;
   margin-right: 30px;
+}
+
+.icon-fast-backward, .icon-fast-forward {
+  display: inline-block;
+  font-size: 12px;
+  transform: scale(1.67, 1);
+  cursor: pointer;
+  width: 20px;
+}
+
+.icon-fast-backward::before, .icon-fast-forward::before {
+  line-height: 27px;
+  text-align: center;
 }
 
 .albumShowRightSide {
