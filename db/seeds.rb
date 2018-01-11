@@ -317,7 +317,7 @@ debugsong3 = Song.create(
 )
 
 debugsong4 = Song.create(
-  song_title: "There are 9 questions ahead of yours in Brooklyn",
+  song_title: "There are 9 questions ahead of yours",
   track_number: "4",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum1.id,
