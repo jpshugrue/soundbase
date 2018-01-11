@@ -190,6 +190,7 @@ class AlbumShow extends React.Component {
                     <button key="play" type="button" onClick={() => this.handleCurrentSong(song, idx)}>{this.smallPlaySymbol[idx]}</button>
                     <span className="trackNumber" style={this.props.textStyle}>{song.track_number}.</span>
                     <span className="trackName" onClick={() => this.handleCurrentSong(song, idx)} style={this.props.linkStyle}>{song.song_title}</span>
+                    <span className="trackLength">{this.formatTime(song.metadata)}</span>
                   </div>
                   <div className="downloadLink">
                     <a href={song.song_file} style={this.props.linkStyle} download>download</a>
