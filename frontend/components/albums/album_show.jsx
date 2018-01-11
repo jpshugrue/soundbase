@@ -18,6 +18,9 @@ class AlbumShow extends React.Component {
     this.smallPlaySymbol = [];
     this.currentSongIdx = 0;
     this.waitingForLoad = false;
+
+    this.prevStyle = {color: "gray"};
+    this.nextStyle = {};
   }
 
   componentDidMount() {
@@ -57,6 +60,14 @@ class AlbumShow extends React.Component {
         this.smallPlaySymbol[this.currentSongIdx] = <i className="icon-play"></i>;
       }
     } else {
+      if (idx === 0) {
+        this.prevStyle = {color: "gray"};
+      } else if (idx === this.props.songs.length-1) {
+        this.nextStyle = {color: "gray"};
+      } else {
+        this.prevStyle = {};
+        this.nextStyle = {};
+      }
       this.smallPlaySymbol[this.currentSongIdx] = <i className="icon-play"></i>;
       this.currentSongIdx = idx;
       this.smallPlaySymbol[this.currentSongIdx] = <i className="icon-pause"></i>;
@@ -165,8 +176,8 @@ class AlbumShow extends React.Component {
                     <input id="sliderBar" type="range" min="0" max={this.state.totalTime} value={this.state.currentTime} onInput={this.sliderMove} step="0.5"></input>
                   </div>
                 </div>
-                <i onClick={this.prevSong} className="icon-fast-backward"></i>
-                <i onClick={this.nextSong} className="icon-fast-forward"></i>
+                <i onClick={this.prevSong} style={this.prevStyle} className="icon-fast-backward"></i>
+                <i onClick={this.nextSong} style={this.nextStyle} className="icon-fast-forward"></i>
               </div>
             </div>
           </div>
