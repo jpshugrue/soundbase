@@ -26,9 +26,14 @@ class SearchBar extends React.Component {
 
   checkListHeight() {
     let list = document.getElementById('searchList');
-    let height = window.getComputedStyle(list).getPropertyValue('height');
-
-    if (height === "0px") {
+    let listItems = document.getElementById("searchList").getElementsByTagName('li');
+    let allHidden = true;
+    for (const listItem of listItems) {
+      if (listItem.style.display !== "none") {
+        allHidden = false;
+      }
+    }
+    if (allHidden) {
       list.style.display = "none";
     } else {
       list.style.display = "";
