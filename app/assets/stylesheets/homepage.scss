@@ -43,6 +43,10 @@
   width: 232px;
 }
 
+.homePageArtistListBox .artistShowContainer:hover > .artistShowName {
+  text-decoration: underline;
+}
+
 .artistListUL {
   display: flex;
   flex-direction: row;

@@ -35,6 +35,10 @@
   text-align: left;
 }
 
+.homePageAlbumListBox .albumListItem a:hover > .albumListTitleText {
+  text-decoration: underline;
+}
+
 .albumListArtistText {
   font-size: 12px;
   -webkit-font-smoothing: antialiased;
