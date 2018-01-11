@@ -3,7 +3,8 @@ import React from 'react';
 import SessionFormContainer from './session_form/session_form_container';
 import { Route } from 'react-router-dom';
 import { AuthRoute, EditArtistProtectedRoute, NewAlbumProtectedRoute, EditAlbumProtectedRoute } from '../util/route_util';
-import Footer from './footer';
+import HomeFooter from './footer';
+import MainFooter from './main_footer';
 import HomePage from './homepage/homepage';
 import HomeHeader from './header/home_header';
 import SessionHeader from './header/session_header';
@@ -34,7 +35,11 @@ const App = () => (
       <Route exact path="/albums/:albumId" component={AlbumShowPageContainer} />
     </main>
     <footer>
-      <Footer />
+      <Route exact path="/" component={HomeFooter}/>
+      <Route path="/login" component={HomeFooter}/>
+      <Route path="/signup" component={HomeFooter}/>
+      <Route path="/artists" component={MainFooter}/>
+      <Route path="/albums" component={MainFooter}/>
     </footer>
   </div>
 );

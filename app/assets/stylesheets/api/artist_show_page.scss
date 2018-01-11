@@ -1,7 +1,13 @@
+.artistShowPageContainer {
+  overflow: hidden;
+}
+
 .artistShowPageBodyBox {
   width: 975px;
   margin: 0 auto;
   min-height: 980px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 40px;
 }
 
 .artistCoverImage {

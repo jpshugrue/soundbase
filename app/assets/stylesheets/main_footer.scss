@@ -1,0 +1,36 @@
+.mainFooterContainer {
+  background-color: rgb(132,132,132);
+  height: 31px;
+}
+
+.mainFooterBody {
+  margin: 0 auto;
+  width: 975px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.mainFooterBody img {
+  width: 136px;
+  height: 20px;
+  padding-top: 5px;
+}
+
+.mainFooterBody nav {
+  height: 17px;
+}
+
+.mainFooterBody .footerNav a {
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  padding: 7px 7px 7px 2px;
+}
+
+.mainFooterBody .footerNav a:hover {
+  text-decoration: underline;
+}

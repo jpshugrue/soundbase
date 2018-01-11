@@ -1,11 +1,13 @@
 import React from 'react';
 
 const Footer = () => (
-  <nav className="footerNav">
-    <a href="https://github.com/jpshugrue">Github</a>
-    <a href="https://www.linkedin.com/in/jeremiahshugrue/">LinkedIn</a>
-    <a href="https://github.com/jpshugrue">Portfolio</a>
-  </nav>
+  <div className="homeFooter">
+    <nav className="footerNav">
+      <a href="https://github.com/jpshugrue">Github</a>
+      <a href="https://www.linkedin.com/in/jeremiahshugrue/">LinkedIn</a>
+      <a href="https://github.com/jpshugrue">Portfolio</a>
+    </nav>
+  </div>
 );
 
 export default Footer;

@@ -1,9 +1,9 @@
-Footer {
+.homeFooter {
   background-color: #477987;
-  min-height: 320px;
+  min-height: 160px;
 }
 
-Footer .footerNav {
+.homeFooter .footerNav {
   min-width: 705px;
   max-width: 1106px;
   width: 83%;
@@ -13,7 +13,7 @@ Footer .footerNav {
   margin: 0 auto;
 }
 
-Footer .footerNav a {
+.homeFooter .footerNav a {
   margin-top: 40px;
   margin-left: 100px;
   margin-right: 100px;
