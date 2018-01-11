@@ -22,6 +22,10 @@ export const updateArtist = (artist) => (dispatch) => {
     dispatch(receiveErrors(error.responseJSON)));
 };
 
+export const clearArtistErrors = () => (dispatch) => {
+  return dispatch(receiveErrors([]));
+};
+
 const receiveArtists = (artists) => {
   return {
     type: RECEIVE_ARTISTS,

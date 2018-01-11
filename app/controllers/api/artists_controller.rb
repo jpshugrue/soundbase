@@ -30,7 +30,7 @@ class Api::ArtistsController < ApplicationController
       if @artist.update(artist_params)
         render "api/artists/show"
       else
-        render json: @artist.errors.full_messages
+        render json: @artist.errors.full_messages, status: 422
       end
     else
       render json: "Artist not found", status: 404

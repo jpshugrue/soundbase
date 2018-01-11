@@ -38,9 +38,9 @@ class ArtistEditForm extends React.Component {
     this.setState(nextProps.artist);
   }
 
-  // componentWillUnmount() {
-  //   this.props.clearErrors();
-  // }
+  componentWillUnmount() {
+    this.props.clearArtistErrors();
+  }
 
   renderErrors() {
     return(
@@ -95,12 +95,11 @@ class ArtistEditForm extends React.Component {
                <Link className="artist-edit-form-cancel-btn" to={`/artists/${this.props.artistId}`}>Cancel</Link>
              </div>
            </form>
+           {this.renderErrors()}
          </div>
        </div>
      );
    }
 }
-
-// {this.renderErrors()}
 
 export default ArtistEditForm;

@@ -41,6 +41,10 @@ export const deleteSong = (id) => (dispatch) => {
     dispatch(receiveErrors(error.responseJSON)));
 };
 
+export const clearSongErrors = () => (dispatch) => {
+  return dispatch(receiveErrors([]));
+};
+
 const removeSong = (songId) => {
   return {
     type: REMOVE_SONG,

@@ -35,6 +35,10 @@ export const deleteAlbum = (id) => (dispatch) => {
     dispatch(receiveErrors(error.responseJSON)));
 };
 
+export const clearAlbumErrors = () => (dispatch) => {
+  return dispatch(receiveErrors([]));
+};
+
 const removeAlbum = (albumId) => {
   return {
     type: REMOVE_ALBUM,

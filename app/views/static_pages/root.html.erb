@@ -25,14 +25,16 @@
       }
     }
     if (notOnSearchBar) {
-      const searchBar = document.getElementById("searchBar");
-      searchBar.value = "";
-      let listItems = document.getElementById("searchList").getElementsByTagName('li');
-      for (const listItem of listItems) {
-        listItem.style.display = "none";
+      if (document.getElementById("searchBar")) {
+        const searchBar = document.getElementById("searchBar");
+        searchBar.value = "";
+        let listItems = document.getElementById("searchList").getElementsByTagName('li');
+        for (const listItem of listItems) {
+          listItem.style.display = "none";
+        }
+        let list = document.getElementById('searchList');
+        list.style.display = "none";
       }
-      let list = document.getElementById('searchList');
-      list.style.display = "none";
     }
   };
 </script>

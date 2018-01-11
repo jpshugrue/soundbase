@@ -42,16 +42,6 @@ class AlbumShow extends React.Component {
     this.smallPlaySymbol = [];
     this.currentSongIdx = 0;
     this.waitingForLoad = false;
-
-    // this.mainPlaySymbol = <i className="icon-play"></i>;
-    // this.smallPlaySymbol = [];
-    // this.currentSongIdx = 0;
-
-    // this.setState({currentTime: 0, totalTime: 0});
-  }
-
-  componentWillUnmount() {
-
   }
 
   handleCurrentSong(song, idx) {

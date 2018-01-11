@@ -61,19 +61,36 @@ class AlbumNewForm extends React.Component {
     });
   }
 
-  // componentWillUnmount() {
-  //   this.props.clearErrors();
-  // }
+  componentWillUnmount() {
+    this.props.clearAlbumErrors();
+    this.props.clearSongErrors();
+  }
 
-  renderErrors() {
+  renderAlbumErrors() {
     return(
-      <ul className="errorRender">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
+      <div>
+        <ul className="errorRender">
+          {this.props.albumErrors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  renderSongErrors() {
+    return(
+      <div>
+        <ul className="errorRender">
+          {this.props.songErrors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
 
@@ -118,6 +135,7 @@ class AlbumNewForm extends React.Component {
               <label>Album Credits</label>
               <textarea value={this.state.album_credits} onChange={this.updateAlbum('album_credits')} className="albumFormTextArea"></textarea>
             </div>
+            {this.renderAlbumErrors()}
             <div className="albumFormHeading">Songs</div>
             <div className="albumFormList">
               {this.state.songs.map((song, idx) => (
@@ -144,12 +162,12 @@ class AlbumNewForm extends React.Component {
               <Link className="albumFormCancelBtn" to={`/albums/${this.props.albumId}`}>Cancel</Link>
             </div>
           </form>
+          {this.renderSongErrors()}
         </div>
       </div>
     );
   }
 
 }
-// {this.renderErrors()}
 
 export default AlbumNewForm;
