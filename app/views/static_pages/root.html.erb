@@ -12,5 +12,28 @@
     dropdownCaret: "<%= asset_url("dropdown-caret.png") %>",
     searchIcon: "<%= asset_url("search-icon.png") %>"
   }
+  window.onclick = function(event) {
+    const notOnDropdown = !(event.target.matches('.dropbtn') || event.target.matches('.artistName') || event.target.matches('.artistPic'));
+    const notOnSearchBar = !(event.target.matches('.searchListItem') || event.target.matches('#searchBar'));
+    if (notOnDropdown){
+      const dropdowns = document.getElementsByClassName("dropdown-content");
+      for (let i = 0; i < dropdowns.length; i++) {
+        let openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+    if (notOnSearchBar) {
+      const searchBar = document.getElementById("searchBar");
+      searchBar.value = "";
+      let listItems = document.getElementById("searchList").getElementsByTagName('li');
+      for (const listItem of listItems) {
+        listItem.style.display = "none";
+      }
+      let list = document.getElementById('searchList');
+      list.style.display = "none";
+    }
+  };
 </script>
 <main id="root"></main>
