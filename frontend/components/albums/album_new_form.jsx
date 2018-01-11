@@ -20,6 +20,7 @@ class AlbumNewForm extends React.Component {
     this.props.createAlbum(this.albumFormData).then((success) => {
       albumId = success.album.id;
       let songFormData;
+      let allSuccessful = true;
       for (const idx in this.state.songs) {
         songFormData = new FormData();
         songFormData.set(`song[song_title]`, this.state.songs[idx].song_title);
@@ -32,7 +33,6 @@ class AlbumNewForm extends React.Component {
       this.props.refresh(this.props.artistId);
       this.props.history.push(`/albums/${albumId}`);
     });
-
   }
 
   updateAlbum(field) {
@@ -80,19 +80,19 @@ class AlbumNewForm extends React.Component {
     );
   }
 
-  renderSongErrors() {
-    return(
-      <div>
-        <ul className="errorRender">
-          {this.props.songErrors.map((error, i) => (
-            <li key={`error-${i}`}>
-              {error}
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
+  // renderSongErrors() {
+  //   return(
+  //     <div>
+  //       <ul className="errorRender">
+  //         {this.props.songErrors.map((error, i) => (
+  //           <li key={`error-${i}`}>
+  //             {error}
+  //           </li>
+  //         ))}
+  //       </ul>
+  //     </div>
+  //   );
+  // }
 
   updateSong(field, idx) {
     return event => {
@@ -162,7 +162,6 @@ class AlbumNewForm extends React.Component {
               <Link className="albumFormCancelBtn" to={`/albums/${this.props.albumId}`}>Cancel</Link>
             </div>
           </form>
-          {this.renderSongErrors()}
         </div>
       </div>
     );

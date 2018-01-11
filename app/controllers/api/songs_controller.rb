@@ -15,12 +15,12 @@ class Api::SongsController < ApplicationController
   end
 
   def update
-    song = Song.find_by(id: params[:id])
+    @song = Song.find_by(id: params[:id])
     if @song
       if @song.update(song_params)
         render "api/songs/show"
       else
-        rebder json: @song.errors.full_messages
+        render json: @song.errors.full_messages
       end
     else
       render json: "Song not found", status: 404
