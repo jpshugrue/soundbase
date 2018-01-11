@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { createAlbum } from '../../actions/album_actions';
 import { createSong } from '../../actions/song_actions';
+import { refresh } from '../../actions/session_actions';
 import AlbumNewForm from './album_new_form';
 
 const mapStateToProps = (state, { match }) => {
@@ -21,7 +22,8 @@ const mapStateToProps = (state, { match }) => {
 const mapDispatchToProps = (dispatch, { match }) => {
   return {
     createAlbum: album => dispatch(createAlbum(album)),
-    createSong: song => dispatch(createSong(song))
+    createSong: song => dispatch(createSong(song)),
+    refresh: id => dispatch(refresh(id))
   };
 };
 
