@@ -159,7 +159,7 @@ class AlbumNewForm extends React.Component {
             </div>
             <div className="albumFormButtons">
               <input type="submit" className="albumFormSubmitBtn" value="Save" />
-              <Link className="albumFormCancelBtn" to={`/albums/${this.props.albumId}`}>Cancel</Link>
+              <Link className="albumFormCancelBtn" to={`/artists/${this.props.artistId}`}>Cancel</Link>
             </div>
           </form>
         </div>
