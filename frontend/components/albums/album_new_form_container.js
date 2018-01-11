@@ -16,8 +16,7 @@ const mapStateToProps = (state, { match }) => {
     artistId,
     album,
     songs,
-    albumErrors: state.errors.album,
-    songErrors: state.errors.song
+    albumErrors: state.errors.album
   };
 };
 

@@ -33,13 +33,12 @@ class AlbumEditForm extends React.Component {
         songFormData.set(`song[artist_id]`, this.props.album.artist_id);
         songFormData.set(`song[album_id]`, this.props.albumId);
         if (this.state.songs[idx].id) {
-          this.props.updateSong(songFormData);
+          this.props.updateSong({formData: songFormData, songId: this.state.songs[idx].id});
         } else {
           this.props.createSong(songFormData);
         }
       }
     }
-    // <Redirect to={`/albums/${this.props.albumId}`}/>;
     this.props.history.push(`/albums/${this.props.albumId}`);
   }
 
@@ -85,9 +84,9 @@ class AlbumEditForm extends React.Component {
     });
   }
 
-  // componentWillUnmount() {
-  //   this.props.clearErrors();
-  // }
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
 
   renderErrors() {
     return(
@@ -153,6 +152,7 @@ class AlbumEditForm extends React.Component {
               <label>Album Credits</label>
               <textarea value={this.state.album.album_credits} onChange={this.updateAlbum('album_credits')} className="albumFormTextArea"></textarea>
             </div>
+            {this.renderErrors()}
             <div className="albumFormHeading">Songs</div>
             <div className="albumFormList">
               {this.state.songs.map((song, idx) => {
@@ -188,6 +188,6 @@ class AlbumEditForm extends React.Component {
     );
   }
 }
-// {this.renderErrors()}
+//
 
 export default AlbumEditForm;
