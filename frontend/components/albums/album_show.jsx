@@ -9,25 +9,49 @@ class AlbumShow extends React.Component {
     this.playpause = this.playpause.bind(this);
     this.updateElapsedTime = this.updateElapsedTime.bind(this);
     this.onAudioLoad = this.onAudioLoad.bind(this);
-    this.waitingForLoad = false;
+
     this.sliderMove = this.sliderMove.bind(this);
     this.editLink = this.editLink.bind(this);
 
     this.mainPlaySymbol = <i className="icon-play"></i>;
     this.smallPlaySymbol = [];
     this.currentSongIdx = 0;
+    this.waitingForLoad = false;
   }
 
   componentDidMount() {
     this.props.fetchSongsByAlbum(this.props.albumId);
     this.player = document.getElementById('player');
+
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.songs.length > 0) {
+      this.player.pause();
       this.currentSongLoc = nextProps.songs[0].song_file;
       this.currentSongTitle = nextProps.songs[0].song_title;
+    } else {
+      this.currentSongLoc = undefined;
+      this.currentSongTitle = undefined;
+      this.player.src = undefined;
+      this.player.load();
+      this.setState({currentTime: 0});
+      this.setState({totalTime: 0});
     }
+    this.mainPlaySymbol = <i className="icon-play"></i>;
+    this.smallPlaySymbol = [];
+    this.currentSongIdx = 0;
+    this.waitingForLoad = false;
+
+    // this.mainPlaySymbol = <i className="icon-play"></i>;
+    // this.smallPlaySymbol = [];
+    // this.currentSongIdx = 0;
+
+    // this.setState({currentTime: 0, totalTime: 0});
+  }
+
+  componentWillUnmount() {
+
   }
 
   handleCurrentSong(song, idx) {
