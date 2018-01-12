@@ -2,7 +2,7 @@
 
 [Soundbase Live](https://aa-soundbase.herokuapp.com/#/)
 
-Soundbase is a full-stack web application base on the music sharing website Bandcamp. It enables musicians to share their music with fans. It is built using Ruby on Rails, a PostgreSQL databse and React with Redux.
+Soundbase is a full-stack web application based on the music sharing website Bandcamp. It enables musicians to share their music with fans. It is built using Ruby on Rails, a PostgreSQL databse and React with Redux.
 
 # Features
 
