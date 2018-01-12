@@ -10,9 +10,7 @@ Soundbase is a full-stack web application based on the music sharing website Ban
 
 ![alt text](https://github.com/jpshugrue/soundbase/blob/master/app/assets/images/search_bar_shot.png "Search Bar")
 
-Soundbase features a live updating drop down search bar which displays artists, albums and song names which contain the text of the search query. This was implemented by making AJAX requests to the respective database tables and receiving the search entry information as JSON to be render. Each item in the search list is a link that takes the user to the respective artist page or album page.
-
-I found the biggest challenge with search was not pulling the data from the database but actually filtering and displaying it
+Soundbase features a live updating drop down search bar which displays artists, albums and song names which contain the text of the search query. This was implemented by making AJAX requests to the respective database tables and receiving the search entry information as JSON to be rendered. Each item in the search list is a link that takes the user to the respective artist page or album page.
 
 ## Artist Pages
 
