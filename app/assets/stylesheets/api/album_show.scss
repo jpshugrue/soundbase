@@ -81,7 +81,7 @@
 }
 
 .musicPlayerTime {
-  color: rgb(136, 136, 136);
+  // color: rgb(136, 136, 136);
   font-size: 12px;
   line-height: 15px;
 }
@@ -155,6 +155,10 @@
   font-size: 12px;
   line-height: 15px;
   padding-top: 24px;
+}
+
+.albumCredits {
+  white-space: pre-line;
 }
 
 .editLink {

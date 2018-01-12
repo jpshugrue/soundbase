@@ -125,7 +125,7 @@ class AlbumShow extends React.Component {
 
   editLink() {
     if (this.props.loggedIn) {
-      return <Link className="editLink" to={`${this.props.albumId}/edit`}>edit album</Link>;
+      return <Link className="editLink" style={this.props.linkStyle} to={`${this.props.albumId}/edit`}>edit album</Link>;
     }
   }
 
@@ -166,7 +166,7 @@ class AlbumShow extends React.Component {
             <div className="musicPlayerRightSide">
               <div className="musicPlayerTopRow">
                 <span className="musicPlayerSongTitle" style={this.props.textStyle}>{this.currentSongTitle}</span>
-                <span className="musicPlayerTime">
+                <span className="musicPlayerTime" style={this.props.textStyle}>
                   {this.formatTime(this.state.currentTime)} / {this.formatTime(this.state.totalTime)}
                 </span>
               </div>
@@ -190,7 +190,7 @@ class AlbumShow extends React.Component {
                     <button key="play" type="button" onClick={() => this.handleCurrentSong(song, idx)}>{this.smallPlaySymbol[idx]}</button>
                     <span className="trackNumber" style={this.props.textStyle}>{song.track_number}.</span>
                     <span className="trackName" onClick={() => this.handleCurrentSong(song, idx)} style={this.props.linkStyle}>{song.song_title}</span>
-                    <span className="trackLength">{this.formatTime(song.metadata)}</span>
+                    <span className="trackLength" style={this.props.textStyle}>{this.formatTime(song.metadata)}</span>
                   </div>
                   <div className="downloadLink">
                     <a href={song.song_file} style={this.props.linkStyle} download>download</a>

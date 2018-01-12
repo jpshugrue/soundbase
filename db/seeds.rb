@@ -10,32 +10,43 @@ Artist.destroy_all
 demoAccount = Artist.create(username: "demonstrator",
   password: "demopass",
   display_name: "The Demonstrators",
-  background_color: "#cccccc",
-  body_color: "#ffffff",
-  text_color: "#000000",
-  link_color: "#3333ff",
+  background_color: "#8EADF1",
+  body_color: "#FF9A2B",
+  text_color: "#2F2022",
+  link_color: "#F3F3F4",
   profile_pic: File.new("#{Rails.root}/app/assets/images/square_image_seeds/File1.jpg"),
-  cover_image: File.new("#{Rails.root}/app/assets/images/cover_image_seeds/File205.jpg")
+  cover_image: File.new("#{Rails.root}/app/assets/images/cover_image_seeds/File206.jpg")
 )
 
 academicAccount = Artist.create(username: "academic",
   password: "demopass",
   display_name: "Academ!c",
-  background_color: "#ffffff",
-  body_color: "#000000",
-  text_color: "#ffff00",
-  link_color: "#ff0000",
+  background_color: "#FF7FB6",
+  body_color: "#3D3F3A",
+  text_color: "#EDEDE8",
+  link_color: "#FF7FB6",
   profile_pic: File.new("#{Rails.root}/app/assets/images/square_image_seeds/File28.jpg"),
   cover_image: File.new("#{Rails.root}/app/assets/images/cover_image_seeds/File61.jpg")
+)
+
+djAccount = Artist.create(username: "djbuilder",
+  password: "demopass",
+  display_name: "DJ Builder and MC Sass",
+  background_color: "#ffffff",
+  body_color: "#6B6B6B",
+  text_color: "#000000",
+  link_color: "#00c5cd",
+  profile_pic: File.new("#{Rails.root}/app/assets/images/square_image_seeds/File26.jpg"),
+  cover_image: File.new("#{Rails.root}/app/assets/images/cover_image_seeds/File209.jpg")
 )
 
 cohortAccount = Artist.create(username: "wintercohort",
   password: "demopass",
   display_name: "Winter Cohort",
-  background_color: "#666666",
-  body_color: "#ffffff",
-  text_color: "#f50601",
-  link_color: "#069b01",
+  background_color: "#231E2A",
+  body_color: "#E39500",
+  text_color: "#3C5CD6",
+  link_color: "#1E181F",
   profile_pic: File.new("#{Rails.root}/app/assets/images/square_image_seeds/File63.jpg"),
   cover_image: File.new("#{Rails.root}/app/assets/images/cover_image_seeds/File204.jpg")
 )
@@ -45,7 +56,15 @@ Album.destroy_all
 demoAlbum1 = Album.create(
   album_title: "Self Titled Debut Album",
   release_date: "1999-01-08",
-  album_credits: "All songs written and performed by The Demonstrators",
+  album_credits: 'All songs written and performed by The Demonstrators
+  Jim Abbiss - Engineer, Mixing, Producer
+  Luke Gifford - Engineer, Mixing
+  Clive Goddard - Engineer, Mixing
+  Nellee Hooper - Editing, Mixing
+  Leslie Howe - Composer
+  Liam Howe -Composer 
+  Line of Flight - Arranger, Engineer, Mixing, Producer
+  Oggy - Engineer',
   artist_id: demoAccount.id,
   album_cover: File.new("#{Rails.root}/app/assets/images/square_image_seeds/File100.jpg")
 )
