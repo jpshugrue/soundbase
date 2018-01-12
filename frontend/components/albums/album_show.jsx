@@ -202,7 +202,7 @@ class AlbumShow extends React.Component {
           <div className="albumShowInfo">
             <span className="releaseSpan" style={this.props.textStyle}>released {this.props.album.release_date}</span>
             <br></br><br></br>
-            <span style={this.props.textStyle}>{this.props.album.album_credits}</span>
+            <span style={this.props.textStyle} className="albumCredits">{this.props.album.album_credits}</span>
           </div>
         </div>
         <div className="albumShowRightSide">
