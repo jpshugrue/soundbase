@@ -7,7 +7,6 @@ import AlbumEditForm from './album_edit_form';
 const mapStateToProps = (state, { match }) => {
   const albumId = parseInt(match.params.albumId);
   const album = selectAlbum(state.entities, match.params.albumId);
-  // const songs = selectSongs(state.entities, match.params.albumId);
   const songs = [];
   return {
     albumId,

@@ -67,10 +67,6 @@
   border-radius: 2px;
   text-align: center;
 }
-//
-// .musicPlayerLeftSide button:after {
-//   content: "\25BA";
-// }
 
 .musicPlayerSongTitle {
   font-size: 12px;
@@ -81,7 +77,6 @@
 }
 
 .musicPlayerTime {
-  // color: rgb(136, 136, 136);
   font-size: 12px;
   line-height: 15px;
 }
@@ -146,10 +141,6 @@
   line-height: 15px;
   padding-left: 8px;
 }
-//
-// .albumShowSongList button:after {
-//   content: "\25BA";
-// }
 
 .albumShowInfo {
   font-size: 12px;
@@ -162,13 +153,11 @@
 }
 
 .editLink {
-  // color: #fc0c00;
   cursor: pointer;
   line-height: 14.772px;
   font-size: 12px;
   display: inline-block;
   margin-left: 5px;
-  // text-align: right;
   float: right;
   padding-top: 6px;
 }

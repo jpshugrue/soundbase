@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import merge from 'lodash/merge';
 import { selectSongs } from '../../reducers/selectors';
-// import { Redirect } from '.react-router';
 
 class AlbumEditForm extends React.Component {
 
@@ -52,11 +51,6 @@ class AlbumEditForm extends React.Component {
       });
     });
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({album: nextProps.album, songs: nextProps.songs});
-  //   this.albumFormData.set(`album[album_title]`, nextProps.album.album_title);
-  // }
 
   updateAlbum(field) {
     return event => {
@@ -188,6 +182,5 @@ class AlbumEditForm extends React.Component {
     );
   }
 }
-//
 
 export default AlbumEditForm;
