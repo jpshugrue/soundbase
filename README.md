@@ -1,4 +1,4 @@
-![alt text](https://github.com/jpshugrue/soundbase/blob/master/app/assets/images/github_logo.png "Soundbase Logo")
+![alt text](https://github.com/jpshugrue/soundbase/blob/master/app/assets/images/home_page_logo.png "Soundbase Logo")
 
 [Soundbase Live](https://aa-soundbase.herokuapp.com/#/)
 

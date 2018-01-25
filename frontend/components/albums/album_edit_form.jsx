@@ -117,6 +117,9 @@ class AlbumEditForm extends React.Component {
 
   handleDeleteAlbum() {
     const artistId = this.props.album.artist_id;
+    this.state.songs.forEach((song) => {
+      this.props.deleteSong(song.id);
+    });
     this.props.deleteAlbum(this.props.albumId).then((success) => {
       this.props.history.push(`/artists/${artistId}`);
     });
