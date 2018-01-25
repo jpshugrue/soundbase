@@ -161,7 +161,7 @@ class AlbumShow extends React.Component {
             <Link to={`/artists/${this.props.artist.id}`} style={this.props.linkStyle}>{this.props.artist.display_name}</Link> {this.editLink()}
           </div>
           <div className="albumShowMusicPlayer">
-            <audio id="player" src={this.currentSongLoc} onTimeUpdate={this.updateElapsedTime} onLoadedData={this.onAudioLoad}></audio>
+            <audio id="player" src={this.currentSongLoc} onTimeUpdate={this.updateElapsedTime} onLoadedData={this.onAudioLoad} onEnded={this.nextSong}></audio>
             <div className="musicPlayerLeftSide">
               <button id="playButton" onClick={this.playpause}>{this.mainPlaySymbol}</button>
             </div>
