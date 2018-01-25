@@ -1,6 +1,7 @@
 class Song < ApplicationRecord
 
   validates :song_title, :track_number, :song_file, presence: true
+  validates :track_number, uniqueness: { scope: :album }
 
   before_save :extract_metadata
   serialize :metadata
