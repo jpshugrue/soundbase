@@ -22,12 +22,12 @@ class ArtistEditForm extends React.Component {
   update(field) {
     return event => {
       this.setState({[field]: event.currentTarget.value});
-      this.formData.append(`artist[${field}]`, event.target.value);
+      this.formData.set(`artist[${field}]`, event.target.value);
     };
   }
 
   fileUpload({file, type}) {
-      this.formData.append(`artist[${type}]`, file);
+      this.formData.set(`artist[${type}]`, file);
   }
 
   componentDidMount() {

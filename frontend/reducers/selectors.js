@@ -25,5 +25,8 @@ export const selectSongs = ({ songs }, albumId) => {
       selectedSongs.push(songs[songId]);
     }
   }
+  selectedSongs.sort((a,b) => {
+    return a.track_number - b.track_number;
+  });
   return selectedSongs;
 };

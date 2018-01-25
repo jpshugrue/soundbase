@@ -26,7 +26,6 @@ class AlbumShow extends React.Component {
   componentDidMount() {
     this.props.fetchSongsByAlbum(this.props.albumId);
     this.player = document.getElementById('player');
-
   }
 
   componentWillReceiveProps(nextProps) {
@@ -151,6 +150,23 @@ class AlbumShow extends React.Component {
     }
   }
 
+  buildSongList() {
+    return this.props.songs.map((song, idx) => (
+      <li key={`${idx}`} className="songListItem">
+        <div>
+          {this.addToSymbolArray()}
+          <button key="play" type="button" onClick={() => this.handleCurrentSong(song, idx)}>{this.smallPlaySymbol[idx]}</button>
+          <span className="trackNumber" style={this.props.textStyle}>{song.track_number}.</span>
+          <span className="trackName" onClick={() => this.handleCurrentSong(song, idx)} style={this.props.linkStyle}>{song.song_title}</span>
+          <span className="trackLength" style={this.props.textStyle}>{this.formatTime(song.metadata)}</span>
+        </div>
+        <div className="downloadLink">
+          <a href={song.song_file} style={this.props.linkStyle} download>download</a>
+        </div>
+      </li>
+    ));
+  }
+
   render() {
     return (
       <div className="albumShowContainerBox">
@@ -185,20 +201,7 @@ class AlbumShow extends React.Component {
           </div>
           <div className="albumShowSongList">
             <ul>
-              {this.props.songs.map((song, idx) => (
-                <li key={`${idx}`} className="songListItem">
-                  <div>
-                    {this.addToSymbolArray()}
-                    <button key="play" type="button" onClick={() => this.handleCurrentSong(song, idx)}>{this.smallPlaySymbol[idx]}</button>
-                    <span className="trackNumber" style={this.props.textStyle}>{song.track_number}.</span>
-                    <span className="trackName" onClick={() => this.handleCurrentSong(song, idx)} style={this.props.linkStyle}>{song.song_title}</span>
-                    <span className="trackLength" style={this.props.textStyle}>{this.formatTime(song.metadata)}</span>
-                  </div>
-                  <div className="downloadLink">
-                    <a href={song.song_file} style={this.props.linkStyle} download>download</a>
-                  </div>
-                </li>
-              ))}
+              { this.buildSongList() }
             </ul>
           </div>
           <div className="albumShowInfo">
