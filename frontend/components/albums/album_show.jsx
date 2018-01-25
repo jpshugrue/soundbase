@@ -112,14 +112,16 @@ class AlbumShow extends React.Component {
   }
 
   playpause() {
-    if (this.player.paused) {
-      this.player.play();
-      this.mainPlaySymbol = <i className="icon-pause"></i>;
-      this.smallPlaySymbol[this.currentSongIdx] = <i className="icon-pause"></i>;
-    } else {
-      this.player.pause();
-      this.mainPlaySymbol = <i className="icon-play"></i>;
-      this.smallPlaySymbol[this.currentSongIdx] = <i className="icon-play"></i>;
+    if (this.currentSongLoc) {
+      if (this.player.paused) {
+        this.player.play();
+        this.mainPlaySymbol = <i className="icon-pause"></i>;
+        this.smallPlaySymbol[this.currentSongIdx] = <i className="icon-pause"></i>;
+      } else {
+        this.player.pause();
+        this.mainPlaySymbol = <i className="icon-play"></i>;
+        this.smallPlaySymbol[this.currentSongIdx] = <i className="icon-play"></i>;
+      }
     }
   }
 
