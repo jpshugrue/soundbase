@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 Artist.destroy_all
 
 demoAccount = Artist.create(username: "demonstrator",
@@ -97,8 +90,6 @@ cohortAlbum2 = Album.create(
   album_title: "App Jams Vol. I - Syntax Error",
   release_date: "2017-11-20",
   album_credits: "C.J. Anderson - Composer
-  Assault - Performer, Primary Artist
-  People Under the Stairs - Primary Artist, Producer
   C. Portugal - Composer
   Thes One - Executive Producer, Producer
   M. Turner - Composer
@@ -119,7 +110,6 @@ demoAlbum2 = Album.create(
   Bill Schnee - Engineer
   Tom Scott - Conductor, Flute, Guest Artist, Horn Arrangements, Horn Conductor, Lyricon, Sax (Tenor), Saxophone
   Wayne Shorter - Flute, Guest Artist, Sax (Tenor), Saxophone
-  Steely Dan - Primary Artist
   Beth Stempel - Reissue Coordination
   Linda Tyler - Assistant Engineer
   Vartan - Reissue Art Director
@@ -131,7 +121,7 @@ demoAlbum2 = Album.create(
 djAlbum2 = Album.create(
   album_title: "1989",
   release_date: "2017-11-06",
-  album_credits: "Black Francis - Composer, Guitar, Vocals
+  album_credits: "Frank Black - Composer, Guitar, Vocals
   Kim Deal - Bass, Composer, Guitar (Bass), Slide Guitar
   Arthur Fiacco - Cello
   Steve Haigler - Mixing
@@ -173,14 +163,12 @@ academicAlbum2 = Album.create(
 cohortAlbum3 = Album.create(
   album_title: "App Jams Vol. II - Infinite Loop",
   release_date: "2018-01-01",
-  album_credits: "Powered by MealPal
-  Paul Hardiman - Engineer, Producer
+  album_credits: "Paul Hardiman - Engineer, Producer
   Camelle Hinds - Bass
   Jools Holland - Guest Artist
   Matt Johnson - Composer, Guitar, Keyboards, Percussion, Producer, Vocals
   Thomas Leer - Guest Artist
   Paul Mardiman - Producer
-  The The - Primary Artist
   J.G. Thirlwell - Guest Artist",
   artist_id: cohortAccount.id,
   album_cover: File.new("#{Rails.root}/app/assets/images/square_image_seeds/File59.jpg")
@@ -197,8 +185,7 @@ cohortAlbum1 = Album.create(
   Mark Ibold - Bass, Member of Attributed Artist
   Scott Kannberg - Composer
   Davis McCain - Audio Engineer, Engineer
-  Bob Nastanovich - Member of Attributed Artist, Percussion
-  Pavement - Primary Artist",
+  Bob Nastanovich - Member of Attributed Artist, Percussion",
   artist_id: cohortAccount.id,
   album_cover: File.new("#{Rails.root}/app/assets/images/square_image_seeds/File100.jpg")
 )
@@ -422,7 +409,7 @@ debugsong1 = Song.create(
 )
 
 debugsong2 = Song.create(
-  song_title: "What'd you get for MealPal",
+  song_title: "Cadenza For Mists",
   track_number: "2",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum1.id,
@@ -438,7 +425,7 @@ debugsong3 = Song.create(
 )
 
 debugsong4 = Song.create(
-  song_title: "There are 9 questions ahead of yours",
+  song_title: "There Are 9 Questions Ahead Of Yours",
   track_number: "4",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum1.id,
@@ -454,7 +441,7 @@ debugsong5 = Song.create(
 )
 
 debugsong6 = Song.create(
-  song_title: "Happy Hour in Midtown",
+  song_title: "Happy Hour In Midtown",
   track_number: "6",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum1.id,
@@ -470,7 +457,7 @@ debugsong7 = Song.create(
 )
 
 debugsong8 = Song.create(
-  song_title: "I Need A Job (Give Me A Job)",
+  song_title: "The Distant Nature",
   track_number: "8",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum1.id,
@@ -510,7 +497,7 @@ vol1song4 = Song.create(
 )
 
 vol2song1 = Song.create(
-  song_title: "Not a typewriter",
+  song_title: "Not A Typewriter",
   track_number: "1",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum3.id,
@@ -518,7 +505,7 @@ vol2song1 = Song.create(
 )
 
 vol2song2 = Song.create(
-  song_title: "Out of memory",
+  song_title: "Out Of Memory",
   track_number: "2",
   artist_id: cohortAccount.id,
   album_id: cohortAlbum3.id,
