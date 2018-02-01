@@ -31,22 +31,6 @@ class AlbumShowPage extends React.Component {
     }
   }
 
-  // componentWillUnmount() {
-  //   this.props.clearErrors();
-  // }
-
-  renderErrors() {
-    return(
-      <ul className="errorRender">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-
   render() {
     return (
       <div className="albumShowPageContainer" style={this.backgroundStyle}>
@@ -74,7 +58,5 @@ class AlbumShowPage extends React.Component {
     );
    }
 }
-
-// {this.renderErrors()}
 
 export default AlbumShowPage;

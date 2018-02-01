@@ -63,7 +63,6 @@ class AlbumNewForm extends React.Component {
 
   componentWillUnmount() {
     this.props.clearAlbumErrors();
-    this.props.clearSongErrors();
   }
 
   renderAlbumErrors() {
@@ -79,20 +78,6 @@ class AlbumNewForm extends React.Component {
       </div>
     );
   }
-
-  // renderSongErrors() {
-  //   return(
-  //     <div>
-  //       <ul className="errorRender">
-  //         {this.props.songErrors.map((error, i) => (
-  //           <li key={`error-${i}`}>
-  //             {error}
-  //           </li>
-  //         ))}
-  //       </ul>
-  //     </div>
-  //   );
-  // }
 
   updateSong(field, idx) {
     return event => {
