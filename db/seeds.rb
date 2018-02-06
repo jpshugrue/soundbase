@@ -192,7 +192,7 @@ cohortAlbum1 = Album.create(
 
 Song.destroy_all
 
-selftitlesong1 = Song.create(
+Song.create(
   song_title: "Self Titled Debut Song",
   track_number: "1",
   artist_id: demoAccount.id,
@@ -200,7 +200,7 @@ selftitlesong1 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File1.mp3")
 )
 
-selftitlesong2 = Song.create(
+Song.create(
   song_title: "Second Helping",
   track_number: "2",
   artist_id: demoAccount.id,
@@ -208,7 +208,7 @@ selftitlesong2 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File10.mp3")
 )
 
-selftitlesong3 = Song.create(
+Song.create(
   song_title: "Intro",
   track_number: "3",
   artist_id: demoAccount.id,
@@ -216,7 +216,7 @@ selftitlesong3 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File20.mp3")
 )
 
-selftitlesong4 = Song.create(
+Song.create(
   song_title: "Atichaur",
   track_number: "4",
   artist_id: demoAccount.id,
@@ -224,7 +224,7 @@ selftitlesong4 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File30.mp3")
 )
 
-selftitlesong5 = Song.create(
+Song.create(
   song_title: "Gladness",
   track_number: "5",
   artist_id: demoAccount.id,
@@ -232,7 +232,7 @@ selftitlesong5 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File40.mp3")
 )
 
-selftitlesong6 = Song.create(
+Song.create(
   song_title: "The Sky's Process",
   track_number: "6",
   artist_id: demoAccount.id,
@@ -240,7 +240,7 @@ selftitlesong6 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File50.mp3")
 )
 
-meetthesong1 = Song.create(
+Song.create(
   song_title: "Relationship",
   track_number: "1",
   artist_id: demoAccount.id,
@@ -248,7 +248,7 @@ meetthesong1 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File2.mp3")
 )
 
-meetthesong2 = Song.create(
+Song.create(
   song_title: "The Echoing Moon",
   track_number: "2",
   artist_id: demoAccount.id,
@@ -256,7 +256,7 @@ meetthesong2 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File61.mp3")
 )
 
-meetthesong3 = Song.create(
+Song.create(
   song_title: "Soundwaves of Apartment",
   track_number: "3",
   artist_id: demoAccount.id,
@@ -264,7 +264,7 @@ meetthesong3 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File21.mp3")
 )
 
-meetthesong4 = Song.create(
+Song.create(
   song_title: "Composing Diffidence",
   track_number: "4",
   artist_id: demoAccount.id,
@@ -272,7 +272,7 @@ meetthesong4 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File31.mp3")
 )
 
-meetthesong5 = Song.create(
+Song.create(
   song_title: "Suit Behind the Emotions",
   track_number: "5",
   artist_id: demoAccount.id,
@@ -280,7 +280,7 @@ meetthesong5 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File41.mp3")
 )
 
-greatesthitssong1 = Song.create(
+Song.create(
   song_title: "Voice of Verisimilitude",
   track_number: "1",
   artist_id: demoAccount.id,
@@ -288,7 +288,7 @@ greatesthitssong1 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File3.mp3")
 )
 
-greatesthitssong2 = Song.create(
+Song.create(
   song_title: "The Happy Beginning",
   track_number: "2",
   artist_id: demoAccount.id,
@@ -296,7 +296,7 @@ greatesthitssong2 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File12.mp3")
 )
 
-greatesthitssong3 = Song.create(
+Song.create(
   song_title: "Vandals",
   track_number: "3",
   artist_id: demoAccount.id,
@@ -304,7 +304,7 @@ greatesthitssong3 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File22.mp3")
 )
 
-greatesthitssong4 = Song.create(
+Song.create(
   song_title: "Misfortune Closes Behind An Azimuth",
   track_number: "4",
   artist_id: demoAccount.id,
@@ -312,7 +312,7 @@ greatesthitssong4 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File32.mp3")
 )
 
-greatesthitssong5 = Song.create(
+Song.create(
   song_title: "Technique After Dreams",
   track_number: "5",
   artist_id: demoAccount.id,
@@ -320,7 +320,7 @@ greatesthitssong5 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File42.mp3")
 )
 
-greatesthitssong6 = Song.create(
+Song.create(
   song_title: "The Last Hallucinations",
   track_number: "6",
   artist_id: demoAccount.id,
@@ -328,7 +328,7 @@ greatesthitssong6 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File52.mp3")
 )
 
-untitledsong1 = Song.create(
+Song.create(
   song_title: "All Suspicion",
   track_number: "1",
   artist_id: academicAccount.id,
@@ -336,7 +336,7 @@ untitledsong1 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File4.mp3")
 )
 
-untitledsong2 = Song.create(
+Song.create(
   song_title: "Feverish Reader",
   track_number: "2",
   artist_id: academicAccount.id,
@@ -344,7 +344,7 @@ untitledsong2 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File13.mp3")
 )
 
-untitledsong3 = Song.create(
+Song.create(
   song_title: "Natural Danger",
   track_number: "3",
   artist_id: academicAccount.id,
@@ -352,7 +352,7 @@ untitledsong3 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File23.mp3")
 )
 
-untitledsong4 = Song.create(
+Song.create(
   song_title: "Disruptive Colloborator",
   track_number: "4",
   artist_id: academicAccount.id,
@@ -360,7 +360,7 @@ untitledsong4 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File33.mp3")
 )
 
-humsong1 = Song.create(
+Song.create(
   song_title: "Mad Healing",
   track_number: "1",
   artist_id: academicAccount.id,
@@ -368,7 +368,7 @@ humsong1 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File5.mp3")
 )
 
-humsong2 = Song.create(
+Song.create(
   song_title: "Rain",
   track_number: "2",
   artist_id: academicAccount.id,
@@ -376,7 +376,7 @@ humsong2 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File14.mp3")
 )
 
-humsong3 = Song.create(
+Song.create(
   song_title: "Telephone",
   track_number: "3",
   artist_id: academicAccount.id,
@@ -384,7 +384,7 @@ humsong3 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File24.mp3")
 )
 
-humsong4 = Song.create(
+Song.create(
   song_title: "Exploding Fire",
   track_number: "4",
   artist_id: academicAccount.id,
@@ -392,7 +392,7 @@ humsong4 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File34.mp3")
 )
 
-humsong5 = Song.create(
+Song.create(
   song_title: "Growth Through Thoughts",
   track_number: "5",
   artist_id: academicAccount.id,
@@ -400,7 +400,7 @@ humsong5 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File44.mp3")
 )
 
-debugsong1 = Song.create(
+Song.create(
   song_title: "Check In",
   track_number: "1",
   artist_id: cohortAccount.id,
@@ -408,7 +408,7 @@ debugsong1 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File6.mp3")
 )
 
-debugsong2 = Song.create(
+Song.create(
   song_title: "Cadenza For Mists",
   track_number: "2",
   artist_id: cohortAccount.id,
@@ -416,7 +416,7 @@ debugsong2 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File15.mp3")
 )
 
-debugsong3 = Song.create(
+Song.create(
   song_title: "Ten Strike Blues",
   track_number: "3",
   artist_id: cohortAccount.id,
@@ -424,7 +424,7 @@ debugsong3 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File25.mp3")
 )
 
-debugsong4 = Song.create(
+Song.create(
   song_title: "There Are 9 Questions Ahead Of Yours",
   track_number: "4",
   artist_id: cohortAccount.id,
@@ -432,7 +432,7 @@ debugsong4 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File35.mp3")
 )
 
-debugsong5 = Song.create(
+Song.create(
   song_title: "(Don't Fear The) Debugger",
   track_number: "5",
   artist_id: cohortAccount.id,
@@ -440,7 +440,7 @@ debugsong5 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File45.mp3")
 )
 
-debugsong6 = Song.create(
+Song.create(
   song_title: "Happy Hour In Midtown",
   track_number: "6",
   artist_id: cohortAccount.id,
@@ -448,7 +448,7 @@ debugsong6 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File55.mp3")
 )
 
-debugsong7 = Song.create(
+Song.create(
   song_title: "Six Cups of Coffee (And Counting)",
   track_number: "7",
   artist_id: cohortAccount.id,
@@ -456,7 +456,7 @@ debugsong7 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File65.mp3")
 )
 
-debugsong8 = Song.create(
+Song.create(
   song_title: "The Distant Nature",
   track_number: "8",
   artist_id: cohortAccount.id,
@@ -464,7 +464,7 @@ debugsong8 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File75.mp3")
 )
 
-vol1song1 = Song.create(
+Song.create(
   song_title: "Blue Screen of Death",
   track_number: "1",
   artist_id: cohortAccount.id,
@@ -472,7 +472,7 @@ vol1song1 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File7.mp3")
 )
 
-vol1song2 = Song.create(
+Song.create(
   song_title: "HTTP 404",
   track_number: "2",
   artist_id: cohortAccount.id,
@@ -480,7 +480,7 @@ vol1song2 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File16.mp3")
 )
 
-vol1song3 = Song.create(
+Song.create(
   song_title: "Kernel panic",
   track_number: "3",
   artist_id: cohortAccount.id,
@@ -488,7 +488,7 @@ vol1song3 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File26.mp3")
 )
 
-vol1song4 = Song.create(
+Song.create(
   song_title: "Guru Meditation",
   track_number: "4",
   artist_id: cohortAccount.id,
@@ -496,7 +496,7 @@ vol1song4 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File36.mp3")
 )
 
-vol2song1 = Song.create(
+Song.create(
   song_title: "Not A Typewriter",
   track_number: "1",
   artist_id: cohortAccount.id,
@@ -504,7 +504,7 @@ vol2song1 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File8.mp3")
 )
 
-vol2song2 = Song.create(
+Song.create(
   song_title: "Out Of Memory",
   track_number: "2",
   artist_id: cohortAccount.id,
@@ -512,7 +512,7 @@ vol2song2 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File17.mp3")
 )
 
-vol2song3 = Song.create(
+Song.create(
   song_title: "PC LOAD LETTER",
   track_number: "3",
   artist_id: cohortAccount.id,
@@ -520,7 +520,7 @@ vol2song3 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File27.mp3")
 )
 
-vol2song4 = Song.create(
+Song.create(
   song_title: "Abort, Retry, Fail?",
   track_number: "4",
   artist_id: cohortAccount.id,
@@ -528,7 +528,7 @@ vol2song4 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File37.mp3")
 )
 
-dogsong1 = Song.create(
+Song.create(
   song_title: "Captured Communication",
   track_number: "1",
   artist_id: djAccount.id,
@@ -536,7 +536,7 @@ dogsong1 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File45.mp3")
 )
 
-dogsong2 = Song.create(
+Song.create(
   song_title: "The Burning Subwoofers",
   track_number: "2",
   artist_id: djAccount.id,
@@ -544,8 +544,7 @@ dogsong2 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File45.mp3")
 )
 
-
-dogsong3 = Song.create(
+Song.create(
   song_title: "The Party Spell",
   track_number: "3",
   artist_id: djAccount.id,
@@ -553,8 +552,7 @@ dogsong3 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File55.mp3")
 )
 
-
-dogsong4 = Song.create(
+Song.create(
   song_title: "Incredible Conversation",
   track_number: "4",
   artist_id: djAccount.id,
@@ -562,8 +560,7 @@ dogsong4 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File65.mp3")
 )
 
-
-dogsong5 = Song.create(
+Song.create(
   song_title: "Petals of Memory",
   track_number: "5",
   artist_id: djAccount.id,
@@ -571,7 +568,7 @@ dogsong5 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File75.mp3")
 )
 
-eightSong1 = Song.create(
+Song.create(
   song_title: "From The Broken Illusion",
   track_number: "1",
   artist_id: djAccount.id,
@@ -579,7 +576,7 @@ eightSong1 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File46.mp3")
 )
 
-eightSong2 = Song.create(
+Song.create(
   song_title: "Bewildering Delusion",
   track_number: "2",
   artist_id: djAccount.id,
@@ -587,7 +584,7 @@ eightSong2 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File56.mp3")
 )
 
-eightSong3 = Song.create(
+Song.create(
   song_title: "Movement",
   track_number: "3",
   artist_id: djAccount.id,
@@ -595,7 +592,7 @@ eightSong3 = Song.create(
   song_file: open("https://s3.amazonaws.com/soundbase-dev/seedSongs/File66.mp3")
 )
 
-eightSong4 = Song.create(
+Song.create(
   song_title: "Endeavors of DJ",
   track_number: "4",
   artist_id: djAccount.id,
