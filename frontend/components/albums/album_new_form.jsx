@@ -11,28 +11,32 @@ class AlbumNewForm extends React.Component {
     this.albumFormData = new FormData();
     this.handleAddSong = this.handleAddSong.bind(this);
     this.handleRemoveSong = this.handleRemoveSong.bind(this);
+    this.submitting = false;
   }
 
   handleSubmit(e) {
-    e.preventDefault();
-    let albumId;
-    this.albumFormData.set(`album[artist_id]`, this.props.artistId);
-    this.props.createAlbum(this.albumFormData).then((success) => {
-      albumId = success.album.id;
-      let songFormData;
-      let allSuccessful = true;
-      for (const idx in this.state.songs) {
-        songFormData = new FormData();
-        songFormData.set(`song[song_title]`, this.state.songs[idx].song_title);
-        songFormData.set(`song[track_number]`, this.state.songs[idx].track_number);
-        songFormData.set(`song[song_file]`, this.state.songs[idx].song_file);
-        songFormData.set(`song[artist_id]`, this.props.artistId);
-        songFormData.set(`song[album_id]`, albumId);
-        this.props.createSong(songFormData);
-      }
-      this.props.refresh(this.props.artistId);
-      this.props.history.push(`/albums/${albumId}`);
-    });
+    if (!this.submitting) {
+      this.submitting = true;
+      e.preventDefault();
+      let albumId;
+      this.albumFormData.set(`album[artist_id]`, this.props.artistId);
+      this.props.createAlbum(this.albumFormData).then((success) => {
+        albumId = success.album.id;
+        let songFormData;
+        let allSuccessful = true;
+        for (const idx in this.state.songs) {
+          songFormData = new FormData();
+          songFormData.set(`song[song_title]`, this.state.songs[idx].song_title);
+          songFormData.set(`song[track_number]`, this.state.songs[idx].track_number);
+          songFormData.set(`song[song_file]`, this.state.songs[idx].song_file);
+          songFormData.set(`song[artist_id]`, this.props.artistId);
+          songFormData.set(`song[album_id]`, albumId);
+          this.props.createSong(songFormData);
+        }
+        this.props.refresh(this.props.artistId);
+        this.props.history.push(`/albums/${albumId}`);
+      });
+    }
   }
 
   updateAlbum(field) {
@@ -143,7 +147,7 @@ class AlbumNewForm extends React.Component {
               <a type="button" onClick={this.handleAddSong}>add song</a>
             </div>
             <div className="albumFormButtons">
-              <input type="submit" className="albumFormSubmitBtn" value="Save" />
+              <input type="submit" className="albumFormSubmitBtn" value="Save"/>
               <Link className="albumFormCancelBtn" to={`/artists/${this.props.artistId}`}>Cancel</Link>
             </div>
           </form>
