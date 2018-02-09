@@ -23,7 +23,6 @@ class AlbumForm extends React.Component {
   }
 
   newSubmit(e) {
-    debugger
     if (!this.submitting) {
       this.submitting = true;
       this.albumFormData.set(`album[artist_id]`, this.props.artistId);
@@ -96,13 +95,31 @@ class AlbumForm extends React.Component {
   }
 
   heading() {
-    return this.props.albumId ? 'Edit Album' : 'New Album';
+    if (this.props.albumId) {
+      return <div className="albumFormHeading">Edit Album <a onClick={this.handleDeleteAlbum} className="deleteAlbumButton">delete album</a></div>;
+    } else {
+      return 'New Album';
+    }
   }
 
   cancelButton() {
     let link;
     link = this.props.albumId ? `/albums/${this.props.albumId}` : `/artists/${this.props.artistId}`;
     return <Link className="albumFormCancelBtn" to={link}>Cancel</Link>;
+  }
+
+  componentDidMount() {
+    debugger
+    if (this.props.albumId) {
+      this.props.fetchAlbum(this.props.albumId).then((success) => {
+        this.albumFormData.set(`album[album_title]`, success.album.album_title);
+        this.setState({album: success.album});
+        this.props.fetchSongs().then((success) => {
+          const songs = selectSongs({songs: success.songs}, this.state.album.id);
+          this.setState({songs: songs});
+        });
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -167,7 +184,7 @@ class AlbumForm extends React.Component {
           <form onSubmit={this.handleSubmit} className="albumFormBox">
             <div className="albumFormInputItem">
               <label>Album Title</label>
-              <input type="text" value={this.state.album_title} onChange={this.updateAlbum('album_title')} className="albumFormTextBox"/>
+              <input type="text" value={this.state.album.album_title} onChange={this.updateAlbum('album_title')} className="albumFormTextBox"/>
             </div>
             <div className="albumFormInputItem">
               <label>Album Cover</label>
@@ -175,11 +192,11 @@ class AlbumForm extends React.Component {
             </div>
             <div className="albumFormInputItem">
               <label>Release Date</label>
-              <input type="date" value={this.state.release_date} onChange={this.updateAlbum('release_date')} className="albumFormDateBox"/>
+              <input type="date" value={this.state.album.release_date} onChange={this.updateAlbum('release_date')} className="albumFormDateBox"/>
             </div>
             <div className="albumFormInputItem">
               <label>Album Credits</label>
-              <textarea value={this.state.album_credits} onChange={this.updateAlbum('album_credits')} className="albumFormTextArea"></textarea>
+              <textarea value={this.state.album.album_credits} onChange={this.updateAlbum('album_credits')} className="albumFormTextArea"></textarea>
             </div>
             {this.renderErrors()}
             <div className="albumFormHeading">Songs</div>
