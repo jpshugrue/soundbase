@@ -13,6 +13,7 @@ class AlbumForm extends React.Component {
     this.handleAddSong = this.handleAddSong.bind(this);
     this.handleRemoveSong = this.handleRemoveSong.bind(this);
     this.handleDeleteAlbum = this.handleDeleteAlbum.bind(this);
+    this.packageSong = this.packageSong.bind(this);
 
     this.submitting = false; // submit lock
   }
@@ -30,7 +31,7 @@ class AlbumForm extends React.Component {
         const albumId = success.album.id;
         let allSuccessful = true;
         for (const idx in this.state.songs) {
-          this.props.createSong(this.packageSong(this.state.songs[idx], albumId));
+          this.props.createSong(this.packageSong(this.state.songs[idx], albumId, this.props.artistId));
         }
         this.props.refresh(this.props.artistId);
         this.props.history.push(`/albums/${albumId}`);
@@ -38,18 +39,17 @@ class AlbumForm extends React.Component {
     }
   }
 
-  packageSong(song, albumId) {
+  packageSong(song, albumId, artistId) {
     const songFormData = new FormData();
     songFormData.set(`song[song_title]`, song.song_title);
     songFormData.set(`song[track_number]`, song.track_number);
     songFormData.set(`song[song_file]`, song.song_file);
-    songFormData.set(`song[artist_id]`, this.props.artistId);
+    songFormData.set(`song[artist_id]`, artistId);
     songFormData.set(`song[album_id]`, albumId);
     return songFormData;
   }
 
   editSubmit(e) {
-    debugger
     this.props.updateAlbum({formData: this.albumFormData, albumId: this.props.albumId});
     for (const idx in this.state.songs) {
       if (this.state.songs[idx].delete) {
@@ -57,7 +57,7 @@ class AlbumForm extends React.Component {
           this.props.deleteSong(this.state.songs[idx].id);
         }
       } else {
-        const songFormData = this.packageSong(this.state.songs[idx], this.props.albumId);
+        const songFormData = this.packageSong(this.state.songs[idx], this.props.albumId, this.props.album.artist_id);
         if (this.state.songs[idx].id) {
           this.props.updateSong({formData: songFormData, songId: this.state.songs[idx].id});
         } else {
@@ -109,7 +109,6 @@ class AlbumForm extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     if (this.props.albumId) {
       this.props.fetchAlbum(this.props.albumId).then((success) => {
         this.albumFormData.set(`album[album_title]`, success.album.album_title);
