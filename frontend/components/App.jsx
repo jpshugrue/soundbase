@@ -11,8 +11,9 @@ import SessionHeader from './header/session_header';
 import ArtistShowContainer from './artists/artist_show_container';
 import MainHeader from './header/main_header';
 import ArtistEditContainer from './artists/artist_edit_container';
-import AlbumNewFormContainer from './albums/album_new_form_container';
-import AlbumEditFormContainer from './albums/album_edit_form_container';
+// import AlbumNewFormContainer from './albums/album_new_form_container';
+// import AlbumEditFormContainer from './albums/album_edit_form_container';
+import AlbumFormContainer from './albums/album_form_container';
 import AlbumShowPageContainer from './albums/album_show_page_container';
 
 const App = () => (
@@ -30,8 +31,8 @@ const App = () => (
       <EditArtistProtectedRoute path="/artists/:artistId/edit" component={ArtistEditContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
-      <NewAlbumProtectedRoute path="/artists/:artistId/newAlbum" component={AlbumNewFormContainer} />
-      <EditAlbumProtectedRoute exact path="/albums/:albumId/edit" component={AlbumEditFormContainer} />
+      <NewAlbumProtectedRoute path="/artists/:artistId/newAlbum" component={AlbumFormContainer} />
+      <EditAlbumProtectedRoute exact path="/albums/:albumId/edit" component={AlbumFormContainer} />
       <Route exact path="/albums/:albumId" component={AlbumShowPageContainer} />
     </main>
     <footer>

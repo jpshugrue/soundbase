@@ -19,10 +19,11 @@ class AlbumForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.albumId ? this.newSubmit(e) : this.editSubmit(e);
+    this.props.albumId ? this.editSubmit(e) : this.newSubmit(e);
   }
 
   newSubmit(e) {
+    debugger
     if (!this.submitting) {
       this.submitting = true;
       this.albumFormData.set(`album[artist_id]`, this.props.artistId);
@@ -49,6 +50,7 @@ class AlbumForm extends React.Component {
   }
 
   editSubmit(e) {
+    debugger
     this.props.updateAlbum({formData: this.albumFormData, albumId: this.props.albumId});
     for (const idx in this.state.songs) {
       if (this.state.songs[idx].delete) {
