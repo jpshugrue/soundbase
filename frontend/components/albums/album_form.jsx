@@ -14,15 +14,145 @@ class AlbumForm extends React.Component {
     this.handleRemoveSong = this.handleRemoveSong.bind(this);
     this.handleDeleteAlbum = this.handleDeleteAlbum.bind(this);
 
-    this.submitting = false;
+    this.submitting = false; // submit lock
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.albumId ? this.newSubmit(e) : this.editSubmit(e);
+  }
+
+  newSubmit(e) {
+    if (!this.submitting) {
+      this.submitting = true;
+      this.albumFormData.set(`album[artist_id]`, this.props.artistId);
+      this.props.createAlbum(this.albumFormData).then((success) => {
+        const albumId = success.album.id;
+        let allSuccessful = true;
+        for (const idx in this.state.songs) {
+          this.props.createSong(this.packageSong(this.state.songs[idx], albumId));
+        }
+        this.props.refresh(this.props.artistId);
+        this.props.history.push(`/albums/${albumId}`);
+      });
+    }
+  }
+
+  packageSong(song, albumId) {
+    const songFormData = new FormData();
+    songFormData.set(`song[song_title]`, song.song_title);
+    songFormData.set(`song[track_number]`, song.track_number);
+    songFormData.set(`song[song_file]`, song.song_file);
+    songFormData.set(`song[artist_id]`, this.props.artistId);
+    songFormData.set(`song[album_id]`, albumId);
+    return songFormData;
+  }
+
+  editSubmit(e) {
+    this.props.updateAlbum({formData: this.albumFormData, albumId: this.props.albumId});
+    for (const idx in this.state.songs) {
+      if (this.state.songs[idx].delete) {
+        if (this.state.songs[idx].id) {
+          this.props.deleteSong(this.state.songs[idx].id);
+        }
+      } else {
+        const songFormData = this.packageSong(this.state.songs[idx], this.props.albumId);
+        if (this.state.songs[idx].id) {
+          this.props.updateSong({formData: songFormData, songId: this.state.songs[idx].id});
+        } else {
+          this.props.createSong(songFormData);
+        }
+      }
+    }
+    this.props.history.push(`/albums/${this.props.albumId}`);
+  }
+
+  updateAlbum(field) {
+    return event => {
+      this.setState({["album"]: {[field]: event.currentTarget.value}});
+      this.albumFormData.set(`album[${field}]`, event.target.value);
+    };
+  }
+
+  fileUpload({file, type}) {
+    this.albumFormData.set(`album[${type}]`, file);
+  }
+
+  handleAddSong() {
+    this.setState({
+     songs: this.state.songs.concat([{ song_title: "", track_number: "", song_file: undefined}])
+    });
+  }
+
+  songUpload({file, idx}) {
+    this.setState({
+      songs: this.state.songs.map((song, songIdx) => {
+        if (songIdx !== idx) return song;
+        return merge({}, song, {["song_file"]: file});
+      }),
+    });
   }
 
   heading() {
+    return this.props.albumId ? 'Edit Album' : 'New Album';
+  }
+
+  cancelButton() {
+    let link;
+    link = this.props.albumId ? `/albums/${this.props.albumId}` : `/artists/${this.props.artistId}`;
+    return <Link className="albumFormCancelBtn" to={link}>Cancel</Link>;
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
+  renderErrors() {
+    return(
+      <ul className="errorRender">
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  updateSong(field, idx) {
+    return event => {
+      this.setState({
+        songs: this.state.songs.map((song, songIdx) => {
+          if (songIdx !== idx) return song;
+          return merge({}, song, {[field]: event.target.value});
+        }),
+      });
+    };
+  }
+
+  handleRemoveSong(idx) {
     if (this.props.albumId) {
-      return 'Edit Album';
+      this.setState({
+        songs: this.state.songs.map((song, songIdx) => {
+          if (songIdx !== idx) return song;
+          return {id: song.id, delete: true};
+        })
+      });
     } else {
-      return 'New Album';
+      this.setState({
+        songs: this.state.songs.filter((song, songIdx) => idx !== songIdx)
+      });
     }
+  }
+
+  handleDeleteAlbum() {
+    const artistId = this.props.album.artist_id;
+    this.state.songs.forEach((song) => {
+      this.props.deleteSong(song.id);
+    });
+    this.props.deleteAlbum(this.props.albumId).then((success) => {
+      this.props.history.push(`/artists/${artistId}`);
+    });
   }
 
   render() {
@@ -49,31 +179,34 @@ class AlbumForm extends React.Component {
               <label>Album Credits</label>
               <textarea value={this.state.album_credits} onChange={this.updateAlbum('album_credits')} className="albumFormTextArea"></textarea>
             </div>
-            {this.renderAlbumErrors()}
+            {this.renderErrors()}
             <div className="albumFormHeading">Songs</div>
             <div className="albumFormList">
-              {this.state.songs.map((song, idx) => (
-                <div key={idx} className="albumFormSongItem">
-                  <div className="albumFormSongRow">
-                    <label>Song Title</label>
-                    <input key={"title"} type="text" value={song.song_title} onChange={this.updateSong('song_title', idx)} className="albumFormTextBox"/>
-                  </div>
-                  <div className="albumFormSongRow">
-                    <label>Track Number</label>
-                    <input key={"tracknum"} type="text" value={song.track_number} onChange={this.updateSong('track_number', idx)} className="albumFormTrackBox"/>
-                  </div>
-                  <div className="albumFormSongRow">
-                    <label>Song File</label>
-                    <input key={"file"} type="file" onChange={(e) => this.songUpload({file: e.target.files[0], idx: idx})} className="albumFormSongFilebox"/>
-                  </div>
-                  <a key={"remove"} onClick={() => this.handleRemoveSong(idx)}>remove song</a>
-                </div>
-              ))}
+              {this.state.songs.map((song, idx) => {
+                if (!song.delete) {
+                  return (
+                    <div key={idx} className="albumFormSongItem">
+                      <div className="albumFormSongRow">
+                        <label>Song Title</label>
+                        <input key={"title"} type="text" value={song.song_title} onChange={this.updateSong('song_title', idx)} className="albumFormTextBox"/>
+                      </div>
+                      <div className="albumFormSongRow">
+                        <label>Track Number</label>
+                        <input key={"tracknum"} type="text" value={song.track_number} onChange={this.updateSong('track_number', idx)} className="albumFormTrackBox"/>
+                      </div>
+                      <div className="albumFormSongRow">
+                        <label>Song File</label>
+                        <input key={"file"} type="file" onChange={(e) => this.songUpload({file: e.target.files[0], idx: idx})} className="albumFormSongFilebox"/>
+                      </div>
+                      <a key={"remove"} onClick={() => this.handleRemoveSong(idx)}>remove song</a>
+                    </div>
+                  );
+              }})}
               <a type="button" onClick={this.handleAddSong}>add song</a>
             </div>
             <div className="albumFormButtons">
               <input type="submit" className="albumFormSubmitBtn" value="Save"/>
-              <Link className="albumFormCancelBtn" to={`/artists/${this.props.artistId}`}>Cancel</Link>
+              { this.cancelButton() }
             </div>
           </form>
         </div>
