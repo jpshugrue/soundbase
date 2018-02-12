@@ -8,7 +8,7 @@ const Footer = () => (
       <nav className="footerNav">
         <a href="https://github.com/jpshugrue">github</a>
         <a href="https://www.linkedin.com/in/jeremiahshugrue/">linkedIn</a>
-        <a href="https://github.com/jpshugrue">portfolio</a>
+        <a href="http://jpshugrue.com/">portfolio</a>
       </nav>
     </div>
   </div>
